@@ -9,6 +9,7 @@ namespace DAL.FireBase
 {
     public class QR_Code
     {
+        // message to check git
         public async static Task pictureFromFireBase()
         {
             var stream = File.Open(@"C:\Users\batya\OneDrive\שולחן העבודה\Shopping_project_final\QR_codes\butter_200_8.png", FileMode.Open);//הורדתי קצת כי הסתרים זה המקום שבו שמים את ה טאסק 
