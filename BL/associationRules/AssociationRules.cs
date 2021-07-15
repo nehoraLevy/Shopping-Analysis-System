@@ -15,8 +15,8 @@ namespace BL
         public AssociatonRule(IEnumerable<Product> product, IEnumerable<Product> goesWith, double probability)
         {
             Product = product;
-            //the products that matchs the selected product with apriory algorithm 
             GoesWith = goesWith;
+            //the products that matchs the selected product with apriory algorithm 
             Probability = probability;
         }
     }
