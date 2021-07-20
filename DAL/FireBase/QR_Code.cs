@@ -36,7 +36,7 @@ namespace DAL.FireBase
             var stream = client.OpenRead(imageUrl);
             if (stream == null) return;
             var bitmap = new Bitmap(stream);
-            IBarcodeReader reader = new BarcodeReader();
+            BarcodeReader reader = new BarcodeReader();
             var result = reader.Decode(bitmap);
             Console.WriteLine(result.Text);
             Console.ReadLine();
