@@ -27,6 +27,8 @@ namespace BE
         private int _amount;
         public int Amount { get => _amount; set => SetProperty(ref _amount, value); }
 
+        private string _name;
+        public string Name { get => _name; set => SetProperty(ref _name, value); }
 
         public QRcode()
         {
