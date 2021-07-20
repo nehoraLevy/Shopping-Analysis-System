@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Firebase.Storage;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Firebase.Storage;
+using ZXing;
 
 namespace DAL.FireBase
 {
@@ -12,10 +16,9 @@ namespace DAL.FireBase
         // message to check git
         public async static Task pictureFromFireBase()
         {
-            var stream = File.Open(@"C:\Users\batya\OneDrive\שולחן העבודה\Shopping_project_final\QR_codes\butter_200_8.png", FileMode.Open);//הורדתי קצת כי הסתרים זה המקום שבו שמים את ה טאסק 
+            var stream = File.Open(@"D:\STAM.jpg", FileMode.Open);//הורדתי קצת כי הסתרים זה המקום שבו שמים את ה טאסק 
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
-            Console.WriteLine("aaa");
-            var task = new FirebaseStorage("gs://shoppingproject-92d77.appspot.com/QR_codes").Child("aa").PutAsync(stream);
+            var task = new FirebaseStorage("shoppingproject-92d77.appspot.com").Child("STAM2.jpg").PutAsync(stream);
             // Track progress of the upload
             task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress:  { e.Percentage} % ");
             // Await the task to wait until upload is completed and get the download url
@@ -23,5 +26,20 @@ namespace DAL.FireBase
             Console.WriteLine(downloadUrl);
 
         }
+
+        /*
+        private static void showDetails(string downloadUrl)
+        {
+            string imageUrl = downloadUrl;
+            // Install-Package ZXing.Net -Version 0.16.5
+            var client = new WebClient();
+            var stream = client.OpenRead(imageUrl);
+            if (stream == null) return;
+            var bitmap = new Bitmap(stream);
+            IBarcodeReader reader = new BarcodeReader();
+            var result = reader.Decode(bitmap);
+            Console.WriteLine(result.Text);
+            Console.ReadLine();
+        }*/
     }
 }

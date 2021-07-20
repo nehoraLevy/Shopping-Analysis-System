@@ -7,10 +7,10 @@ namespace DAL_test
         static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.DayOfYear);
-            /*
+            
             DAL.FireBase.QR_Code.pictureFromFireBase();
             Console.WriteLine("bbb");
-            Console.ReadLine();*/
+            Console.ReadLine();
         }
     }
 }

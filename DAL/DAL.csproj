@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="ZXing.Net" Version="0.16.6" />
   </ItemGroup>
 
   <ItemGroup>
