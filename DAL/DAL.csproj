@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
     <PackageReference Include="ZXing.Net" Version="0.16.6" />
   </ItemGroup>
 

@@ -27,7 +27,7 @@ namespace DAL.FireBase
 
         }
 
-        /*
+        
         private static void showDetails(string downloadUrl)
         {
             string imageUrl = downloadUrl;
@@ -40,6 +40,6 @@ namespace DAL.FireBase
             var result = reader.Decode(bitmap);
             Console.WriteLine(result.Text);
             Console.ReadLine();
-        }*/
+        }
     }
 }
