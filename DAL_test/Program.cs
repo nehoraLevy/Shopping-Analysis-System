@@ -8,7 +8,7 @@ namespace DAL_test
         {
             //Console.WriteLine(DateTime.Now.DayOfYear);
             DAL.FireBase.QR_Code.pictureToFireBase();
-            Console.WriteLine("bbb");
+            
             Console.ReadLine();
         }
     }
