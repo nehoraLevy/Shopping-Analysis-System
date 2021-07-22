@@ -14,9 +14,9 @@ namespace DAL.FireBase
     public class QR_Code
     {
         // message to check git
-        public async static Task pictureFromFireBase()
+        public async static void pictureToFireBase()
         {
-            var stream = File.Open(@"D:\STAM.jpg", FileMode.Open);//הורדתי קצת כי הסתרים זה המקום שבו שמים את ה טאסק 
+            var stream = File.OpenRead(@"C:\Users\levy\Desktop\STAM.jpg");
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
             var task = new FirebaseStorage("shoppingproject-92d77.appspot.com").Child("STAM2.jpg").PutAsync(stream);
             // Track progress of the upload
@@ -27,7 +27,6 @@ namespace DAL.FireBase
 
         }
 
-        
         private static void showDetails(string downloadUrl)
         {
             string imageUrl = downloadUrl;
