@@ -10,7 +10,7 @@ namespace BE
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private NotifyPropertyChanged _notifyPropertyChanged;
-
+        //name,id,barcode,price,amount
         private int _id;
         public int Id { get => _id; set => SetProperty(ref _id, value); }
 
