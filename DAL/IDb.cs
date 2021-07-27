@@ -7,7 +7,7 @@ namespace DAL
 {
     public interface IDb : IDisposable
     {
-        IDbCollection<QRcode> QRDatas { get; }
+        IDbCollection<QRcode_data> QRDatas { get; }
         IDbCollection<Product> Products { get; }
         IDbCollection<Category> Categories { get; }
         IDbCollection<Store> Stores { get; }

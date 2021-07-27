@@ -1,19 +1,21 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 namespace DAL
 {
     public class DalFactory
     {
-        private static IQRCodeFetcher _qRCodeFetcher;
+        private static IQR_deCode _qRCodeFetcher;
         private static IDb _db;
         // TODO: Remove static!!
-        public IQRCodeFetcher GetQRCodeFetcher()
+        public IQR_deCode GetQRCodeFetcher()
         {
             if (_qRCodeFetcher is null)
             {
-                _qRCodeFetcher = new GoogleDrive.QRCodeFetcher();
+                _qRCodeFetcher = new FireBase.QR_deCode();
             }
             return _qRCodeFetcher;
         }

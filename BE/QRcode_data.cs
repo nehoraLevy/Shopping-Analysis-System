@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BE
 {
-    public class QRcode: INotifyPropertyChanged
+    public class QRcode_data: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private NotifyPropertyChanged _notifyPropertyChanged;
@@ -30,7 +30,7 @@ namespace BE
         private string _name;
         public string Name { get => _name; set => SetProperty(ref _name, value); }
 
-        public QRcode()
+        public QRcode_data()
         {
             _notifyPropertyChanged = new NotifyPropertyChanged(this, (property) => OnPropertyChanged(property));
         }

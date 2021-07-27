@@ -11,8 +11,10 @@ using ZXing;
 
 namespace DAL.FireBase
 {
-    public class QR_Code
+    public class QR_deCode:IQR_deCode
     {
+        //להסתכל על QRCodeFetcher  של אושר 
+
         // message to check git
         public async static void pictureToFireBase()
         {
@@ -39,6 +41,16 @@ namespace DAL.FireBase
             var result = reader.Decode(bitmap);
             Console.WriteLine(result.Text);
             Console.ReadLine();
+        }
+
+        public void DeleteQRcode(params string[] qrCodeFilesNamesToDelete)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IQRcode> GetQRCode()
+        {
+            throw new NotImplementedException();
         }
     }
 }

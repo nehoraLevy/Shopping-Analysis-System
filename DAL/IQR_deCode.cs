@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL
 {
-    public interface IQRCodeFetcher
+    public interface IQR_deCode
     {
         
         IEnumerable<IQRcode> GetQRCode();
