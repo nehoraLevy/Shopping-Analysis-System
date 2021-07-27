@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace DAL
+namespace DAL 
 {
     public class DalFactory
     {
@@ -23,7 +23,7 @@ namespace DAL
         {
             if (_db is null)
             {
-                _db = new EntityFramework.HomeEconomicContext();
+                //_db = new EntityFramework.HomeEconomicContext();
             }
             return _db;
         }
