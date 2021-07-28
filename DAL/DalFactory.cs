@@ -23,7 +23,7 @@ namespace DAL
         {
             if (_db is null)
             {
-                //_db = new EntityFramework.HomeEconomicContext();
+                _db = new EntityFramework.CreateDB();
             }
             return _db;
         }

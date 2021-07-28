@@ -1,23 +1,26 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BL
 {
     class DataManagement
     {
-        /*private IDb _db;
+        private IDb _db;
         
 
         public DataManagement()
         {
             _db = new DalFactory().GetDb();
-        }*/
-        //Getters
+        }
+        
 
         public IEnumerable<Product> GetProducts(string str="")
         {
+            IEnumerable <Product>  prod= _db.Products.Where(c => c.Name.Contains(str));
             return _db.Products.Where(c => c.Name.Contains(str));
         }
 
@@ -32,12 +35,13 @@ namespace BL
             return _db.ShoppingCarts.Where(s => s.BuyDate == date);
         }
 
-        public IEnumerable<Category> GetShoppingCarts(string str = "")
+        public IEnumerable<ShoppingCart> GetShoppingCarts()
         {
-            return _db.ShoppingCarts.Where(c => c.Name.Contains(str));
+
+            return _db.ShoppingCarts;
         }
 
-        public IEnumerable<Category> GetStores(string str = "")
+        public IEnumerable<Store> GetStores(string str = "")
         {
             return _db.Stores.Where(c => c.Name.Contains(str));
         }
@@ -94,13 +98,13 @@ namespace BL
 
         public void DeleteProduct(Product p)
         {
-            if (_db.Categories.Where(c => c.Name.Contains(p.Name)) == null)
+            if (_db.Products.Where(c => c.Name.Contains(p.Name)) == null)
                 throw (new ArgumentException("the Product not exists."));
 
             if (p.Id == null ||p.Name == null)
                 throw (new ArgumentException("product must have: Id, Name."));
 
-            _db.Categories.Remove(p);
+            _db.Products.Remove(p);
             _db.SaveChanges();
         }
 
@@ -112,7 +116,7 @@ namespace BL
 
         public void AddShoppingCart(ShoppingCart s)
         {
-            if (_db.ShoppingCarts.Where(c => c.Name.Contains(c.Name)) != null)
+            if (_db.ShoppingCarts.Where(c => c.Name.Contains(s.Name)) != null)
                 throw (new ArgumentException("the ShoppingCart already exists."));
 
             if (s.Id == null || s.Name == null)
