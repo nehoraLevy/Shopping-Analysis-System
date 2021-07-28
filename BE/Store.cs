@@ -10,8 +10,8 @@ namespace BE
         public event PropertyChangedEventHandler PropertyChanged;
         private NotifyPropertyChanged _notifyPropertyChanged;
 
-        private int? _id;
-        public int? Id { get => _id; set => SetProperty(ref _id, value); }
+        private int _id;
+        public int Id { get => _id; set => SetProperty(ref _id, value); }
 
         private string _name;
         [MaxLength(100)]
