@@ -163,7 +163,7 @@ namespace BL
             if (s.Id == null || s.Name==null)
                 throw (new ArgumentException("Store  must have: Id."));
 
-            _db.ShoppingCarts.Remove(s);
+            _db.Stores.Remove(s);
             _db.SaveChanges();
         }
 
