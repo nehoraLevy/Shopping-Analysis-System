@@ -74,7 +74,7 @@ namespace BL.associationRules
 
         private IEnumerable<IEnumerable<Product>> GetNewRecommendedProductList()
         {
-            IEnumerable<IAssociationRule> associationRules = GetAssosiatonRules();
+            IEnumerable<IMyAssociationRule> associationRules = GetAssosiatonRules();
             ShoppingCart shoppingCarts = _db.ShoppingCarts.OrderBy(t => t.BuyDate).ToList().Last();
             IEnumerable<Product> transactionProduct = from productTransaction in shoppingCarts.ProductTransactions
                                                       select productTransaction.Product;
@@ -86,7 +86,7 @@ namespace BL.associationRules
             return p;
         }
 
-        private IEnumerable<Product> GetProductListByAssosiatonRules(AssociatonRule[] rules)
+        private IEnumerable<Product> GetProductListByAssosiatonRules(AssociationRule<int>[] rules)
         {
             IEnumerable<Product> productList = new List<Product>();
             foreach (var rule in rules)
@@ -114,7 +114,7 @@ namespace BL.associationRules
             return dataset.ToArray();
         }
 
-        public IEnumerable<IAssociationRule> GetAssosiatonRules()
+        public IEnumerable<IMyAssociationRule> GetAssosiatonRules()
         {
             SortedSet<int>[] dataset = GetAllTransactionByBarCodes();
 
@@ -127,12 +127,12 @@ namespace BL.associationRules
             return GetAssosiatonRules(rules);
         }
 
-        private IEnumerable<IAssociationRule> GetAssosiatonRules(AssociationRule<int>[] rules)
+        private IEnumerable<IMyAssociationRule> GetAssosiatonRules(AssociationRule<int>[] rules)
         {
-            List<AssociatonRule> assosiatonRules = new List<AssociatonRule>();
+            List<MyAssociatonRule> assosiatonRules = new List<MyAssociatonRule>();
             foreach (var rule in rules)
             {
-                assosiatonRules.Add(new AssociatonRule(BarCodesToProducts(rule.X),
+                assosiatonRules.Add(new MyAssociatonRule(BarCodesToProducts(rule.X),
                                                                 BarCodesToProducts(rule.Y),
                                                                 rule.Confidence));
             }
