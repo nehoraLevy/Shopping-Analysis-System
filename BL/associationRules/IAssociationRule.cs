@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BL
 {
-    interface IAssociationRule
+    public interface IAssociationRule
     {
 
         IEnumerable<Product> GoesWith { get; set; }

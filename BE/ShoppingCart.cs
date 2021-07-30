@@ -24,7 +24,7 @@ namespace BE
         public Store Store { get => _store; set => SetProperty(ref _store, value); }
 
         private ICollection<ProductTransaction> _products;
-        public virtual ICollection<ProductTransaction> Products { get => _products; set => SetProperty(ref _products, value); }
+        public virtual ICollection<ProductTransaction> ProductTransactions { get => _products; set => SetProperty(ref _products, value); }
 
         public ShoppingCart()
         {
