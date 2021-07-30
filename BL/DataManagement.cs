@@ -149,7 +149,7 @@ namespace BL
             if (_db.Products.Where(c => c.Name.Contains(c.Name)) != null)
                 throw (new ArgumentException("the product already exists."));
 
-            if ( s.Name == null) //s.Id == null ||
+            if ( s.Name == null) 
                 throw (new ArgumentException("Product must have: Id, Name."));
             _db.Stores.Add(s);
             _db.SaveChanges();
@@ -160,7 +160,7 @@ namespace BL
             if (_db.Stores.Where(c => c.Name.Contains(s.Name)) == null)
                 throw (new ArgumentException("the Store  not exists."));
 
-            if ( s.Name==null) //s.Id == null ||
+            if ( s.Name==null) 
                 throw (new ArgumentException("Store  must have: Id."));
 
             _db.Stores.Remove(s);
