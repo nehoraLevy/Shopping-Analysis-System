@@ -14,8 +14,8 @@ namespace BE
         public event PropertyChangedEventHandler PropertyChanged;
         private NotifyPropertyChanged _notifyPropertyChanged;
 
-        private int? _id;
-        public int? Id { get => _id; set => SetProperty(ref _id, value); }
+        private int _id;
+        public int Id { get => _id; set => SetProperty(ref _id, value); }
 
         private double _price;
         public double Price { get => _price; set => SetProperty(ref _price, value); }

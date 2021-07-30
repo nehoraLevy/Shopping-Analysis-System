@@ -1,8 +1,10 @@
-﻿using Accord.MachineLearning.Rules;
+﻿
+
+using BE;
 using BE;
 using DAL;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Tables;
+using Syncfusion;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +14,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Syncfusion.Pdf.Graphics;
+//using Syncfusion.Pdf.Tables;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Tables;
 
 namespace BL.associationRules
 {
@@ -102,7 +108,7 @@ namespace BL.associationRules
 
         private SortedSet<int>[] GetLastTransactionByBarCode()
         {
-            Transaction transactions = _db.Transactions.OrderBy(t => t.DateTime).ToList().Last();
+            ShoppingCart transactions = _db.ShoppingCarts.OrderBy(t => t.BuyDate).ToList().Last();
             List<SortedSet<int>> dataset = new List<SortedSet<int>>();
             SortedSet<int> transactionBarCodes = new SortedSet<int>();
             foreach (var producrTransaction in transactions.ProductTransactions)
@@ -128,12 +134,12 @@ namespace BL.associationRules
             return GetAssosiatonRules(rules);
         }
 
-        private IEnumerable<IAssociationRule> GetAssosiatonRules(AssociationRule<int>[] rules)
+        private IEnumerable<IAssociationRule> GetAssosiatonRules(AssociatonRule<int>[] rules)
         {
-            List<AssosiatonRule> assosiatonRules = new List<AssosiatonRule>();
+            List<AssociatonRule> assosiatonRules = new List<AssociatonRule>();
             foreach (var rule in rules)
             {
-                assosiatonRules.Add(new AssosiatonRule(BarCodesToProducts(rule.X),
+                assosiatonRules.Add(new AssociatonRule(BarCodesToProducts(rule.X),
                                                                 BarCodesToProducts(rule.Y),
                                                                 rule.Confidence));
             }
@@ -155,14 +161,14 @@ namespace BL.associationRules
 
         private SortedSet<int>[] GetAllTransactionByBarCodes()
         {
-            IEnumerable<Transaction> transactions = _db.Transactions;
+            IEnumerable<ShoppingCart> transactions = _db.ShoppingCarts;
             List<SortedSet<int>> dataset = new List<SortedSet<int>>();
             foreach (var transaction in transactions)
             {
                 SortedSet<int> transactionBarCodes = new SortedSet<int>();
-                foreach (var producrTransaction in transaction.ProductTransactions)
+                foreach (var productTransaction in transaction.ProductTransactions)
                 {
-                    transactionBarCodes.Add(producrTransaction.Product.Id);
+                    transactionBarCodes.Add(productTransaction.Product.Id);
                 }
                 dataset.Add(transactionBarCodes);
             }
