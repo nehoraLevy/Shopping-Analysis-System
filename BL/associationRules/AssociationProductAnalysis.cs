@@ -1,4 +1,5 @@
-﻿using Accord.MachineLearning.Rules;
+﻿using Accord.IO;
+using Accord.MachineLearning.Rules;
 using BE;
 using DAL;
 using Syncfusion.Pdf;
@@ -85,7 +86,7 @@ namespace BL.associationRules
             return p;
         }
 
-        private IEnumerable<Product> GetProductListByAssosiatonRules(AssociatonRule<int>[] rules)
+        private IEnumerable<Product> GetProductListByAssosiatonRules(AssociatonRule[] rules)
         {
             IEnumerable<Product> productList = new List<Product>();
             foreach (var rule in rules)
@@ -102,12 +103,12 @@ namespace BL.associationRules
 
         private SortedSet<int>[] GetLastTransactionByBarCode()
         {
-            Transaction transactions = _db.Transactions.OrderBy(t => t.DateTime).ToList().Last();
+            ShoppingCart shoppingCarts = _db.ShoppingCarts.OrderBy(t => t.BuyDate).ToList().Last();
             List<SortedSet<int>> dataset = new List<SortedSet<int>>();
             SortedSet<int> transactionBarCodes = new SortedSet<int>();
-            foreach (var producrTransaction in transactions.ProductTransactions)
+            foreach (var productTransaction in shoppingCarts.ProductTransactions)
             {
-                transactionBarCodes.Add(producrTransaction.Product.Id);
+                transactionBarCodes.Add((int)productTransaction.Product.Id);
             }
             dataset.Add(transactionBarCodes);
             return dataset.ToArray();
@@ -117,10 +118,8 @@ namespace BL.associationRules
         {
             SortedSet<int>[] dataset = GetAllTransactionByBarCodes();
 
-            // Create a new a-priori learning algorithm with support 2
             Apriori apriori = new Apriori(threshold: 2, confidence: 0);
 
-            // Use the algorithm to learn a set matcher
             AssociationRuleMatcher<int> classifier = apriori.Learn(dataset);
 
             AssociationRule<int>[] rules = classifier.Rules;
@@ -130,10 +129,10 @@ namespace BL.associationRules
 
         private IEnumerable<IAssociationRule> GetAssosiatonRules(AssociationRule<int>[] rules)
         {
-            List<AssosiatonRule> assosiatonRules = new List<AssosiatonRule>();
+            List<AssociatonRule> assosiatonRules = new List<AssociatonRule>();
             foreach (var rule in rules)
             {
-                assosiatonRules.Add(new AssosiatonRule(BarCodesToProducts(rule.X),
+                assosiatonRules.Add(new AssociatonRule(BarCodesToProducts(rule.X),
                                                                 BarCodesToProducts(rule.Y),
                                                                 rule.Confidence));
             }
@@ -155,14 +154,14 @@ namespace BL.associationRules
 
         private SortedSet<int>[] GetAllTransactionByBarCodes()
         {
-            IEnumerable<Transaction> transactions = _db.Transactions;
+            IEnumerable<ShoppingCart> shoppingCarts = _db.ShoppingCarts;
             List<SortedSet<int>> dataset = new List<SortedSet<int>>();
-            foreach (var transaction in transactions)
+            foreach (var shoppingCart in shoppingCarts)
             {
                 SortedSet<int> transactionBarCodes = new SortedSet<int>();
-                foreach (var producrTransaction in transaction.ProductTransactions)
+                foreach (var productTransaction in shoppingCart.ProductTransactions)
                 {
-                    transactionBarCodes.Add(producrTransaction.Product.Id);
+                    transactionBarCodes.Add((int)productTransaction.Product.Id);
                 }
                 dataset.Add(transactionBarCodes);
             }
