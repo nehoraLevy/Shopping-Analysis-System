@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
@@ -35,10 +36,33 @@ namespace BL
             return _db.ShoppingCarts.Where(s => s.BuyDate == date);
         }
 
-        public IEnumerable<ShoppingCart> GetShoppingCarts()
+        public IEnumerable<ShoppingCart> GetShoppingCarts(DateTime? startDate = null, DateTime? endDate = null, IEnumerable<Store> stores = null, IEnumerable<Product> products = null, IEnumerable<Category> categories = null)
         {
-
-            return _db.ShoppingCarts;
+            IEnumerable<ShoppingCart> shoppingCarts = _db.ShoppingCarts.AsNoTracking();
+            if (startDate.HasValue) shoppingCarts = shoppingCarts.Where(t => t.BuyDate.Date >= startDate.Value);
+            if (endDate.HasValue) shoppingCarts = shoppingCarts.Where(t => t.BuyDate.Date <= endDate.Value);
+            if (stores != null)
+            {
+                shoppingCarts = from t in shoppingCarts
+                                from pt in t.ProductTransactions
+                               where stores.Select(s => s.Id).Contains(pt.Store.Id)
+                               select t;
+            }
+            if (products != null)
+            {
+                shoppingCarts = from t in shoppingCarts
+                                from pt in t.ProductTransactions
+                               where products.Select(p => p.Id).Contains(pt.Product.Id)
+                               select t;
+            }
+            if (categories != null)
+            {
+                shoppingCarts = from t in shoppingCarts
+                                from pt in t.ProductTransactions
+                               where categories.Select(c => c.Id).Contains(pt.Product.Category.Id)
+                               select t;
+            }
+            return shoppingCarts;
         }
 
         public IEnumerable<Store> GetStores(string str = "")
@@ -181,54 +205,4 @@ namespace BL
 
 
 
-/**
- *  public IEnumerable<Transaction> GetTransactions(DateTime? startDate = null, DateTime? endDate = null, IEnumerable<Store> stores = null, IEnumerable<Product> products = null, IEnumerable<Category> categories = null)
-        {
-            IEnumerable<Transaction> transactions = _db.Transactions.AsNoTracking();
-            if (startDate.HasValue) transactions = transactions.Where(t => t.DateTime.Date >= startDate.Value);
-            if (endDate.HasValue) transactions = transactions.Where(t => t.DateTime.Date <= endDate.Value);
-            if (stores != null)
-            {
-                transactions = from t in transactions
-                               from pt in t.ProductTransactions
-                               where stores.Select(s=>s.Id).Contains(pt.Store.Id)
-                               select t;
-            }
-            if (products != null)
-            {
-                transactions = from t in transactions
-                               from pt in t.ProductTransactions
-                               where products.Select(p => p.Id).Contains(pt.Product.Id)
-                               select t;
-            }
-            if (categories != null)
-            {
-                transactions = from t in transactions
-                               from pt in t.ProductTransactions
-                               where categories.Select(c => c.Id).Contains(pt.Product.Category.Id)
-                               select t;
-            }
-            return transactions;
-        }
 
-        public void UpdateTransaction(Transaction transaction)
-        {
-            if (!_validation.Validate(transaction))
-                throw (new ArgumentException("Error in transaction"));
-
-            var oldTransaction = _db.Transactions.Single(t => t.Id == transaction.Id);
-            oldTransaction.DateTime = transaction.DateTime;
-            oldTransaction.ProductTransactions = transaction.ProductTransactions;
-            _db.SaveChanges();
-        }
-
-        public void AddTransaction(Transaction transaction)
-        {
-            if (!_validation.Validate(transaction))
-                throw (new ArgumentException("Error in transaction"));
-
-            _db.Transactions.Add(transaction);
-            _db.SaveChanges();
-        }
-    }
-}*/
