@@ -60,7 +60,7 @@ namespace BL.associationRules
 
             pdfLightTable.Style.ShowHeader = true;
 
-            pdfLightTable.Draw(page, new PointF(0, 0));
+            pdfLightTable.Draw(page, 0, 0);
             //Save the document
             //doc.Save("ShopingList" + DateTime.Now.ToString() + ".pdf");
             doc.Save("PdfTable.pdf");
