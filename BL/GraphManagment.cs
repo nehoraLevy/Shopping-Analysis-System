@@ -119,7 +119,7 @@ namespace BL
                     from newGroup2 in
                             (from productTransactionCollection in newGroup1
                              from productTransaction in productTransactionCollection
-                             where productTransaction.shoppingCart.BuyDate > startDate.Date && productTransaction.shoppingCart.BuyDate < endDate.Date
+                             where productTransaction.shoppingCart.BuyDate >= startDate.Date && productTransaction.shoppingCart.BuyDate <= endDate.Date
                              group productTransaction by GetTimeType(productTransaction.shoppingCart.BuyDate, aggregationTimeType))
                     group newGroup2 by newGroup1.Key;
 
