@@ -20,8 +20,9 @@ namespace BE
         private string _address;
         public string Address { get => _address; set => SetProperty(ref _address, value); }
 
-        private ICollection<Product> _products;
-        public virtual ICollection<Product> Products { get => _products; set => SetProperty(ref _products, value); }
+
+        private ICollection<ProductTransaction> _productTransaction;
+        public virtual ICollection<ProductTransaction> ProductTransaction { get => _productTransaction; set => SetProperty(ref _productTransaction, value); }
 
         public Store()
         {

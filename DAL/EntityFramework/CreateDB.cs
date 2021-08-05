@@ -33,6 +33,8 @@ namespace DAL.EntityFramework
 
         IDbCollection<ShoppingCartGraph> IDb.ShoppingCartGraphs => new DbSetCollection<ShoppingCartGraph>(ShoppingCartGraphs);
 
+        IDbCollection<User> IDb.Users => new DbSetCollection<User>(Users);
+
 
         public DbSet<QRcode_data> QRDatas { get; set; }
 
@@ -53,6 +55,8 @@ namespace DAL.EntityFramework
         public DbSet<CategoryGraph> CategoryGraphs { get; set; }
 
         public DbSet<ShoppingCartGraph> ShoppingCartGraphs { get; set; }
+
+        public DbSet<User> Users { get; set; }
 
 
 

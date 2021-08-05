@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,9 @@ using System.Text;
 
 namespace BL
 {
-    class GraphManagment
+    class GraphManagement:IGraphManagement
     {
-        class GraphManagement 
-        {
+
             private IDb _db;
             
             public GraphManagement()
@@ -45,7 +45,7 @@ namespace BL
             {
                 if (shoppingCartGraph.ShoppingCarts == null || shoppingCartGraph.ShoppingCarts.Count < 0)
                     throw (new ArgumentException());
-                _db.TransactionsGraphs.Add(shoppingCartGraph);
+                _db.ShoppingCartGraphs.Add(shoppingCartGraph);
                 _db.SaveChanges();
             }
 
@@ -64,9 +64,9 @@ namespace BL
                 return _db.StoreGraphs;
             }
 
-            public IEnumerable<BasicGraph> GetTransactionGraphs()
+            public IEnumerable<BasicGraph> GetShoppingCartGraphs()
             {
-                return _db.TransactionsGraphs;
+                return _db.ShoppingCartGraphs;
             }
 
             public IEnumerable<BasicGraph> GetAllGraphs()
@@ -74,7 +74,7 @@ namespace BL
                 return GetCategoryGraphs().ToList().Concat
                     (GetProductGraphs().ToList().Concat
                     (GetStoreGraphs().ToList().Concat
-                    (GetTransactionGraphs())));
+                    (GetShoppingCartGraphs())));
             }
 
 
@@ -94,7 +94,7 @@ namespace BL
                 }
                 else if (graph is ShoppingCartGraph)
                 {
-                    _db.TransactionsGraphs.Remove(graph as ShoppingCartGraph);
+                    _db.ShoppingCartGraphs.Remove(graph as ShoppingCartGraph);
                 }
                 else
                 {
@@ -106,9 +106,9 @@ namespace BL
 
             private IReadOnlyDictionary<int, IEnumerable<(double, double)>> AnalyzeGraph<T>(BasicGraph graph, IEnumerable<T> items, Func<T, IEnumerable<ProductTransaction>> getProductTransactions, Func<T, int> getKey)
             {
-                (DateTime endDate, DateTime startDate) = GetEndAndStartDates(graph.EndDate, graph.StartDate, graph.PastTimeType, graph.PastTimeAmount);
+                (DateTime endDate, DateTime startDate) = GetEndAndStartDates(graph.EndDate, graph.StartDate, graph.TimeType, graph.PastTimeAmount);
                 AmountOrCost amountOrCost = graph.AmountOrCost;
-                TimeType aggregationTimeType = graph.AggregationTimeType;
+                TimeType aggregationTimeType = graph.TimeType;
 
 
 
@@ -118,8 +118,8 @@ namespace BL
                     from newGroup2 in
                             (from productTransactionCollection in newGroup1
                              from productTransaction in productTransactionCollection
-                             where productTransaction.Transaction.DateTime.InRange(startDate.Date, endDate.Date)
-                             group productTransaction by GetTimeType(productTransaction.Transaction.DateTime, aggregationTimeType))
+                             where productTransaction.shoppingCart.BuyDate >= startDate.Date && productTransaction.shoppingCart.BuyDate <= endDate.Date
+                             group productTransaction by GetTimeType(productTransaction.shoppingCart.BuyDate, aggregationTimeType))
                     group newGroup2 by newGroup1.Key;
 
 
@@ -142,19 +142,14 @@ namespace BL
                 {
                     case TimeType.Day:
                         return DateTime.Now.AddDays(pastTimeAmount);
-                        break;
                     case TimeType.Week:
                         return DateTime.Now.AddDays(pastTimeAmount * 7);
-                        break;
                     case TimeType.Month:
                         return DateTime.Now.AddMonths(pastTimeAmount);
-                        break;
                     case TimeType.Year:
                         return DateTime.Now.AddYears(pastTimeAmount);
-                        break;
                     default:
                         throw new ArgumentException("TimeType not initialized properly");
-                        break;
                 }
             }
 
@@ -175,19 +170,14 @@ namespace BL
                 {
                     case TimeType.Day:
                         return dateTime.DayOfYear;
-                        break;
                     case TimeType.Week:
                         return dateTime.DayOfYear/7;
-                        break;
                     case TimeType.Month:
                         return dateTime.Month;
-                        break;
                     case TimeType.Year:
                         return dateTime.Year;
-                        break;
                     default:
                         throw new ArgumentException("TimeType not initialized properly");
-                        break;
                 }
             }
 
@@ -215,9 +205,9 @@ namespace BL
                         item => (int)item.Id);
             }
 
-            public IReadOnlyDictionary<int, IEnumerable<(double, double)>> AnalyzeGraph(TransactionsGraph transactionsGraph)
+            public IReadOnlyDictionary<int, IEnumerable<(double, double)>> AnalyzeGraph(ShoppingCartGraph shoppingCartGraph)
             {
-                return AnalyzeGraph(transactionsGraph,
+                return AnalyzeGraph(shoppingCartGraph,
                                     new[] { 1 },
                                     item => _db.ProductTransactions,
                                     item => 1); ;
@@ -255,7 +245,7 @@ namespace BL
                 return analyzeGraph;
             }
 
-
-        }
+      
     }
-}
+    }
+

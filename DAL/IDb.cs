@@ -17,6 +17,8 @@ namespace DAL
         IDbCollection<StoreGraph> StoreGraphs { get; }
         IDbCollection<ProductGraph> ProductGraphs { get; }
         IDbCollection<CategoryGraph> CategoryGraphs { get; }
+
+        IDbCollection<User> Users { get; }
         void SaveChanges();
     }
 }

@@ -23,8 +23,6 @@ namespace BE
         private string _description;
         public string Description { get => _description; set => SetProperty(ref _description, value); }
 
-        private TimeAgregation _agregationTimeType;
-        public TimeAgregation AgregationTimeType { get => _agregationTimeType; set => SetProperty(ref _agregationTimeType, value); }
 
         private DateTime _startDate;
         public DateTime StartDate { get => _startDate; set => SetProperty(ref _startDate, value); }
@@ -35,14 +33,14 @@ namespace BE
         private int _pastTimeAmount;
         public int PastTimeAmount { get => _pastTimeAmount; set => SetProperty(ref _pastTimeAmount, value); }
 
-        private TimeAgregation _timeAgregation;
-        public TimeAgregation TimeAgregation { get => _timeAgregation; set => SetProperty(ref _timeAgregation, value); }
+        private TimeType _timeType;
+        public TimeType TimeType { get => _timeType; set => SetProperty(ref _timeType, value); }
 
         private GraphType _graphType;
         public GraphType GraphType { get => _graphType; set => SetProperty(ref _graphType, value); }
 
-        //private AmountOrCost _amountOrCost;
-        //public AmountOrCost AmountOrCost { get => _amountOrCost; set => SetProperty(ref _amountOrCost, value); }
+        private AmountOrCost _amountOrCost;
+        public AmountOrCost AmountOrCost { get => _amountOrCost; set => SetProperty(ref _amountOrCost, value); }
 
         public BasicGraph()
         {

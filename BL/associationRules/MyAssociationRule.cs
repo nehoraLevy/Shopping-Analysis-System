@@ -5,14 +5,14 @@ using System.Text;
 
 namespace BL
 {
-    internal class AssociatonRule : IAssociationRule
+    internal class MyAssociatonRule : IMyAssociationRule
     {
         public IEnumerable<Product> Product { get; set; }
         public IEnumerable<Product> GoesWith { get; set; }
         public double Probability { get; set; }
       
 
-        public AssociatonRule(IEnumerable<Product> product, IEnumerable<Product> goesWith, double probability)
+        public MyAssociatonRule(IEnumerable<Product> product, IEnumerable<Product> goesWith, double probability)
         {
             Product = product;
             GoesWith = goesWith;

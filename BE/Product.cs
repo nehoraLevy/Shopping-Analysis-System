@@ -37,6 +37,10 @@ namespace BE
         private Category _category;
         public virtual Category Category { get => _category; set => SetProperty(ref _category, value); }
 
+
+        private ICollection<ProductTransaction> _productTransactions;
+        public virtual ICollection<ProductTransaction> ProductTransactions { get => _productTransactions; set => SetProperty(ref _productTransactions, value); }
+
         public Product()
         {
             _notifyPropertyChanged = new NotifyPropertyChanged(this, (property) => OnPropertyChanged(property));
