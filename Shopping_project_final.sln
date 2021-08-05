@@ -12,6 +12,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL_test", "DAL_test\DAL_test.csproj", "{DE4864A8-84D8-4C87-A0B5-C4897AAD49B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLWPF", "PLWPF\PLWPF.csproj", "{D0152E75-1E4C-4326-ADE9-490D53DC6C5E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48ED226F-B1D1-49C7-B677-C470103D5F4F} = {48ED226F-B1D1-49C7-B677-C470103D5F4F}
+		{80E8577D-F423-4817-B365-FB9A7B01B458} = {80E8577D-F423-4817-B365-FB9A7B01B458}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

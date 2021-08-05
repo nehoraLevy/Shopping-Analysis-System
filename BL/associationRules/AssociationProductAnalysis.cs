@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace BL.associationRules
 {
-    internal class AssociationProductAnalysis
+    internal class AssociationProductAnalysis: IAssociationProductAnalysis
     {
 
         private IDb _db;

@@ -18,7 +18,7 @@ namespace BE
         public int? Id { get => _id; set => SetProperty(ref _id, value); }
 
         private string _password;
-        public string password { get => _password; set => SetProperty(ref _password, value); }
+        public string Password { get => _password; set => SetProperty(ref _password, value); }
 
         private void SetProperty<T>(ref T property, T value, [CallerMemberName] string propertyName = "")
         {

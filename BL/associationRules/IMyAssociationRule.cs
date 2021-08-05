@@ -7,7 +7,6 @@ namespace BL
 {
     public interface IMyAssociationRule
     {
-
         IEnumerable<Product> GoesWith { get; set; }
         double Probability { get; set; }
         IEnumerable<Product> Product { get; set; }

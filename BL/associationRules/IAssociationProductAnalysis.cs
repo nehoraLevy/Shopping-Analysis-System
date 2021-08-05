@@ -9,7 +9,7 @@ namespace BL.associationRules
 
             void CreateShopingListRecommendation(string path);
 
-            IEnumerable<IAssociationRule> GetAssosiatonRules();
+            IEnumerable<IMyAssociationRule> GetAssosiatonRules();
 
     }
 }

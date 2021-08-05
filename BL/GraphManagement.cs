@@ -7,10 +7,9 @@ using System.Text;
 
 namespace BL
 {
-    class GraphManagment
+    class GraphManagement:IGraphManagement
     {
-        class GraphManagement 
-        {
+
             private IDb _db;
             
             public GraphManagement()
@@ -246,7 +245,7 @@ namespace BL
                 return analyzeGraph;
             }
 
-
-        }
+      
     }
-}
+    }
+

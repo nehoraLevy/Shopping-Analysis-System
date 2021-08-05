@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BL
 {
-    class DataManagement
+    public class DataManagement:IDataManagement
     {
         private IDb _db;
         
@@ -196,6 +196,46 @@ namespace BL
             DeleteSore(s);
             AddSore(s);
         }
+
+        public void addUser(User user)
+        {
+            if (CheckId(user.Id))//if the user exist on database
+                throw new Exception("The user exist on system");
+            else
+            {
+                    _db.Users.Add(user);
+                    _db.SaveChanges();
+            }
+        }
+
+  
+        public bool CheckId(int? id)
+        {
+                foreach (var item in _db.Users)
+                {
+                    if (item.Id == id)
+                        return true;
+                }
+            return false;
+        }
+
+
+        public int? CheckUser(BE.User user)
+        {
+
+                foreach (var item in _db.Users)
+                {
+                    if (item.Id == user.Id && item.Password == user.Password)
+                        return item.Id;
+                }
+            return null;
+        }
+
+
+        /*
+         * אולי להוסיף החלפת סיסמה ליוזר
+         */
+
 
 
 
