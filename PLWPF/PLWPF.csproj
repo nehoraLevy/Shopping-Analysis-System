@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <Folder Include="images\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Converters\" />
+    <Folder Include="UserControl\" />
     <Folder Include="View\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
