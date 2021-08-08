@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BL.associationRules
 {
-    interface IAssociationProductAnalysis
+    public interface IAssociationProductAnalysis
     {
 
             void CreateShopingListRecommendation(string path);

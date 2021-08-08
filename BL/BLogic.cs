@@ -5,14 +5,14 @@ using System.Text;
 
 namespace BL
 {
-    internal class BL
+    public class BLogic:IBL
     {
         public IAssociationProductAnalysis AssosiationProductsAnalysis { get; }
         public IDataManagement DataManagement { get; }
         public IGraphManagement GraphManagement { get; }
 
 
-        public BL ()
+        public BLogic ()
         {
 
             AssosiationProductsAnalysis = new AssociationProductAnalysis();

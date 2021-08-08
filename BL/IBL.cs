@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BL
 {
-    interface IBL
+    public interface IBL
     {
         IAssociationProductAnalysis AssosiationProductsAnalysis { get; }
         IDataManagement DataManagement { get; }

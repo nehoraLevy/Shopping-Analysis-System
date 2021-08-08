@@ -48,7 +48,15 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
 
-            <TabItem>                <TabItem.HeaderTemplate>                    <DataTemplate>                        <StackPanel Orientation="Horizontal">                            <Image Source="images/shopping_cart.jpg" Width="20" Height="20" Stretch="Fill" />                        </StackPanel>                    </DataTemplate>                </TabItem.HeaderTemplate>            </TabItem>
+            <TabItem>
+                <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="images/shopping_cart.jpg" Width="20" Height="20" Stretch="Fill" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TabItem.HeaderTemplate>
+            </TabItem>
 
         </TabControl>
 
