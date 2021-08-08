@@ -25,7 +25,8 @@ namespace PLWPF.Model
         public void Filter(string name = "")
         {
             CategoriesList.Clear();
-            _dataMenegement.GetCategories(name).ForEach(c => CategoriesList.Add(c));
+            foreach (BE.Category item in _dataMenegement.GetCategories(name))
+                CategoriesList.Add(item);
         }
 
         public void Update(Category category)

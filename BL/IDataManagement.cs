@@ -7,8 +7,7 @@ namespace BL
 {
     public interface IDataManagement
     {
-        public IEnumerable<Product> GetProducts(string str = "");
-
+        
         public IEnumerable<Category> GetCategories(string str = "");
 
 
@@ -16,6 +15,8 @@ namespace BL
 
 
         public IEnumerable<ShoppingCart> GetShoppingCarts(DateTime? startDate = null, DateTime? endDate = null, IEnumerable<Store> stores = null, IEnumerable<Product> products = null, IEnumerable<Category> categories = null);
+
+        public IEnumerable<Product> GetProducts(string str = "");
 
 
         public IEnumerable<Store> GetStores(string str = "");
@@ -30,6 +31,8 @@ namespace BL
         to basic category adding the new product
         and replace the basic category*/
         public void AddProduct(Product p);
+
+        public void UpdateProduct(Product p);
 
         public void DeleteProduct(Product p);
 
