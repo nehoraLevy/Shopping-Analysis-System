@@ -26,7 +26,7 @@ namespace BL
             return _db.Products.Where(c => c.Name.Contains(str));
         }
 
-        public IEnumerable<Category> GetCategories(string str = "")
+        public IEnumerable<Category> GetCategories(string str ="")
         {
             return _db.Categories.Where(c => c.Name.Contains(str));
         }

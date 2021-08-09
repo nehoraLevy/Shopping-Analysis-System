@@ -21,11 +21,12 @@ namespace DAL
         }
         public IDb GetDb()
         {
-            if (_db is null)
-            {
-                _db = new EntityFramework.CreateDB();
-            }
-            return _db;
+             if (_db is null)
+             {
+                 _db = new EntityFramework.CreateDB();
+             }
+             return _db;
+
         }
     }
 }

@@ -31,6 +31,10 @@ namespace BE
         {
             _notifyPropertyChanged = new NotifyPropertyChanged(this, (property) => OnPropertyChanged(property));
         }
+        public Category()
+        {
+            _notifyPropertyChanged = new NotifyPropertyChanged(this, (property) => OnPropertyChanged(property));
+        }
         private void SetProperty<T>(ref T property, T value, [CallerMemberName] string propertyName = "")
         {
             _notifyPropertyChanged.SetProperty(ref property, value, propertyName);

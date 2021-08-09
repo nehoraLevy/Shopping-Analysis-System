@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PLWPF"
+        xmlns:local="clr-namespace:PLWPF" xmlns:be="clr-namespace:BE;assembly=BE" d:DataContext="{d:DesignInstance Type=be:Category}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -14,53 +14,11 @@
             <Setter Property="Background" Value="MediumPurple"/>
         </Style>
     </Window.Resources>
-
     <Grid>
-        <TabControl>
-            
-            <TabItem Header="מוצרי חלב" Style="{StaticResource TabItemStyle}">
-            </TabItem>
-            <TabItem Header="פירות וירקות" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="פירות וירקות" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="בשר ודגים" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="שימורים" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="בישול ואפייה" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="קטניות ומתוקים" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="משקאות" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="אחזקת הבית" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="טואלטיקה" Style="{StaticResource TabItemStyle}">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-
-            <TabItem>
-                <TabItem.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="images/shopping_cart.jpg" Width="20" Height="20" Stretch="Fill" />
-                        </StackPanel>
-                    </DataTemplate>
-                </TabItem.HeaderTemplate>
-            </TabItem>
-
-        </TabControl>
-
-
-
+        <TextBlock x:Name="listBox" Height="100" Margin="350,167,98,167" Text="{Binding}" />
     </Grid>
 </Window>
+
+
+
+

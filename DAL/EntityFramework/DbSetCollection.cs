@@ -13,10 +13,12 @@ namespace DAL
         where T : class
     {
         private DbSet<T> _dbSet;
+        
 
         public DbSetCollection(DbSet<T> dbSet)
         {
             _dbSet = dbSet;
+            
         }
 
         public Expression Expression => (_dbSet as IQueryable).Expression;
@@ -33,6 +35,7 @@ namespace DAL
         void IDbCollection<T>.Add(T item)
         {
             _dbSet.Add(item);
+            
         }
 
         void IDbCollection<T>.AddRange(IEnumerable<T> items)

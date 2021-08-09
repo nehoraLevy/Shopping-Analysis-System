@@ -65,7 +65,7 @@ namespace DAL.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>()
-                .HasIndex(p => p.BarCode)
+                .HasIndex(p => p.Id)
                 .IsUnique();
 
             
