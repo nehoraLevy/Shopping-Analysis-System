@@ -31,9 +31,11 @@ namespace PLWPF
 
             IEnumerable<BE.Store> Categories =dm.GetStores();
             List<String> a = Categories.Select(t=>t.Name).ToList();
-            listBox.DataContext =a;
+            listBox.DataContext = a.First();
 
         }
+
+        
     }
 }
 

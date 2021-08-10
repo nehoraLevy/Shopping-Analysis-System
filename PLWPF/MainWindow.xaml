@@ -14,16 +14,11 @@
             <Setter Property="Background" Value="MediumPurple"/>
         </Style>
     </Window.Resources>
+    
     <Grid>
         
         <TextBlock x:Name="listBox" Margin="350,118,98,167" Text="{Binding}" />
-        <ListView>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+           
     </Grid>
 </Window>
 
