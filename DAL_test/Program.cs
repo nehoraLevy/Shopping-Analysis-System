@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 
+
 namespace DAL_test
 {
     class Program
@@ -13,13 +14,8 @@ namespace DAL_test
             Console.ReadLine();*/
 
             var db = new DAL.DalFactory().GetDb();
-            Console.WriteLine(db.Categories.Count());
-            //var categories = new[] { "מוצרי חלב", "פירות וירקות", "בשר ודגים", "שימורים", "בישול ואפייה", "קטניות ומתוקים", "משקאות","אחזקת הבית וטואלטיקה" };
-            //db.Categories.AddRange(categories.Select(n => new BE.Category { Name = n }));
-            
-          
-
-            //Console.WriteLine(db.Categories.Select( c => c.Name));
+            Console.WriteLine(db.Stores.Count());
+            BL.DataManagement bl=new BL.DataManagement();
         }
     }
 }

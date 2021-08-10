@@ -96,6 +96,24 @@ namespace BL
 
         }
 
+        public void cleanCategory()
+        {
+           
+            foreach (var i in _db.Categories)
+                _db.Categories.Remove(i);
+            _db.SaveChanges();
+
+        }
+
+        public void cleanStore()
+        {
+
+            foreach (var i in _db.Stores)
+                _db.Stores.Remove(i);
+            _db.SaveChanges();
+
+        }
+
         public void UpdateCategory(Category c)
         {
             

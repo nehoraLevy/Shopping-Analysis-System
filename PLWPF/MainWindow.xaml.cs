@@ -26,11 +26,12 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
-            //CategoriesModel categoriesModel = new CategoriesModel();
-            //tabItem1.Header = categoriesModel.CategoriesList.ElementAt(0).Name;
+            
             DataManagement dm = new DataManagement();
-            IEnumerable<BE.Category> Categories =dm.GetCategories();
-            listBox.DataContext = Categories.Select(c => c.Name);
+
+            IEnumerable<BE.Store> Categories =dm.GetStores();
+            List<String> a = Categories.Select(t=>t.Name).ToList();
+            listBox.DataContext =a;
 
         }
     }
