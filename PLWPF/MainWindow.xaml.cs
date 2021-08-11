@@ -29,9 +29,9 @@ namespace PLWPF
             
             DataManagement dm = new DataManagement();
 
-            IEnumerable<BE.Store> Categories =dm.GetStores();
-            List<String> a = Categories.Select(t=>t.Name).ToList();
-            listBox.DataContext = a.First();
+            IEnumerable<BE.Category> Categories =dm.GetCategories();
+            //List<String> a = Categories.Select(t=>t.Name).ToList();
+            this.comboBox.ItemsSource = Categories.Select(t => t.Name).ToList();
 
         }
 

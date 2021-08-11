@@ -17,8 +17,50 @@
     
     <Grid>
         
-        <TextBlock x:Name="listBox" Margin="350,118,98,167" Text="{Binding}" />
-           
+        <ComboBox x:Name="comboBox" Margin="590,118,24,283" />
+        
+        
+        <CarouselControl x:Name="_carouselDABRadioStations" 
+                ItemsSource="{Binding RadioStationsDAB}" 
+                SelectedItem="{Binding SelectedRadioStationDAB,Mode=TwoWay}" 
+ShowRotation="True"  TiltInDegrees="10" 
+AutoSizeToParent="true" RotationSpeed="100" 
+VerticalOrientation="False" HorizontalAlignment="Stretch" 
+VerticalAlignment="Stretch">
+
+            <Style TargetType="WPFCarouselControl:CarouselControl">
+                <Setter Property="CarouselItemTemplate" >
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Border BorderThickness="1" 
+                        BorderBrush="Gainsboro" Background="SteelBlue" 
+                        Width="250" Height="150">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" 
+                                BorderThickness="0" Background="White">
+                                        <Image Grid.Row="0" 
+                                    Source="{Binding ImageSource}" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" Height="100"/>
+                                    </Border>
+                                    <Label Grid.Row="1" 
+                                Content="{Binding ShortName}" 
+                                Foreground="White" Background="Transparent" 
+                                FontSize="20" FontFamily="Arial" 
+                                Style="{StaticResource labelStyleCentred}" 
+                                DockPanel.Dock="Bottom" Height="Auto"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
     </Grid>
 </Window>
 
