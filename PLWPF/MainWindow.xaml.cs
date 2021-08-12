@@ -26,16 +26,22 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
+
+
             
             DataManagement dm = new DataManagement();
 
             IEnumerable<BE.Category> Categories =dm.GetCategories();
-            //List<String> a = Categories.Select(t=>t.Name).ToList();
-            this.comboBox.ItemsSource = Categories.Select(t => t.Name).ToList();
+            List<String> a = Categories.Select(t=>t.Name).ToList();
+
+            List<BE.Category> tabItems = new List<BE.Category>();
+            tabItems.AddRange(dm.GetCategories());
+            TabControl1.ItemsSource = tabItems;
+
 
         }
 
-        
+
     }
 }
 

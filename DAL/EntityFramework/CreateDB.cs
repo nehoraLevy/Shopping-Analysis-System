@@ -102,8 +102,9 @@ namespace DAL.EntityFramework
                .HasIndex(p => p.Title)
                .IsUnique();
         }
+        
 
-           
+
         void IDb.SaveChanges()
         {
             base.SaveChanges();
