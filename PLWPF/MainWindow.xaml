@@ -20,11 +20,7 @@
         <TabControl x:Name="TabControl1" Margin="10">            
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
-                    <Setter.Header>
-                        
-                    </Setter.Header>
                     <Setter Property="Header" Value="{Binding Name}"/>
-                    <Setter Property="" Value="{Binding ContentTemplate}"/>
                 </Style>
             </TabControl.ItemContainerStyle>
         </TabControl>

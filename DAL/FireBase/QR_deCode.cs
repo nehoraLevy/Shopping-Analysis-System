@@ -28,7 +28,6 @@ namespace DAL.FireBase
             // Await the task to wait until upload is completed and get the download url
             var downloadUrl =  await task;
             Console.WriteLine(downloadUrl);
-
         }
 
         public static void showDetails(string downloadUrl)

@@ -8,9 +8,9 @@ namespace DAL_test
     {
         static void Main(string[] args)
         {
-            /*
-            DAL.FireBase.QR_deCode.pictureToFireBase("Apple.png");
             
+            DAL.FireBase.QR_deCode.pictureToFireBase("cookies.png");
+            /*
             //DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingproject-92d77.appspot.com/o/Apple.png?alt=media&token=ec959628-2747-459b-a1fc-06b332f471d9");
             Console.ReadLine();
 
@@ -23,7 +23,7 @@ namespace DAL_test
             db.Products.Add(new BE.Product { Name = "תפוח", ImageFileName = "", Category = (BE.Category)db.Categories.Where(c => c.Name == "מוצרי חלב"), BarCode= "https://firebasestorage.googleapis.com/v0/b/shoppingproject-92d77.appspot.com/o/Apple.png?alt=media&token=ec959628-2747-459b-a1fc-06b332f471d9" });
 
             BL.DataManagement bl=new BL.DataManagement();
-            bl.cleanCategory();*/
+            bl.cleanCategory();
             var db = new DAL.DalFactory().GetDb();
             if(db.Categories.Count()==0)
             {
@@ -34,7 +34,7 @@ namespace DAL_test
                 db.SaveChanges();
 
             }
-            Console.WriteLine(db.Categories.Count());
+            Console.WriteLine(db.Categories.Count());*/
 
         }
     }

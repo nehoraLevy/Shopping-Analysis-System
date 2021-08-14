@@ -36,7 +36,7 @@ namespace PLWPF
 
             List<BE.Category> tabItems = new List<BE.Category>();
             tabItems.AddRange(dm.GetCategories());
-            TabControl1.ItemsSource = tabItems;
+            //TabControl1.ItemsSource = tabItems;
 
 
         }
