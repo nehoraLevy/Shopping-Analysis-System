@@ -33,6 +33,10 @@ namespace PLWPF
             tabItems.AddRange(vm.CategoriesList);
             TabControl1.ItemsSource = tabItems;
 
+            Window test = new test();
+            test.Show();
+
+
 
         }
 

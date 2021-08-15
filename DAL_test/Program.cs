@@ -1,4 +1,5 @@
 ﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace DAL_test
             //DAL.FireBase.QR_deCode.showDetails("");
             Console.ReadLine();
             */
-   
+            /*
+            DataManagement bl =new DataManagement();
+            bl.cleanProduct();*/
             var db = new DAL.DalFactory().GetDb();
             if(db.Categories.Count()==0)
             {
@@ -34,7 +37,7 @@ namespace DAL_test
                 Console.WriteLine(db.Products.Count());
                 var products = new[] { "חלב", "גבינה"};
                 var prices = new[] { 5, 7 };
-                var images = new[] { "image\\milk.png", "whitecheese.jpg" };
+                var images = new[] { "images\\milk.png", "images\\whitecheese.jpg" };
                 var description = new[] { "1 ליטר חלב מפוסטר", "250 גרם גבינה לבנה" };
                
                 for(int i=0; i<products.Length; i++)

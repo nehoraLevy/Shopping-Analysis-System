@@ -104,6 +104,14 @@ namespace BL
             _db.SaveChanges();
 
         }
+        public void cleanProduct()
+        {
+
+            foreach (var i in _db.Products)
+                _db.Products.Remove(i);
+            _db.SaveChanges();
+
+        }
 
         public void cleanStore()
         {

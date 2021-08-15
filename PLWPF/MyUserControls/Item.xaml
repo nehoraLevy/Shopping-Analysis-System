@@ -7,7 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="main">
-        <TextBlock x:Name="productName" Text="{Binding }"/>
+        <TextBlock Name="productName" HorizontalAlignment="Left" Margin="305,223,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="197"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="338,287,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="price" HorizontalAlignment="Left" Margin="121,282,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="68" Width="139"/>
+
 
     </Grid>
 </UserControl>

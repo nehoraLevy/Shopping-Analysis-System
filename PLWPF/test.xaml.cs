@@ -9,39 +9,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PLWPF.MyUserControls
+namespace PLWPF
 {
     /// <summary>
-    /// Interaction logic for Item.xaml
+    /// Interaction logic for test.xaml
     /// </summary>
-    public partial class Item : UserControl
+    public partial class test : Window
     {
-        public Item()
+        public test()
         {
             InitializeComponent();
-
             CategoryVM vm = new CategoryVM();
             List<string> productName = new List<string>();
-            List<double> price = new List<double>();
-            List<string> images = new List<string>();
             foreach (var v in vm.CategoriesList)
             {
-                foreach( var a in v.Products)
+                foreach (var a in v.Products)
                 {
                     productName.Add(a.Name);
-                    images.Add(a.ImageFileName);
-                    price.Add(a.Price);
                 }
-                
+
             }
             this.productName.Text = productName[1];
-            this.price.Text = price[0].ToString();
-            this.image.DataContext=images[0];
-
         }
-                
     }
 }
