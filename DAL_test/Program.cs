@@ -11,16 +11,14 @@ namespace DAL_test
     {
         static void Main(string[] args)
         {
-            /*
-            DAL.FireBase.QR_deCode.PictureToFireBase("STAM.jpg");
-            Console.WriteLine("success");
-            
+
+            DAL.FireBase.QR_deCode.PictureToFireBase("yoghurt.png");
+
             //DAL.FireBase.QR_deCode.showDetails("");
             Console.ReadLine();
-            */
-            /*
-            DataManagement bl =new DataManagement();
-            bl.cleanProduct();*/
+            
+            
+           /* DataManagement bl =new DataManagement();
             var db = new DAL.DalFactory().GetDb();
             if(db.Categories.Count()==0)
             {

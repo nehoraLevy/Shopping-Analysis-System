@@ -16,42 +16,58 @@ namespace DAL.FireBase
         //להסתכל על QRCodeFetcher  של אושר 
 
         // message to check git
-        public async static void PictureToFireBase(string name)
+        /*public async static void PictureToFireBase(string name)
         {
-            string str = "C:\\Users\\levy\\Desktop\\";
+            string str = @"C:\Users\batya\OneDrive\";
             string url = string.Concat(str, name);
             var stream = File.OpenRead(url);
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
             var task = new FirebaseStorage("shoppingprojectfinal.appspot.com").Child(name).PutAsync(stream);
             // Track progress of the upload
+            Console.WriteLine(task.ToString());
             task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress:  { e.Percentage} % ");
             // Await the task to wait until upload is completed and get the download url
             var downloadUrl =  await task;
             Console.WriteLine(downloadUrl);
-        }
-
-        public static void showDetails(string downloadUrl)
-        {
-            string imageUrl = downloadUrl;
-            // Install-Package ZXing.Net -Version 0.16.5
-            var client = new WebClient();
-            var stream = client.OpenRead(imageUrl);
-            if (stream == null) return;
-            var bitmap = new Bitmap(stream);
-            BarcodeReader reader = new BarcodeReader();
-            var result = reader.Decode(bitmap);
-            Console.WriteLine(result.Text);
             Console.ReadLine();
-        }
-
-        public void DeleteQRcode(params string[] qrCodeFilesNamesToDelete)
+        }*/
+        public async static void PictureToFireBase(string name)
         {
-            throw new NotImplementedException();
-        }
+            var stream = File.OpenRead(@"C:\Users\batya\OneDrive\" + name);
+            
+            var task = new FirebaseStorage("shoppingprojectfinal.appspot.com")
+            .Child(name)
+            .PutAsync(stream);
+            // Track progress of the upload
+            task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress:{ e.Percentage} % ");
+            // Await the task to wait until upload is completed and get the download url
+            var downloadUrl = await task;
+            Console.WriteLine(downloadUrl);
 
-        public IEnumerable<IQRcode> GetQRCode()
-        {
-            throw new NotImplementedException();
         }
-    }
-}
+        
+        public static void showDetails(string downloadUrl)
+                {
+                    string imageUrl = downloadUrl;
+                    // Install-Package ZXing.Net -Version 0.16.5
+                    var client = new WebClient();
+                    var stream = client.OpenRead(imageUrl);
+                    if (stream == null) return;
+                    var bitmap = new Bitmap(stream);
+                    BarcodeReader reader = new BarcodeReader();
+                    var result = reader.Decode(bitmap);
+                    Console.WriteLine(result.Text);
+                    Console.ReadLine();
+                }
+
+                public void DeleteQRcode(params string[] qrCodeFilesNamesToDelete)
+                {
+                    throw new NotImplementedException();
+                }
+
+                public IEnumerable<IQRcode> GetQRCode()
+                {
+                    throw new NotImplementedException();
+                }
+            }
+        }
