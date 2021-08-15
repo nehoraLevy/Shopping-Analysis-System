@@ -7,24 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <DataTemplate x:Key="ContentTemplate" DataType="local:ProductsList">
-            <Grid>
-                <TextBlock Text="ggg"/>
-            </Grid>
-        </DataTemplate>
     </Window.Resources>
 
     <Grid>
-        <ComboBox x:Name="comboBox" Margin="590,118,24,283" />
-        <Image HorizontalAlignment="Left" Source="https://images.app.goo.gl/3Qhn9Dk6VUG7Y4hb6" Height="100" Margin="294,62,0,0" VerticalAlignment="Top" Width="100"/>
         <TabControl x:Name="TabControl1" Margin="10">            
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Header" Value="{Binding Name}"/>
+                    
                 </Style>
+                
             </TabControl.ItemContainerStyle>
         </TabControl>
-
+        <UserControl Content="{Binding UserControl}" />
     </Grid>
 </Window>
 

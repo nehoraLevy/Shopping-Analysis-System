@@ -14,7 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BL;
+using BE;
 using PLWPF.Model;
+using PLWPF.ViewModel;
 
 namespace PLWPF
 {
@@ -26,17 +28,10 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
-
-
-            
-            DataManagement dm = new DataManagement();
-
-            IEnumerable<BE.Category> Categories =dm.GetCategories();
-            List<String> a = Categories.Select(t=>t.Name).ToList();
-
-            List<BE.Category> tabItems = new List<BE.Category>();
-            tabItems.AddRange(dm.GetCategories());
-            //TabControl1.ItemsSource = tabItems;
+            CategoryVM vm = new CategoryVM();
+            List<Category> tabItems = new List<Category>();
+            tabItems.AddRange(vm.CategoriesList);
+            TabControl1.ItemsSource = tabItems;
 
 
         }

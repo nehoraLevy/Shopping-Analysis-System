@@ -16,11 +16,11 @@ namespace PL.Model
     public class ProductsModel
     {
         IDataManagement _dataManagement;
-        public ObservableCollection<Product> ProductsList { get; set; }
+        public List<Product> ProductsList { get; set; }
         public ProductsModel()
         {
             _dataManagement = new BL.BLogic().DataManagement;
-            ProductsList = new ObservableCollection<Product>();
+            ProductsList = new List<Product>();
             Filter();
         }
 

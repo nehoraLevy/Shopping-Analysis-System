@@ -16,13 +16,13 @@ namespace DAL.FireBase
         //להסתכל על QRCodeFetcher  של אושר 
 
         // message to check git
-        public async static void pictureToFireBase(string name)
+        public async static void PictureToFireBase(string name)
         {
             string str = "C:\\Users\\levy\\Desktop\\";
             string url = string.Concat(str, name);
             var stream = File.OpenRead(url);
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
-            var task = new FirebaseStorage("shoppingproject-92d77.appspot.com").Child(name).PutAsync(stream);
+            var task = new FirebaseStorage("shoppingprojectfinal.appspot.com").Child(name).PutAsync(stream);
             // Track progress of the upload
             task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress:  { e.Percentage} % ");
             // Await the task to wait until upload is completed and get the download url

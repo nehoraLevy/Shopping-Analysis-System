@@ -13,11 +13,11 @@ namespace PLWPF.Model
     public class CategoriesModel
     {
         IDataManagement _dataMenegement;
-        public ObservableCollection<Category> CategoriesList { get; private set; }
+        public List<Category> CategoriesList { get; private set; }
         public CategoriesModel()
         {
             _dataMenegement = new BL.BLogic().DataManagement;
-            CategoriesList = new ObservableCollection<Category>();
+            CategoriesList = new List<Category>();
             Filter();
         }
 
