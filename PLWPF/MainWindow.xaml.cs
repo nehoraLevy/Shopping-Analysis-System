@@ -25,14 +25,20 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ShoppingCart sc;
+        public CategoryVM vm;
+        public StoreVM svm = new StoreVM();
         public MainWindow()
         {
             InitializeComponent();
-            CategoryVM vm = new CategoryVM();
-            List<Category> tabItems = new List<Category>();
+            sc = new ShoppingCart();
+            vm = new CategoryVM();
+            svm = new StoreVM();
+
+        List<Category> tabItems = new List<Category>();
             tabItems.AddRange(vm.CategoriesList);
             TabControl1.ItemsSource = tabItems;
-
+            this.stores.ItemsSource = svm.stores.Select(v => v.Name);
             Window test = new test();
             test.Show();
 
@@ -40,7 +46,17 @@ namespace PLWPF
 
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sc.Store = new Store() { Name = this.stores.SelectedItem.ToString() };
+        }
 
+
+        private void calendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            sc.BuyDate = (DateTime)this.date.SelectedDate;
+        }
     }
 }
 

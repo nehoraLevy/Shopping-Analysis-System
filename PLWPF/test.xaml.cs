@@ -27,12 +27,14 @@ namespace PLWPF
             {
                 foreach (var a in v.Products)
                 {
+                    this.item = new MyUserControls.Item();
                     productName.Add(a.Name);
                 }
 
             }
+            
+            //this.item.Name = productName[0];
 
-            //this.productName.Text = productName[1];
         }
     }
 }

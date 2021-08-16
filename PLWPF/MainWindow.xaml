@@ -9,15 +9,17 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
-        <TabControl x:Name="TabControl1" Margin="10,10,10,80">            
+        <TabControl x:Name="TabControl1" Margin="10,10,10,144">            
             <TabControl.ItemContainerStyle>
                 <Style TargetType="{x:Type TabItem}">
                     <Setter Property="Header" Value="{Binding Name}"/>
                 </Style>
             </TabControl.ItemContainerStyle>
         </TabControl>
-        <MyUserControls:Item  HorizontalAlignment="Left" Margin="6,369,0,0" VerticalAlignment="Top" Height="42" Width="603"/>
-        <Image Source="images//milk.png" HorizontalAlignment="Left" Height="32" Margin="119,371,0,0" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="stores" ItemsSource="{Binding}" Margin="44,317,548,75" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Calendar HorizontalAlignment="Left" Margin="451,217,0,0" Width="181" Height="179" VerticalAlignment="Top" x:Name="date" MouseDoubleClick="calendar_MouseDoubleClick" />
+
+
 
     </Grid>
 </Window>

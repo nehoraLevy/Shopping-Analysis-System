@@ -1,4 +1,5 @@
-﻿using PLWPF.ViewModel;
+﻿using BE;
+using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,11 +20,13 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class Item : UserControl
     {
-        public Item()
+        public Product p;
+        public Item()//Product product)
         {
             InitializeComponent();
-
+            //p = product;
             CategoryVM vm = new CategoryVM();
+            ProductVM pvm = new ProductVM();
             List<string> productName = new List<string>();
             List<double> price = new List<double>();
             List<string> images = new List<string>();
@@ -37,15 +40,17 @@ namespace PLWPF.MyUserControls
                 }
                 
             }
-            this.productName.Text = productName[1];
-            this.price.Text = price[0].ToString();
-            this.image.DataContext=images[0];
+            this.productName.Text = pvm.ProductsList[0].Name;
+            this.price.Text = pvm.ProductsList[0].Price.ToString();
+            this.image.DataContext = pvm.ProductsList[0].ImageFileName;
 
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.IntegerUpDown.amount;
+            ProductTransaction pt = new ProductTransaction();
+            pt.Product = p;
+            pt.Amount = this.IntegerUpDown.amount;
         }
     }
 }

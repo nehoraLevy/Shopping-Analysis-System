@@ -4,7 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace HomeEconomicSystem.PL.Model
+namespace PLWPF.Model
 {
     public class TransactionsModel
     {

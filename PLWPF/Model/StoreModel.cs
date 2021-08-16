@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace HomeEconomicSystem.PL.Model
+namespace PLWPF.Model
 {
     public class StoresModel
     {
         IDataManagement _dataManagement;
-        public ObservableCollection<Store> StoresList { get; private set; }
+        public List<Store> StoresList { get; private set; }
         public StoresModel()
         {
             _dataManagement = new BL.BLogic().DataManagement;
-            StoresList = new ObservableCollection<Store>();
+            StoresList = new List<Store>();
             Filter();
         }
 

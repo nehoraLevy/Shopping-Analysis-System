@@ -10,7 +10,7 @@ namespace PLWPF.ViewModel
 {
     public class CategoryVM
     {
-        DataManagement dm = new DataManagement();
+        IDataManagement dm = new DataManagement();
         public List<Category> CategoriesList;
         public CategoryVM()
         {

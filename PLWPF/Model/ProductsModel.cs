@@ -11,7 +11,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 
-namespace PL.Model
+namespace PLWPF.Model
 {
     public class ProductsModel
     {

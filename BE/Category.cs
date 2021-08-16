@@ -24,8 +24,8 @@ namespace BE
         private string _imageFileName;
         public string ImageFileName { get => _imageFileName; set => SetProperty(ref _imageFileName, value); }
 
-        private ICollection<Product> _products;
-        public virtual ICollection<Product> Products { get => _products; set => SetProperty(ref _products, value); }
+        private List<Product> _products;
+        public virtual List<Product> Products { get => _products; set => SetProperty(ref _products, value); }
 
         public Category(Category category)
         {
