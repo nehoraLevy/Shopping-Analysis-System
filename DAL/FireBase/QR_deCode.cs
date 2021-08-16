@@ -42,6 +42,7 @@ namespace DAL.FireBase
             var result = reader.Decode(bitmap);
             Console.WriteLine(result.Text);
             addTOProduct(result.Text,  imagePath);
+            addTOQR(result.Text, imagePath);
             return;
         }
                 
@@ -49,10 +50,9 @@ namespace DAL.FireBase
         {
             string[] str=qrCode.Split(",");
             var db = new DAL.DalFactory().GetDb();
-            if (db.Products.Where(c => c.Name.Contains(str[0]))!=null)
+            if(db.Products.Select(c => c.Name).Contains(str[0]))
                 return;
             db.QRDatas.Add(new BE.QRcode_data { Name = str[0], BarCode = str[1], Id = Int32.Parse(str[2]), Price = Int32.Parse(str[3]), Amount = Int32.Parse(str[3]), StoreName = db.Stores.First()  });
-            addTOProduct(qrCode, imagePath);
             db.SaveChanges();
             return;
 
@@ -61,7 +61,7 @@ namespace DAL.FireBase
         {
             string[] str = qrCode.Split(",");
             var db = new DAL.DalFactory().GetDb();
-            if (db.Products.Where(c => c.Name.Contains(str[0])) != null)
+            if (db.Products.Select(c => c.Name).Contains(str[0]))
                 return;
             db.Products.Add(new BE.Product { Name = str[0], BarCode = str[1], Id = Int32.Parse(str[2]), Price = Int32.Parse(str[3]), AmountPerPiece = Int32.Parse(str[3]), ImageFileName =imagePath });
             db.SaveChanges();
