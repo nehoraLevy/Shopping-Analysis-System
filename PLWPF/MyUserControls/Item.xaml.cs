@@ -42,6 +42,6 @@ namespace PLWPF.MyUserControls
             this.image.DataContext=images[0];
 
         }
-                
+
     }
 }
