@@ -64,6 +64,7 @@ namespace DAL.FireBase
             if (db.Products.Where(c => c.Name.Contains(str[0])) != null)
                 return;
             db.Products.Add(new BE.Product { Name = str[0], BarCode = str[1], Id = Int32.Parse(str[2]), Price = Int32.Parse(str[3]), AmountPerPiece = Int32.Parse(str[3]), ImageFileName =imagePath });
+            db.SaveChanges();
             return;
 
         }

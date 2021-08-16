@@ -13,7 +13,7 @@ namespace DAL_test
         {
 
             //DAL.FireBase.QR_deCode.PictureToFireBase("yoghurt.png");
-            /*DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\alcohogel.png");
+            DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "PLWPF\\images\\alcohogel.png");/*
             DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Apple.png?alt=media&token=340f2876-a4d1-45a3-9b0d-09d4b9f39fee",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\apple.png");
             DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Body%20soap.png?alt=media&token=c2c6c9dc-95e0-4df1-b080-ec4161f4cf54",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\body_soap.png");
             DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Carrot.png?alt=media&token=658425ac-5d62-41e9-b3ee-f76916e0fa4d",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\carrot.png");
