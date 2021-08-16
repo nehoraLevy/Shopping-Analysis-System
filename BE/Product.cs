@@ -17,6 +17,10 @@ namespace BE
         private int _id;
         public int Id { get => _id; set => SetProperty(ref _id, value); }
 
+        private int _amountPerPiece;
+        public int AmountPerPiece { get => _amountPerPiece; set => SetProperty(ref _amountPerPiece, value); }
+
+
         private double _price;
         public double Price { get => _price; set => SetProperty(ref _price, value); }
 
