@@ -22,6 +22,7 @@ namespace PLWPF.MyUserControls
         public IntegerUpDownUserControl()
         {
             InitializeComponent();
+            this.UpDown.Value = 0;
             amount = 0;
             
         }
@@ -29,7 +30,8 @@ namespace PLWPF.MyUserControls
 
         private void IntegerUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            amount = Int32.Parse((string)e.NewValue);
+            amount = (int)e.NewValue;
+            this.UpDown.Value = (int?)e.NewValue;
 
 
         }

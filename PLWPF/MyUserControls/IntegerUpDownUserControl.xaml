@@ -8,6 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <xctk:IntegerUpDown Margin="24,98,621,313" AllowTextInput="True" ValueChanged="IntegerUpDown_ValueChanged"/>
+        <xctk:IntegerUpDown x:Name="UpDown" Margin="5,6,0,0"  AllowTextInput="True" ValueChanged="IntegerUpDown_ValueChanged"/>
     </Grid>
 </UserControl>
