@@ -43,5 +43,9 @@ namespace PLWPF.MyUserControls
 
         }
 
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            //this.IntegerUpDown.amount;
+        }
     }
 }

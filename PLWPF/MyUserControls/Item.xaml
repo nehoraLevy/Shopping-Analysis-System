@@ -11,5 +11,7 @@
         <TextBlock Name="productName" HorizontalAlignment="Left" Margin="305,223,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="197"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="338,287,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBlock x:Name="price" HorizontalAlignment="Left" Margin="121,282,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="68" Width="139"/>
+        <local:IntegerUpDownUserControl x:Name="IntegerUpDown" HorizontalAlignment="Left" Margin="540,153,0,0" VerticalAlignment="Top" Height="49" Width="112"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="158,89,0,0" VerticalAlignment="Top" Height="43" Width="123" Click="addButton_Click"/>
     </Grid>
 </UserControl>

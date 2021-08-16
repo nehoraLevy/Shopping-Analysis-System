@@ -31,7 +31,8 @@ namespace PLWPF
                 }
 
             }
-            this.productName.Text = productName[1];
+
+            //this.productName.Text = productName[1];
         }
     }
 }
