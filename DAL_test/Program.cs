@@ -13,8 +13,8 @@ namespace DAL_test
         {
 
             //DAL.FireBase.QR_deCode.PictureToFireBase("yoghurt.png");
-
-            /* DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\batya\\OneDrive\\שולחן העבודה\\Project\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
+            /*
+             DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\batya\\OneDrive\\שולחן העבודה\\Project\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\levy\\Desktop\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Apple.png?alt=media&token=340f2876-a4d1-45a3-9b0d-09d4b9f39fee",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\apple.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Body%20soap.png?alt=media&token=c2c6c9dc-95e0-4df1-b080-ec4161f4cf54",@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\body_soap.png");
@@ -95,33 +95,118 @@ namespace DAL_test
                  foreach (var i in categories)
                      db.Categories.Add(new BE.Category { Name = i });
                  db.SaveChanges();
-             }
-             Console.WriteLine(db.Categories.Count());
+             }*/
+            //Console.WriteLine(db.Categories.Count());
             var db = new DAL.DalFactory().GetDb();
-            var ct =db.Categories;
-            foreach(var i in ct)
+
+            foreach (var i in db.Categories)
             {
-                if(i.Name== "milk Products")
+                if (i.Name == "milk Products")
                 {
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("milk")).FirstOrDefault());
+                    //i.Products.Select(c => c.Name.Contains("milk")).;
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("butter")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("cottage")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("eggs")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("margarine")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Mozzarella")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Yellow cheese")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("yoghurt")).FirstOrDefault());
+
                 }
                 else if (i.Name == "Fruits and Vegetable")
                 {
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("mango")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Apple")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Carrot")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Grapes")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("melon")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Onion")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("cucumber")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("garlic")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("mango")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("pear")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("pepper")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("tomato")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("watermelon")).FirstOrDefault());
+
                 }
-                if (i.Name == "Fish and Meat")
+                else if (i.Name == "Fish and Meat")
                 {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("chicken")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Mince")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Salomon")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Salomon")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("chicken")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
-                }
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("spring chicken")).FirstOrDefault());
 
-                
-            var db = new DAL.DalFactory().GetDb();
+                }
+                else if (i.Name == "Canned food")
+                {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("coffee")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("honey")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("jam")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("soy sauce")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("tea")).FirstOrDefault());
+
+                }
+                else if (i.Name == "Cooking and Baking")
+                {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Baggt")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("bun")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("pita")).FirstOrDefault());
+
+                }
+                else if (i.Name == "Legumes and sweets ")
+                {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chocolate cake")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Marble cake")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Cookies")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("pasta")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("rice")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("waffle")).FirstOrDefault());
+
+                }
+                else if (i.Name == "Drinks")
+                {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Grape juice")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("orange juice")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("wine")).FirstOrDefault());
+                }
+                else if (i.Name == "Home maintenance and Toiletries ")
+                {
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Alchogel ")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Body soap")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Conditioner ")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Cotton sticks")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Cotton wool")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Deodorant for men")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Deodorant for women")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Face cream")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Facial soap")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Hair cream")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Hand cream")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Hand soap")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Makeup remover")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Masks")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Myslar water")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Perfume for men")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Perfume for women")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Razor blade")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Toilet paper")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Wipes")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("shampoo")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("toothbrush")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("toothpaste")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Gloves")).FirstOrDefault());
+                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Foot cream")).FirstOrDefault());
+                } 
+            }
+            db.SaveChanges();
+
             if (db.Stores.Count() == 0)
             {
                 var stores = new[] { "Rami Levy", "Osher Ad" };
@@ -130,9 +215,8 @@ namespace DAL_test
                 db.SaveChanges();
 
             }
-            */
-        }
-            
+
         }
     }
+}
 
