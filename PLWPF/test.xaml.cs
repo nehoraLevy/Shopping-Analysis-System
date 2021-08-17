@@ -29,7 +29,7 @@ namespace PLWPF
             //StackPanel sp = new StackPanel();
             for (int i=0; i<vm.CategoriesList[0].Products.Count; i++)
             {
-                MyUserControls.Item item = new MyUserControls.Item();
+                MyUserControls.Item item = new MyUserControls.Item(vm.CategoriesList[0].Products[i]);
                 item.Name = "item" + i;
                 sp.Children.Add(item);
             }
