@@ -30,15 +30,13 @@ namespace PLWPF.MyUserControls
             {
                 c = new Category(vm.CategoriesList[0]);
             }
-
-
-
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < c.Products.Count-1; i++)
             {
                 Console.WriteLine(c.Products[i].Name);
                 MyUserControls.Item item = new MyUserControls.Item(c.Products[i]);
                 item.Name = "item" + i;
                 sp.Children.Add(item);
+                
 
             }
             
