@@ -22,7 +22,7 @@ namespace PLWPF
         {
             InitializeComponent();
 
-            MyUserControls.CategoriesItems test = new MyUserControls.CategoriesItems(1);
+            MyUserControls.CategoriesItems test = new MyUserControls.CategoriesItems("Fish and Meat");
         }
     }
 }

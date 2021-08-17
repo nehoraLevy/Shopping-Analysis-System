@@ -31,6 +31,8 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
+            Window test = new test();
+            test.Show();
             sc = new ShoppingCart();
             vm = new CategoryVM();
             svm = new StoreVM();
@@ -39,8 +41,7 @@ namespace PLWPF
             tabItems.AddRange(vm.CategoriesList);
             TabControl1.ItemsSource = tabItems;
             this.stores.ItemsSource = svm.stores.Select(v => v.Name);
-            Window test = new test();
-            test.Show();
+
 
             //CategoryVM vm = new CategoryVM();
             //MyUserControls.Item ucItem; 
@@ -68,6 +69,14 @@ namespace PLWPF
         {
 
             sc.BuyDate = (DateTime)this.date.SelectedDate;
+        }
+
+        private void TabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string name=this.TabControl1.SelectedItem.ToString();
+            MyUserControls.CategoriesItems ci = new MyUserControls.CategoriesItems(name);
+            //to show the products of tha selected category
+ 
         }
     }
 }

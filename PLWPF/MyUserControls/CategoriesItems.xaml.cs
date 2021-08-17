@@ -1,4 +1,5 @@
-﻿using PLWPF.ViewModel;
+﻿using BE;
+using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,21 +20,28 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class CategoriesItems : UserControl
     {
-        public CategoriesItems(int indexCatergory=0)
+        public CategoriesItems(string indexCatergory)
         {
             InitializeComponent();
 
             CategoryVM vm = new CategoryVM();
-            //MyUserControls.Item ucItem; 
-            //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
-
-            //StackPanel sp = new StackPanel();
-            for (int i = 0; i < vm.CategoriesList[indexCatergory].Products.Count; i++)
+            Category c= new Category(vm.CategoriesList.Find(i => i.Name == indexCatergory));
+            if (c == null)
             {
-                MyUserControls.Item item = new MyUserControls.Item(vm.CategoriesList[indexCatergory].Products[i]);
+                c = new Category(vm.CategoriesList[0]);
+            }
+
+
+
+            for (int i = 1; i < 3; i++)
+            {
+                Console.WriteLine(c.Products[i].Name);
+                MyUserControls.Item item = new MyUserControls.Item(c.Products[i]);
                 item.Name = "item" + i;
                 sp.Children.Add(item);
+
             }
+            
         }
     }
 }
