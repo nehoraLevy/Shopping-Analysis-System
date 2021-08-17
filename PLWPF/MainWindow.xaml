@@ -16,7 +16,7 @@
                 </Style>
             </TabControl.ItemContainerStyle>
         </TabControl>
-        <ComboBox Name="stores" ItemsSource="{Binding}" Margin="44,317,548,75" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox Name="stores" ItemsSource="{Binding}"  Margin="44,317,548,75" SelectionChanged="ComboBox_SelectionChanged"/>
         <Calendar HorizontalAlignment="Left" Margin="451,217,0,0" Width="181" Height="179" VerticalAlignment="Top" x:Name="date" MouseDoubleClick="calendar_MouseDoubleClick" />
 
 

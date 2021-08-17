@@ -23,6 +23,8 @@ namespace PLWPF.MyUserControls
         {
             InitializeComponent();
             this.UpDown.Value = 0;
+            this.UpDown.Minimum = 0;
+            this.UpDown.Maximum = 10;
             amount = 0;
             
         }

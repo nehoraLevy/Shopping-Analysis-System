@@ -21,20 +21,18 @@ namespace PLWPF
         public test()
         {
             InitializeComponent();
-            CategoryVM vm = new CategoryVM();
-            List<string> productName = new List<string>();
-            foreach (var v in vm.CategoriesList)
-            {
-                foreach (var a in v.Products)
-                {
-                    this.item = new MyUserControls.Item();
-                    productName.Add(a.Name);
-                }
-
-            }
             
-            //this.item.Name = productName[0];
-
+            CategoryVM vm = new CategoryVM();
+            //MyUserControls.Item ucItem; 
+            //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
+            
+            //StackPanel sp = new StackPanel();
+            for (int i=0; i<vm.CategoriesList[0].Products.Count; i++)
+            {
+                MyUserControls.Item item = new MyUserControls.Item();
+                item.Name = "item" + i;
+                sp.Children.Add(item);
+            }
         }
     }
 }

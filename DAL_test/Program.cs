@@ -95,7 +95,7 @@ namespace DAL_test
                  foreach (var i in categories)
                      db.Categories.Add(new BE.Category { Name = i });
                  db.SaveChanges();
-             }*/
+             }
             //Console.WriteLine(db.Categories.Count());
             var db = new DAL.DalFactory().GetDb();
 
@@ -134,13 +134,8 @@ namespace DAL_test
                 {
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("chicken")).FirstOrDefault());
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Mince")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Salomon")).FirstOrDefault());
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Salomon")).FirstOrDefault());
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("chicken")).FirstOrDefault());
-                    i.Products.Add(db.Products.Where(c => c.Name.Contains("Chicken Breast")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("spring chicken")).FirstOrDefault());
 
                 }
@@ -205,7 +200,9 @@ namespace DAL_test
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Foot cream")).FirstOrDefault());
                 } 
             }
-            db.SaveChanges();
+            db.SaveChanges();*/
+            var db = new DAL.DalFactory().GetDb();
+            Console.WriteLine(db.Categories.First().Products.First().Name);
 
             if (db.Stores.Count() == 0)
             {
