@@ -10,17 +10,40 @@
 
     <Grid>
         <TabControl x:Name="TabControl1" Margin="10,10,10,144">            
-            <TabControl.ItemContainerStyle>
+            <TabControl.Resources>
                 <Style TargetType="{x:Type TabItem}">
                     <Setter Property="Header" Value="{Binding Name}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabItem}">
+                                <Grid x:Name="grid">
+                                    <ScrollViewer>
+                                        <StackPanel x:Name="sp"></StackPanel>
+                                    </ScrollViewer>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Panel.ZIndex" Value="100" />
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="TextElement.Foreground" TargetName="grid" Value="DarkOrange"/>
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect ShadowDepth="0" BlurRadius="4" Color="Blue"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="TextElement.Foreground" Value="Black" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
-            </TabControl.ItemContainerStyle>
+            </TabControl.Resources>
         </TabControl>
         <ComboBox Name="stores" ItemsSource="{Binding}"  Margin="44,317,548,75" SelectionChanged="ComboBox_SelectionChanged"/>
         <Calendar HorizontalAlignment="Left" Margin="451,217,0,0" Width="181" Height="179" VerticalAlignment="Top" x:Name="date" MouseDoubleClick="calendar_MouseDoubleClick" />
-
-
-
     </Grid>
 </Window>
 

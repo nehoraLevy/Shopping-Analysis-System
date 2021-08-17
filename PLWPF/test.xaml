@@ -8,9 +8,5 @@
         mc:Ignorable="d"
         Title="test" Height="450" Width="800">
     <Grid>
-        <ScrollViewer>
-            <StackPanel x:Name="sp"></StackPanel>
-        </ScrollViewer>
-
     </Grid>
 </Window>
