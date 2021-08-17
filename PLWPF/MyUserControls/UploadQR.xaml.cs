@@ -26,7 +26,7 @@ namespace PLWPF.MyUserControls
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Select a picture";
+            op.Title = "Select a QR code that describe your desire product to add to you shopping card";
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
               "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
               "Portable Network Graphic (*.png)|*.png";
