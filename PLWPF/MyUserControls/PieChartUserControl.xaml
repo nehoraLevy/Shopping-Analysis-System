@@ -22,5 +22,12 @@
                 <chart:Axis LabelFormatter="{Binding Formatter}"/>
             </chart:PieChart.AxisY>
         </chart:PieChart>
+
+        <ComboBox x:Name="filterAcoordingToTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="556,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+            <ComboBoxItem Content="day" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
+            <ComboBoxItem Content="week" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
+            <ComboBoxItem Content="month"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+            <ComboBoxItem Content="year"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+        </ComboBox>
     </Grid>
 </UserControl>
