@@ -29,5 +29,12 @@
             <ComboBoxItem Content="month"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
             <ComboBoxItem Content="year"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
         </ComboBox>
+
+        <ComboBox x:Name="filter2" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="202,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+            <ComboBoxItem Content="product" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
+            <ComboBoxItem Content="store" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
+            <ComboBoxItem Content="category"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+            <ComboBoxItem Content="totalCost"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+        </ComboBox>
     </Grid>
 </UserControl>
