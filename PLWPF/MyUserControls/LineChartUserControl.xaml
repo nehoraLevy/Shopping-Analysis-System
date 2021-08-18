@@ -12,7 +12,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="2" Background="White">
             <lvc:CartesianChart x:Name="LineChart" Hoverable="False"  Series="{Binding SeriesLineCollection}" MinHeight="200" MinWidth="400" LegendLocation="Right" >
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="{Binding AxisYTitle}" LabelFormatter="{Binding YFormatter}">
+                    <lvc:Axis ShowLabels="True" Title="{Binding AxisYTitle}" LabelFormatter="{Binding YFormatter}">
                         <lvc:Axis.Separator>
                             <lvc:Separator Step="{Binding StepSeperator}"></lvc:Separator>
                         </lvc:Axis.Separator>

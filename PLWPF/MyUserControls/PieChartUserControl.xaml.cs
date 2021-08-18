@@ -17,6 +17,9 @@ namespace PLWPF.MyUserControls
     /// <summary>
     /// Interaction logic for PieChartUserControl.xaml
     /// </summary>
+    /// 
+    //LabelPoint="{Binding PointLabel}"
+    //DataClick="Chart_OnDataClick"
     public partial class PieChartUserControl : UserControl
     {
         public String Id { get; set; }
