@@ -6,11 +6,11 @@ namespace BE
 {
     public class StoreGraph : BasicGraph
     {
-        private ICollection<Store> _collection;
+        private List<Store> _collection;
         /// <summary>
         /// The items to show graph for
         /// </summary>
-        public virtual ICollection<Store> Stores
+        public virtual List<Store> Stores
 
         { 
             get => _collection; set => SetProperty(ref _collection, value); 

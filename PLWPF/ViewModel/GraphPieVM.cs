@@ -13,8 +13,8 @@ namespace PLWPF.ViewModel
 
         public String Id { get; set; }
         //collection of the data in the pie
-        private ObservableCollection<KeyValuePair<string, float>> _pieCollection;
-        public ObservableCollection<KeyValuePair<string, float>> PieCollection
+        private ObservableCollection<KeyValuePair<string, BE.Category>> _pieCollection;
+        public ObservableCollection<KeyValuePair<string, BE.Category>> PieCollection
         {
             get { return _pieCollection; }
         }
@@ -23,8 +23,8 @@ namespace PLWPF.ViewModel
         {
             graphsModel = new GraphsModel();
             Id = id;
-            _pieCollection = new ObservableCollection<KeyValuePair<string, float>>();
-            filterPie("day", "Category");
+            _pieCollection = new ObservableCollection<KeyValuePair<string, BE.Category>>();
+            filterPie("day", "Category"); //to the change "category"
         }
 
         private String filter;
@@ -47,17 +47,18 @@ namespace PLWPF.ViewModel
 
 
             BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
-            categoryGraph.AmountOrCost = BE.AmountOrCost.Amount;
+            categoryGraph.Categories = new List<BE.Category>();
+            categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
             categoryGraph.GraphType = BE.GraphType.Pie;
-            //categoryGraph.TimeType = time;
-            PieCollection.Add(new KeyValuePair<string, float>("milk Products", categoryGraph.Categories);
-            PieCollection.Add(new KeyValuePair<string, float>("Fruits and Vegetable", categoryGraph.Categories[1]));
-            PieCollection.Add(new KeyValuePair<string, float>("Fish and Meat", categoryGraph.Categories[2]));
-            PieCollection.Add(new KeyValuePair<string, float>("Canned food", categoryGraph.Categories[3]));
-            PieCollection.Add(new KeyValuePair<string, float>("Cooking and Baking", categoryGraph.Categories[4]));
-            PieCollection.Add(new KeyValuePair<string, float>("Legumes and sweets ", categoryGraph.Categories[5]));
-            PieCollection.Add(new KeyValuePair<string, float>("Drinks", categoryGraph.Categories[6]));
-            PieCollection.Add(new KeyValuePair<string, float>("Home maintenance and Toiletries ", categoryGraph.Categories[7]));
+            categoryGraph.TimeType = BE.TimeType.Day; //to change
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("milk Products", categoryGraph.Categories[0]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Fruits and Vegetable", categoryGraph.Categories[1]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Fish and Meat", categoryGraph.Categories[2]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Canned food", categoryGraph.Categories[3]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Cooking and Baking", categoryGraph.Categories[4]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Legumes and sweets ", categoryGraph.Categories[5]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Drinks", categoryGraph.Categories[6]));
+            PieCollection.Add(new KeyValuePair<string, BE.Category>("Home maintenance and Toiletries ", categoryGraph.Categories[7]));
         }
     }
 }

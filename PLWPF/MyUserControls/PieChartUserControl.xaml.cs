@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PLWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,16 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class PieChartUserControl : UserControl
     {
+        public String Id { get; set; }
         public PieChartUserControl()
         {
             InitializeComponent();
+        }
+        public void initProperty(String id)
+        {
+            Id = id;
+            GraphPieVM vm = new GraphPieVM(Id);
+            this.DataContext = vm;
         }
     }
 }

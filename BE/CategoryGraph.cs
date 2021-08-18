@@ -6,11 +6,11 @@ namespace BE
 {
     public class CategoryGraph:BasicGraph
     {
-        private ICollection<Category> _collection;
+        private List<Category> _collection;
         /// <summary>
         /// The items to show graph for.
         /// </summary>
-        public virtual ICollection<Category> Categories 
+        public virtual List<Category> Categories 
         {
             get => _collection; set => SetProperty(ref _collection, value); 
         }
