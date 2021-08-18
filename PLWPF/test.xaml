@@ -7,12 +7,10 @@
         xmlns:MyUserControls="clr-namespace:PLWPF.MyUserControls" 
         x:Class="PLWPF.test"
         mc:Ignorable="d"
-        Title="test" Height="450" Width="800">
+        Title="test" Height="470" Width="400">
     <Grid>
         <Grid>
-            <ScrollViewer>
-                <StackPanel x:Name="sp"></StackPanel>
-            </ScrollViewer>
+            <MyUserControls:UploadQR/>
         </Grid>
     </Grid>
 </Window>

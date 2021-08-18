@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace PLWPF.Model
 {
-    public class TransactionsModel
+    public class ShoppingCartModel
     {
-        IDataManagement _dataManagement;
+        public IDataManagement _dataManagement;
 
         public ObservableCollection<ShoppingCart> shoppingCarts { get; private set; }
 
-        public TransactionsModel()
+        public ShoppingCartModel()
         {
             _dataManagement = new BL.BLogic().DataManagement;
             shoppingCarts = new ObservableCollection<ShoppingCart>();

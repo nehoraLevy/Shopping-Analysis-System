@@ -9,42 +9,24 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
-        <TabControl x:Name="TabControl1" Margin="10,10,10,144" SelectionChanged="TabControl1_SelectionChanged" >            
-            <TabControl.Resources>
-                <Style TargetType="{x:Type TabItem}">
-                    <Setter Property="Header" Value="{Binding Name}"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TabItem}">
-                                <Grid>
-                                    <Border 
-                            Name="Border"
-                            Background="#FF293955"
-                            BorderBrush="LightCyan"/>
-                                    <ContentPresenter x:Name="ContentSite"                                    
-                                VerticalAlignment="Stretch"
-                                HorizontalAlignment="Stretch"
-                                ContentSource="Header"
-                                Margin="12,2,12,2"
-                                RecognizesAccessKey="True"/>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="FontWeight" Value="Bold"/>
-                                        <Setter Property="Foreground" Value="Black"/>
-                                        <Setter Property="Panel.ZIndex" Value="100" />
-                                        <Setter TargetName="Border" Property="Background" Value="LightCyan" />
-                                        <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
-        </TabControl>
-        <ComboBox Name="stores" ItemsSource="{Binding}"  Margin="44,317,548,75" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Calendar HorizontalAlignment="Left" Margin="451,217,0,0" Width="181" Height="179" VerticalAlignment="Top" x:Name="date" MouseDoubleClick="calendar_MouseDoubleClick" />
+        <ScrollViewer>
+            <TabControl Height="450"  Width="782">
+                <TabItem Header="Add Shopping Card">
+                    <Grid Background="#FFE5E5E5">
+                        <MyUserControls:UploadQR />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="See Your Recommended List">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="See Your Statistic">
+                    <Grid Background="#FFE5E5E5">
+                        <MyUserControls:LineChartUserControl />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
+        
     </Grid>
 </Window>
 
