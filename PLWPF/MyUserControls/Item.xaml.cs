@@ -30,18 +30,19 @@ namespace PLWPF.MyUserControls
             List<string> productName = new List<string>();
             List<double> price = new List<double>();
             List<string> images = new List<string>();
-
-            foreach (var a in vm.cm.CategoriesList[0].Products)
+            /*
+            foreach( var a in vm.CategoriesList[0].Products)
             {
                 productName.Add(a.Name);
                 images.Add(a.ImageFileName);
                 price.Add(a.Price);
+             }*/
+            if (p!=null)
+            {
+                this.productName.Text = p.Name;
+                this.price.Text = p.Price.ToString();
+                this.image.DataContext = p.ImageFileName;
             }
-
-            this.productName.Text = p.Name;
-            this.price.Text = p.Price.ToString();
-            this.image.DataContext = p.ImageFileName;
-
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -52,3 +53,4 @@ namespace PLWPF.MyUserControls
         }
     }
 }
+
