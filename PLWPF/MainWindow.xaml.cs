@@ -46,14 +46,14 @@ namespace PLWPF
             //CategoryVM vm = new CategoryVM();
             //MyUserControls.Item ucItem; 
             //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
-
+            /*
             StackPanel sp = new StackPanel();
             for (int i = 0; i < vm.CategoriesList[0].Products.Count; i++)
             {
                 MyUserControls.Item item = new MyUserControls.Item(vm.CategoriesList[0].Products[i]);
                 item.Name = "item" + i;
                 sp.Children.Add(item);
-            }
+            }*/
 
 
 
@@ -74,7 +74,7 @@ namespace PLWPF
         private void TabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string name=this.TabControl1.SelectedItem.ToString();
-            MyUserControls.CategoriesItems ci = new MyUserControls.CategoriesItems(name);
+            //MyUserControls.CategoriesItems ci = new MyUserControls.CategoriesItems(name);
             //to show the products of tha selected category
  
         }

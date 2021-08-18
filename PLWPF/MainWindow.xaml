@@ -13,6 +13,33 @@
             <TabControl.Resources>
                 <Style TargetType="{x:Type TabItem}">
                     <Setter Property="Header" Value="{Binding Name}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabItem}">
+                                <Grid>
+                                    <Border 
+                            Name="Border"
+                            Background="#FF293955"
+                            BorderBrush="LightCyan"/>
+                                    <ContentPresenter x:Name="ContentSite"                                    
+                                VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                ContentSource="Header"
+                                Margin="12,2,12,2"
+                                RecognizesAccessKey="True"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Panel.ZIndex" Value="100" />
+                                        <Setter TargetName="Border" Property="Background" Value="LightCyan" />
+                                        <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </TabControl.Resources>
         </TabControl>

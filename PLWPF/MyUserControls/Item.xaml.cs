@@ -21,7 +21,8 @@ namespace PLWPF.MyUserControls
     public partial class Item : UserControl
     {
         public Product p;
-        public Item(Product product =null)
+       
+        public Item(Product product)
         {
             InitializeComponent();
             p = product;
@@ -30,19 +31,35 @@ namespace PLWPF.MyUserControls
             List<string> productName = new List<string>();
             List<double> price = new List<double>();
             List<string> images = new List<string>();
+            this.productName.Text = p.Name;
+            this.price.Text = p.Price.ToString();
+            this.image.DataContext = p.ImageFileName;
             /*
-            foreach( var a in vm.CategoriesList[0].Products)
-            {
-                productName.Add(a.Name);
-                images.Add(a.ImageFileName);
-                price.Add(a.Price);
-             }*/
-            if (p!=null)
-            {
-                this.productName.Text = p.Name;
-                this.price.Text = p.Price.ToString();
-                this.image.DataContext = p.ImageFileName;
-            }
+            foreach (var v in vm.CategoriesList)
+
+                foreach (var a in vm.CategoriesList[0].Products)
+                {
+                    foreach (var a in v.Products)
+                    {
+                        productName.Add(a.Name);
+                        images.Add(a.ImageFileName);
+                        price.Add(a.Price);
+                    }
+
+                }
+
+            this.productName.Text = pvm.ProductsList[0].Name;
+            this.price.Text = pvm.ProductsList[0].Price.ToString();
+            this.image.DataContext = pvm.ProductsList[0].ImageFileName;
+            
+
+            
+            productName.Add(a.Name);
+            images.Add(a.ImageFileName);
+            price.Add(a.Price);
+            }*/
+
+
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -53,3 +70,4 @@ namespace PLWPF.MyUserControls
         }
     }
 }
+

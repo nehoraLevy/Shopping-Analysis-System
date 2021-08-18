@@ -20,12 +20,19 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class CategoriesItems : UserControl
     {
-        public CategoriesItems(string indexCatergory)
+        public static DependencyProperty indexCategoryProperty = DependencyProperty.Register("indexCategory", typeof(string), typeof(CategoriesItems));
+
+        public string indexCategory
+        {
+            get { return (string)GetValue(indexCategoryProperty); }
+            set { SetValue(indexCategoryProperty, value); }
+        }
+        public CategoriesItems()
         {
             InitializeComponent();
-
+            /*
             CategoryVM vm = new CategoryVM();
-            Category c= new Category(vm.CategoriesList.Find(i => i.Name == indexCatergory));
+            Category c= new Category(vm.CategoriesList.Find(i => i.Name == indexCategory));
             if (c == null)
             {
                 c = new Category(vm.CategoriesList[0]);
@@ -33,13 +40,15 @@ namespace PLWPF.MyUserControls
             for (int i = 1; i < c.Products.Count-1; i++)
             {
                 Console.WriteLine(c.Products[i].Name);
-                MyUserControls.Item item = new MyUserControls.Item(c.Products[i]);
+                MyUserControls.Item item = new MyUserControls.Item();
+                item.product = c.Products[i];
                 item.Name = "item" + i;
                 sp.Children.Add(item);
                 
 
-            }
+            }*/
             
         }
+
     }
 }
