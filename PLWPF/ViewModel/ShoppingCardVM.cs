@@ -6,5 +6,6 @@ namespace PLWPF.ViewModel
 {
     class ShoppingCardVM
     {
+        ShoppingCard
     }
 }
