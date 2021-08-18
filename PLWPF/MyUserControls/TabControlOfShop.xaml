@@ -22,6 +22,48 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tab3" Header="Fish and Meat">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_3"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab4" Header="Canned food">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_4"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab5" Header="Cooking and Baking">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_5"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab6" Header="Legumes and sweets ">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_6"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab7" Header="Drinks">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_7"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab8" Header="Home maintenance and Toiletries ">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel x:Name="sp_8"></StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>

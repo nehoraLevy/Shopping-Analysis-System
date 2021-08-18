@@ -99,7 +99,7 @@ namespace DAL_test
             //Console.WriteLine(db.Categories.Count());
             foreach (var i in db.Categories)
             {
-                /*if (i.Name == "milk Products")
+                if (i.Name == "milk Products")
                 {
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("milk")).FirstOrDefault());
                     //i.Products.Select(c => c.Name.Contains("milk")).;
@@ -196,11 +196,10 @@ namespace DAL_test
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("toothpaste")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Gloves")).FirstOrDefault());
                     i.Products.Add(db.Products.Where(c => c.Name.Contains("Foot cream")).FirstOrDefault());
-                }*/
+                }
             }
             db.SaveChanges();
-            Console.WriteLine(db.Categories.First().Products.First().Name);
-
+            //Console.WriteLine(db.Categories.First().Products.First().Name);
             if (db.Stores.Count() == 0)
             {
                 var stores = new[] { "Rami Levy", "Osher Ad" };
