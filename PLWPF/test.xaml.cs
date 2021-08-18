@@ -20,8 +20,10 @@ namespace PLWPF
     {
         public test()
         {
+            //ShoppingCard sh=
             InitializeComponent();
-
+            MyUserControls.UploadQR qr = new MyUserControls.UploadQR();
+            qr.Name = "qrUpload";
             MyUserControls.CategoriesItems test = new MyUserControls.CategoriesItems("Fish and Meat");
         }
     }

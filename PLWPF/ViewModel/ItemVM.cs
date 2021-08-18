@@ -1,4 +1,5 @@
 ﻿using BE;
+using PLWPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,16 +8,15 @@ namespace PLWPF.ViewModel
 {
     public class ItemVM
     {
-        public List<Product> productList;
-        BL.BLogic bl;
+        ProductsModel pm;
 
         public ItemVM(Category c)
         {
-            bl = new BL.BLogic();
+            pm = new ProductsModel();
 
             foreach (var v in c.Products)
             {
-                productList.Add(v);
+                pm.ProductsList.Add(v);
             }
 
         }

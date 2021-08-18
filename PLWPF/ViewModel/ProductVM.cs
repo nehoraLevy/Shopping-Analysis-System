@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using PLWPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,13 @@ namespace PLWPF.ViewModel
 {
     public class ProductVM
     {
+        public ProductsModel model;
 
-        DataManagement dm = new DataManagement();
-        public List<Product> ProductsList;
+        
         public ProductVM()
         {
-            ProductsList = dm.GetProducts().ToList();
+            model = new ProductsModel();
+            
         }
     }
 }

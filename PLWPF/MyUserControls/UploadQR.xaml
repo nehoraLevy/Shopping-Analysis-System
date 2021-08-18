@@ -5,18 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLWPF.MyUserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Margin="58,0,0,0" HorizontalAlignment="Left" Width="532">
         <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="30*" />
-        <ColumnDefinition Width="349*" />
-        <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="0*" />
         </Grid.ColumnDefinitions>
-        <Image Margin="12,12,16,71" Name="imgPhoto"
+        <Image Margin="12,12,512,351" Name="imgPhoto"
         Stretch="Fill" Grid.Column="1" />
-        <Button Height="23" HorizontalAlignment="Left"
-        Margin="12,0,0,34" Name="btnLoad" VerticalAlignment="Bottom"
-        Width="75" Grid.Column="1" Click="btnLoad_Click">_Load</Button>
+        <Button Height="24" HorizontalAlignment="Left"
+        Margin="70,0,0,33" Name="btnLoad" VerticalAlignment="Bottom"
+        Width="142" Grid.Column="1" Click="btnLoad_Click">Load</Button>
+        <Button Height="24" HorizontalAlignment="Left"
+        Margin="272,0,0,33" Name="btnAdd" VerticalAlignment="Bottom"
+        Width="141" Grid.Column="1" Click="btnAdd_Click" >Add</Button>
+        <Image Margin="223,44,49,186" x:Name="imgPhoto_Copy"
+            Stretch="Fill" Grid.Column="1" RenderTransformOrigin="0.543,0.523" />
+        <Image Margin="78,239,320,85" x:Name="qrPhoto_Copy"
+            Stretch="Fill" Grid.Column="1" />
+        <TextBox Grid.Column="1" Name="ProductPrice" HorizontalAlignment="Left" Margin="293,323,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox Grid.Column="1" Name="ProductName" HorizontalAlignment="Left" Margin="293,271,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,24,0,0" Text="load a QRcode to add to your shopping card" TextWrapping="Wrap" IsReadOnly = "True" BorderBrush="#00000000" VerticalAlignment="Top" Width="294" Grid.Column="1" />
+
+
+
 
 
     </Grid>

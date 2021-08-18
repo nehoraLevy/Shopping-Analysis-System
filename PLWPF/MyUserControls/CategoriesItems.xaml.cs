@@ -25,10 +25,10 @@ namespace PLWPF.MyUserControls
             InitializeComponent();
 
             CategoryVM vm = new CategoryVM();
-            Category c= new Category(vm.CategoriesList.Find(i => i.Name == indexCatergory));
+            Category c= new Category(vm.cm.CategoriesList.Find(i => i.Name == indexCatergory));
             if (c == null)
             {
-                c = new Category(vm.CategoriesList[0]);
+                c = new Category(vm.cm.CategoriesList[0]);
             }
             for (int i = 1; i < c.Products.Count-1; i++)
             {

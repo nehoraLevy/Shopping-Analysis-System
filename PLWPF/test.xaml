@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="test" Height="450" Width="800">
     <Grid>
-        <MyUserControls:UploadQR/>
+       <MyUserControls:UploadQR />
     </Grid>
 </Window>

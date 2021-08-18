@@ -3,16 +3,34 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using ZXing;
 
 namespace BL
 {
     public class DataManagement:IDataManagement
     {
         private IDb _db;
-        
+        public static string qrDecode(string downloadUrl)
+        {
+
+            string imageUrl = downloadUrl;
+            // Install-Package ZXing.Net -Version 0.16.5
+            var client = new WebClient();
+            var stream = client.OpenRead(imageUrl);
+            if (stream == null) return "";
+            var bitmap = new Bitmap(stream);
+            BarcodeReader reader = new BarcodeReader();
+            var result = reader.Decode(bitmap);
+            Console.WriteLine(result.Text);
+            return result.Text.Split(",")[0];
+        }
+
+
 
         public DataManagement()
         {
@@ -22,7 +40,7 @@ namespace BL
 
         public IEnumerable<Product> GetProducts(string str="")
         {
-            IEnumerable <Product>  prod= _db.Products.Where(c => c.Name.Contains(str));
+           // IEnumerable <Product>  prod= _db.Products.Where(c => c.Name.Contains(str));
             return _db.Products.Where(c => c.Name.Contains(str));
         }
 

@@ -25,7 +25,7 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ShoppingCart sc;
+        public ShoppingCart sc;//check if he need to be static
         public CategoryVM vm;
         public StoreVM svm = new StoreVM();
         public MainWindow()
@@ -38,7 +38,7 @@ namespace PLWPF
             svm = new StoreVM();
 
         List<Category> tabItems = new List<Category>();
-            tabItems.AddRange(vm.CategoriesList);
+            tabItems.AddRange(vm.cm.CategoriesList);
             TabControl1.ItemsSource = tabItems;
             this.stores.ItemsSource = svm.stores.Select(v => v.Name);
 
@@ -48,9 +48,9 @@ namespace PLWPF
             //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
 
             StackPanel sp = new StackPanel();
-            for (int i = 0; i < vm.CategoriesList[0].Products.Count; i++)
+            for (int i = 0; i < vm.cm.CategoriesList[0].Products.Count; i++)
             {
-                MyUserControls.Item item = new MyUserControls.Item(vm.CategoriesList[0].Products[i]);
+                MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
                 item.Name = "item" + i;
                 sp.Children.Add(item);
             }

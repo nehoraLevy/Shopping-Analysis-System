@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using PLWPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,12 +11,11 @@ namespace PLWPF.ViewModel
 {
     public class CategoryVM
     {
-        IDataManagement dm = new DataManagement();
-        public List<Category> CategoriesList;
+        
+        public CategoriesModel cm;
         public CategoryVM()
         {
-            CategoriesList = dm.GetCategories().ToList();
-            //List<String> a = Categories.Select(t => t.Name).ToList();
+            cm = new CategoriesModel();
         }
     }
 }
