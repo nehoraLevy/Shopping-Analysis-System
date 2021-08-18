@@ -31,7 +31,7 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
-            Window test = new Window1();
+            Window test = new test();
             test.Show();
             sc = new ShoppingCart();
             vm = new CategoryVM();
