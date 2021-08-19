@@ -34,8 +34,6 @@ namespace PLWPF.MyUserControls
         {
             amount = (int)e.NewValue;
             this.UpDown.Value = (int?)e.NewValue;
-
-
         }
     }
 }
