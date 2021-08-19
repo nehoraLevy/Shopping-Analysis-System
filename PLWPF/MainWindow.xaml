@@ -20,7 +20,7 @@
                 </TabItem>
                 <TabItem Header="See Your Statistic" FontSize="10">
                     <Grid Background="#FFE5E5E5">
-                        <MyUserControls:LineChartUserControl />
+                        <MyUserControls:PieChartUserControl/>
                     </Grid>
                 </TabItem>
 

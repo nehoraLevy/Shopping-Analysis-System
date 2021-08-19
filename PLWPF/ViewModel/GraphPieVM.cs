@@ -14,6 +14,8 @@ namespace PLWPF.ViewModel
         public GraphsModel graphsModel;
         public CategoryVM categoryVM = new CategoryVM();
         public ShoppingCardVM shoppingCardVM = new ShoppingCardVM();
+
+        public ShoppingCartModel scm;
         public String Id { get; set; }
         //collection of the data in the pie
         private SeriesCollection _pieCollection;
@@ -45,8 +47,8 @@ namespace PLWPF.ViewModel
             List<ChartValues<double>> values = new List<ChartValues<double>>();
             int counterRami = 1;
             int counterOsher = 2;
-
-            foreach (var v in ShoppingCartModel.)
+            scm = new ShoppingCartModel();
+            foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
                 if (v.Store.Name.Contains("Rami Levy"))
                 {

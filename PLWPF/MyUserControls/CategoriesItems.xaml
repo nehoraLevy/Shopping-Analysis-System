@@ -19,7 +19,6 @@
                 </TabItem>
                 <TabItem Header="See Your Statistic">
                     <Grid Background="#FFE5E5E5">
-                        <local:LineChartUserControl />
                     </Grid>
                 </TabItem>
             </TabControl>
