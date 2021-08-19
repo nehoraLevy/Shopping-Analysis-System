@@ -6,15 +6,14 @@ using System.Text;
 
 namespace PLWPF.ViewModel
 {
-    class ShoppingCardVM
+    public class ShoppingCardVM
     {
-        ShoppingCartModel sc ;
-        ShoppingCart shoppingCart;
-        ShoppingCardVM()
+        public ShoppingCartModel sc ;
+        public ShoppingCart shoppingCart;
+        public ShoppingCardVM()
         {
             sc = new ShoppingCartModel();
             shoppingCart = new ShoppingCart();
-
         }
 
     }

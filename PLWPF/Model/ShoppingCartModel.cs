@@ -1,6 +1,7 @@
 ﻿using BE;
 using BL;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -10,12 +11,13 @@ namespace PLWPF.Model
     {
         public IDataManagement _dataManagement;
 
-        public ObservableCollection<ShoppingCart> shoppingCarts { get; private set; }
+        public static List<ShoppingCart> shoppingCarts { get; private set; }
 
-        public ShoppingCartModel()
+        public ShoppingCartModel()  
         {
+            if (shoppingCarts == null)
+                shoppingCarts = new List<ShoppingCart>();
             _dataManagement = new BL.BLogic().DataManagement;
-            shoppingCarts = new ObservableCollection<ShoppingCart>();
             Filter();
         }
 

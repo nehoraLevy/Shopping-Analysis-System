@@ -6,27 +6,33 @@
         xmlns:local="clr-namespace:PLWPF" xmlns:be="clr-namespace:BE;assembly=BE" xmlns:System="clr-namespace:System;assembly=System.Runtime" xmlns:MyUserControls="clr-namespace:PLWPF.MyUserControls" x:Class="PLWPF.MainWindow"
         d:DataContext="{d:DesignInstance Type={x:Type be:Category}}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="350">
 
     <Grid>
         <ScrollViewer>
-            <TabControl Height="450"  Width="782">
-                <TabItem Header="Add Shopping Card">
-                    <Grid Background="#FFE5E5E5">
-                        <MyUserControls:UploadQR />
+            <TabControl Height="450"  Width="350">
+                <TabItem Header="Add Shopping Card" FontSize="10">
+                    <Grid Background="#FFE5E5E5" Margin="-10,0,-1,0">
+
+                        <DatePicker Name="date" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top"/>
+                        <ComboBox Name="store" HorizontalAlignment="Left" Margin="20,198,0,0" VerticalAlignment="Top" Width="90"/>
+                        <TextBox HorizontalAlignment="Left" Margin="20,53,0,0" Text="Welcome to your Shopping Analysis site" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="253"/>
+                        <TextBox HorizontalAlignment="Left" Margin="19,106,0,0" Text="Plese select a day and a store to add a shopping card" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" RenderTransformOrigin="0.516,3.394"/>
+                        <Button Content="Next add your product by qrCode" HorizontalAlignment="Left" Margin="23,278,0,0" VerticalAlignment="Top" Click="Button_Click_QR" Width="217"/>
+                        <Button Content="Next add your product by selection product" HorizontalAlignment="Left" Margin="25,319,0,0" VerticalAlignment="Top" Click="Button_Click_SC" Width="217"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="See Your Recommended List">
+                <TabItem Header="See Your Recommended List" FontSize="10">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
-                <TabItem Header="See Your Statistic">
+                <TabItem Header="See Your Statistic" FontSize="10">
                     <Grid Background="#FFE5E5E5">
                         <MyUserControls:LineChartUserControl />
                     </Grid>
                 </TabItem>
             </TabControl>
         </ScrollViewer>
-        
+
     </Grid>
 </Window>
 

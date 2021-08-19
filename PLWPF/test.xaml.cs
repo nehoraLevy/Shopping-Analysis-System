@@ -25,8 +25,8 @@ namespace PLWPF
             {
                 MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
                 item.Name = "item" + i;
-                //sp.Children.Add(item);
+                //sp.Children.Add(item);*/
             }
         }
     }
-}
+

@@ -25,12 +25,29 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        StoreVM storevm;
 
         public MainWindow()
         {
             InitializeComponent();
+            storevm = new StoreVM();
+            MyUserControls.TabControlOfShop tc = new MyUserControls.TabControlOfShop();
+            this.store.ItemsSource = storevm.store.StoresList.Select(t => t.Name);
         }
 
+        private void Button_Click_QR(object sender, RoutedEventArgs e)
+        {
+            ShoppingCardVM scVM = new ShoppingCardVM();
+            scVM.shoppingCart.Store = storevm.store.StoresList.Where(t=>t.Name==(String)this.store.SelectedItem).FirstOrDefault();
+            scVM.shoppingCart.BuyDate = (DateTime)this.date.SelectedDate;
+        }
+
+        private void Button_Click_SC(object sender, RoutedEventArgs e)
+        {
+            ShoppingCardVM scVM = new ShoppingCardVM();
+            scVM.shoppingCart.Store = storevm.store.StoresList.Where(t => t.Name == (String)this.store.SelectedItem).FirstOrDefault();
+            scVM.shoppingCart.BuyDate = (DateTime)this.date.SelectedDate;
+        }
     }
 }
 
