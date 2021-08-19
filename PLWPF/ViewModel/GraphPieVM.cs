@@ -1,4 +1,6 @@
-﻿using PLWPF.Model;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using PLWPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,11 +12,12 @@ namespace PLWPF.ViewModel
     {
 
         public GraphsModel graphsModel;
-
+        public CategoryVM categoryVM = new CategoryVM();
+        public ShoppingCardVM shoppingCardVM = new ShoppingCardVM();
         public String Id { get; set; }
         //collection of the data in the pie
-        private ObservableCollection<KeyValuePair<string, BE.Category>> _pieCollection;
-        public ObservableCollection<KeyValuePair<string, BE.Category>> PieCollection
+        private SeriesCollection _pieCollection;
+        public SeriesCollection PieCollection
         {
             get { return _pieCollection; }
         }
@@ -23,7 +26,7 @@ namespace PLWPF.ViewModel
         {
             graphsModel = new GraphsModel();
             Id = id;
-            _pieCollection = new ObservableCollection<KeyValuePair<string, BE.Category>>();
+            
             filterPie("day", "Category"); //to the change "category"
         }
 
@@ -34,31 +37,134 @@ namespace PLWPF.ViewModel
             set
             {
                 filter = value;
-                filterPie(Filter, "Category");
+                filterPie(Filter, "Category"); //to change 
             }
         }
-        private void filterPie(String time, string filter)
+        public void filterPie(String time, string filter)
         {
-            int counter = PieCollection.Count;
-            for (int i = counter; i > 0; i--)
+            List<ChartValues<double>> values = new List<ChartValues<double>>();
+            int counterRami = 1;
+            int counterOsher = 2;
+
+            foreach (var v in ShoppingCartModel.shoppingCarts)
             {
-                PieCollection.Remove(PieCollection[i - 1]);
+                if (v.Store.Name.Contains("Rami Levy"))
+                {
+                    counterRami += 1;
+                }
+                else if(v.Store.Name.Contains("Osher Ad"))
+                {
+                    counterOsher += 1;
+                }
             }
+            values.Add(new ChartValues<double> { counterRami });
+            values.Add(new ChartValues<double> { counterOsher });
+
+            _pieCollection = new SeriesCollection
+            {
+                new PieSeries
+                {
+                    Title = "Rami Levy",
+                    Values = values[0],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Osher Ad",
+                    Values = values[1],
+                    DataLabels = true,
+                }
+            };
+            /*
+            values.Add(new ChartValues<double> { 3 });
+            values.Add(new ChartValues<double> { 6 });
+            values.Add(new ChartValues<double> { 4 });
+            values.Add(new ChartValues<double> { 9 });
+            values.Add(new ChartValues<double> { 22 });
+            values.Add(new ChartValues<double> { 13 });
+            values.Add(new ChartValues<double> { 2 });
+            values.Add(new ChartValues<double> { 3 });*/
+            /*
+            foreach (var v in ShoppingCartModel.shoppingCarts)
+            {
+                foreach( var pt in v.ProductTransactions)
+                {
+                    pt.Product.Category.Name.Contains("")
+                }
 
 
+            }*/
+            
+            /*
+            _pieCollection = new SeriesCollection
+            {
+                new PieSeries
+                {
+                    Title = "Milk Products",
+                    Values = values[0],
+                    PushOut = 15,
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Fruits and Vegetable",
+                    Values = values[1],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Fish and Meat",
+                    Values = values[2],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Canned food",
+                    Values = values[3],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Cooking and Baking",
+                    Values = values[4],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Legumes and sweets ",
+                    Values = values[5],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Drinks",
+                    Values = values[6],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Home maintenance and Toiletries ",
+                    Values = values[7],
+                    DataLabels = true,
+                }
+            };*/
+
+            /*
             BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
-            categoryGraph.Categories = new List<BE.Category>();
+            categoryGraph.Id = 7;
+            categoryGraph.Categories =categoryVM.cm.CategoriesList;
+            categoryGraph.Description = "stam";
+            categoryGraph.Title = "test pie";
+            categoryGraph.EndDate = DateTime.MinValue;
+            categoryGraph.StartDate = DateTime.Now;
+            categoryGraph.PastTimeAmount = 7;
             categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
             categoryGraph.GraphType = BE.GraphType.Pie;
-            categoryGraph.TimeType = BE.TimeType.Day; //to change
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("milk Products", categoryGraph.Categories[0]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Fruits and Vegetable", categoryGraph.Categories[1]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Fish and Meat", categoryGraph.Categories[2]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Canned food", categoryGraph.Categories[3]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Cooking and Baking", categoryGraph.Categories[4]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Legumes and sweets ", categoryGraph.Categories[5]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Drinks", categoryGraph.Categories[6]));
-            PieCollection.Add(new KeyValuePair<string, BE.Category>("Home maintenance and Toiletries ", categoryGraph.Categories[7]));
+            categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);
+
+            //graphsModel.AddGraph(categoryGraph);
+            */
+
         }
     }
 }

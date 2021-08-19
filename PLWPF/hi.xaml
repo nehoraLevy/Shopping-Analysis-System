@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
-        xmlns:MyUserControls="clr-namespace:PLWPF.MyUserControls" 
-        x:Class="PLWPF.test"
+        xmlns:MyUserControls="clr-namespace:PLWPF.MyUserControls" x:Class="PLWPF.hi"
         mc:Ignorable="d"
-        Title="test" Height="470" Width="400">
+        Title="hi" Height="450" Width="800">
     <Grid>
         <MyUserControls:UploadQR></MyUserControls:UploadQR>
+
+        <MyUserControls:PieChartStore/>
 
     </Grid>
 </Window>
