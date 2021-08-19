@@ -37,6 +37,8 @@ namespace PLWPF.MyUserControls
             sc = new ShoppingCart();
             sc.ProductTransactions = new List<ProductTransaction>();
             product = new Product();
+            MyUserControls.IntegerUpDownUserControl uc = new IntegerUpDownUserControl();
+
             uc.Visibility = (Visibility)1;
 
         }

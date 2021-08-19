@@ -17,6 +17,7 @@ namespace PLWPF.ViewModel
         public String Id { get; set; }
         //collection of the data in the pie
         private SeriesCollection _pieCollection;
+        public ShoppingCartModel scm;
         public SeriesCollection PieCollection
         {
             get { return _pieCollection; }
@@ -26,8 +27,8 @@ namespace PLWPF.ViewModel
         {
             graphsModel = new GraphsModel();
             Id = id;
-            
-            filterPie("day", "Category"); //to the change "category"
+
+            filterPiebyStores("day", "Category"); //to the change "category"
         }
 
         private String filter;
@@ -37,22 +38,22 @@ namespace PLWPF.ViewModel
             set
             {
                 filter = value;
-                filterPie(Filter, "Category"); //to change 
+                filterPiebyStores(Filter, "Store"); //to change 
             }
         }
-        public void filterPie(String time, string filter)
+        public void filterPiebyStores(String time, string filter)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterRami = 1;
-            int counterOsher = 2;
-
-            foreach (var v in ShoppingCartModel.shoppingCarts)
+            int counterRami = 0;
+            int counterOsher = 0;
+            scm = new ShoppingCartModel();
+            foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
                 if (v.Store.Name.Contains("Rami Levy"))
                 {
                     counterRami += 1;
                 }
-                else if(v.Store.Name.Contains("Osher Ad"))
+                else if (v.Store.Name.Contains("Osher Ad"))
                 {
                     counterOsher += 1;
                 }
@@ -75,7 +76,6 @@ namespace PLWPF.ViewModel
                     DataLabels = true,
                 }
             };
-            /*
             values.Add(new ChartValues<double> { 3 });
             values.Add(new ChartValues<double> { 6 });
             values.Add(new ChartValues<double> { 4 });
@@ -83,26 +83,90 @@ namespace PLWPF.ViewModel
             values.Add(new ChartValues<double> { 22 });
             values.Add(new ChartValues<double> { 13 });
             values.Add(new ChartValues<double> { 2 });
-            values.Add(new ChartValues<double> { 3 });*/
-            /*
-            foreach (var v in ShoppingCartModel.shoppingCarts)
+            values.Add(new ChartValues<double> { 3 });
+        }
+
+
+
+
+
+        public void filterPiebyCategories(String time, string filter)
+        {
+            List<ChartValues<double>> values = new List<ChartValues<double>>();
+            int counterMilk = 0;
+            int counterFruit = 0;
+            int counterFish = 0;
+            int counterCanned = 0;
+            int counterCooking = 0;
+            int countersweets = 0;
+            int counterDrinks = 0;
+            int counterToiletery = 0;
+            scm = new ShoppingCartModel();
+            foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
-                foreach( var pt in v.ProductTransactions)
+                foreach (var p in v.ProductTransactions)
                 {
-                    pt.Product.Category.Name.Contains("")
+                    foreach (var t in scm._dataManagement.GetCategories())
+                    {
+                        if (t.Name == "milk Products")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterMilk += 1;
+                        }
+                        else if (t.Name == "Fruits and Vegetable")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterFruit += 1;
+                        }
+                        else if (t.Name == "Fish and Meat")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterFish += 1;
+                        }
+                        else if (t.Name == "Canned food")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterCanned += 1;
+                        }
+                        else if (t.Name == "Cooking and Baking")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterCooking += 1;
+                        }
+                        else if (t.Name == "Legumes and sweets ")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                countersweets += 1;
+                        }
+                        else if (t.Name == "Drinks")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterDrinks += 1;
+                        }
+                        else if (t.Name == "Home maintenance and Toiletries ")
+                        {
+                            if (t.Products.Contains(p.Product))
+                                counterToiletery += 1;
+                        }
+                    }
+
                 }
 
+                values.Add(new ChartValues<double> { counterMilk });
+                values.Add(new ChartValues<double> { counterFruit });
+                values.Add(new ChartValues<double> { counterFish });
+                values.Add(new ChartValues<double> { counterCanned });
+                values.Add(new ChartValues<double> { counterCooking });
+                values.Add(new ChartValues<double> { countersweets });
+                values.Add(new ChartValues<double> { counterDrinks });
+                values.Add(new ChartValues<double> { counterToiletery });
 
-            }*/
-            
-            /*
-            _pieCollection = new SeriesCollection
+                _pieCollection = new SeriesCollection
             {
                 new PieSeries
                 {
-                    Title = "Milk Products",
+                    Title = "milk Products",
                     Values = values[0],
-                    PushOut = 15,
                     DataLabels = true,
                 },
                 new PieSeries
@@ -147,24 +211,25 @@ namespace PLWPF.ViewModel
                     Values = values[7],
                     DataLabels = true,
                 }
-            };*/
+            };
 
-            /*
-            BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
-            categoryGraph.Id = 7;
-            categoryGraph.Categories =categoryVM.cm.CategoriesList;
-            categoryGraph.Description = "stam";
-            categoryGraph.Title = "test pie";
-            categoryGraph.EndDate = DateTime.MinValue;
-            categoryGraph.StartDate = DateTime.Now;
-            categoryGraph.PastTimeAmount = 7;
-            categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
-            categoryGraph.GraphType = BE.GraphType.Pie;
-            categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);
+                BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
+                categoryGraph.Id = 7;
+                categoryGraph.Categories = categoryVM.cm.CategoriesList;
+                categoryGraph.Description = "stam";
+                categoryGraph.Title = "test pie";
+                categoryGraph.EndDate = DateTime.MinValue;
+                categoryGraph.StartDate = DateTime.Now;
+                categoryGraph.PastTimeAmount = 7;
+                categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
+                categoryGraph.GraphType = BE.GraphType.Pie;
+                categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);
 
-            //graphsModel.AddGraph(categoryGraph);
-            */
+                //graphsModel.AddGraph(categoryGraph);
 
+
+            }
         }
     }
 }
+
