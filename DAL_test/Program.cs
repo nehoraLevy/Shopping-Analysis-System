@@ -12,9 +12,9 @@ namespace DAL_test
         static void Main(string[] args)
         {
 
-            //DAL.FireBase.QR_deCode.PictureToFireBase("yoghurt.png");
+            /*/DAL.FireBase.QR_deCode.PictureToFireBase("yoghurt.png");
             
-             /*DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\levy\\Desktop\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
+             DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\levy\\Desktop\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Alchogel.png?alt=media&token=61a8d2be-8523-4900-a634-3b6532ff7e2a", "C:\\Users\\levy\\Desktop\\Shopping_project_final\\PLWPF\\images\\alcohogel.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Apple.png?alt=media&token=340f2876-a4d1-45a3-9b0d-09d4b9f39fee",@"C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\apple.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Body%20soap.png?alt=media&token=c2c6c9dc-95e0-4df1-b080-ec4161f4cf54",@"C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\body_soap.png");
@@ -82,7 +82,7 @@ namespace DAL_test
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/yoghurt.png?alt=media&token=a64b14dc-d11b-407b-9b35-8b69705abdb5",@"C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\yaourt.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Gloves.png?alt=media&token=d0c7649c-d16d-4f00-ad09-7824d6c034ae",@"C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\gloves.png");
              DAL.FireBase.QR_deCode.showDetails("https://firebasestorage.googleapis.com/v0/b/shoppingprojectfinal.appspot.com/o/Foot%20cream.png?alt=media&token=42a8f962-0160-4428-92fa-ded06a6af8e7",@"C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\foot_cream.png");
-             */
+             
 
              
              //DAL.FireBase.QR_deCode.showDetails("");
@@ -207,8 +207,9 @@ namespace DAL_test
                     db.Stores.Add(new BE.Store { Name = s });
                 db.SaveChanges();
 
-            }
-            Console.ReadLine();
+            }*/
+
+
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using PLWPF.ViewModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -16,17 +17,21 @@ namespace PLWPF
             InitializeComponent();
 
             CategoryVM vm = new CategoryVM();
-            //MyUserControls.Item ucItem; 
-            //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
 
-            //StackPanel sp = new StackPanel();
-            /*
-            for (int i = 0; i < vm.cm.CategoriesList[0].Products.Count; i++)
             {
-                MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
-                item.Name = "item" + i;
-                sp.Children.Add(item);
-            }*/
+               /* Dictionary<string, int> PieChartSeriesCollection .Add( new PieSeries { Title = $"{pair.Value} ({pair.Key})", Values = new ChartValues<int> { pair.Value }, DataLabels = true }); }
+               MyUserControls.Item ucItem; 
+               this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
+               */
+                StackPanel sp = new StackPanel();
+                
+                for (int i = 0; i < vm.cm.CategoriesList[0].Products.Count; i++)
+                {
+                    MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
+                    item.Name = "item" + i;
+                    sp.Children.Add(item);
+                }
+            }
         }
     }
 }

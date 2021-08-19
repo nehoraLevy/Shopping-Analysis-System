@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PLWPF.ViewModel
 {
-    class ShoppingCardVM
+    public class ShoppingCardVM
     {
         
     }

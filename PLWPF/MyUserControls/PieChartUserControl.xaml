@@ -7,32 +7,28 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#FFCFD6E4"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <lvc:PieChart LegendLocation="Bottom"  Hoverable="False" DataTooltip="{x:Null}">
-            <lvc:PieChart.Series>
-                <lvc:PieSeries Title="Milk Products" Values="3" DataLabels="True"/>
-                <lvc:PieSeries Title="Fruits and Vegetable" Values="2" DataLabels="True"/>
-                <lvc:PieSeries Title="Fish and Meat" Values="4" DataLabels="True"/>
-                <lvc:PieSeries Title="Canned food" Values="6" DataLabels="True"/>
-                <lvc:PieSeries Title="Cooking and Baking" Values="2" DataLabels="True"/>
-                <lvc:PieSeries Title="Legumes and sweets " Values="3" DataLabels="True"/>
-                <lvc:PieSeries Title="Drinks" Values="6" DataLabels="True"/>
-                <lvc:PieSeries Title="Home maintenance and Toiletries " Values="7" DataLabels="True"/>
-            </lvc:PieChart.Series>
+        <lvc:PieChart Name="Pie" LegendLocation="Right"  Hoverable="False" DataTooltip="{x:Null}">
         </lvc:PieChart>
 
-        <ComboBox x:Name="filterAcoordingToTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="556,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
-            <ComboBoxItem Content="day" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"/>
-            <ComboBoxItem Content="week" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
-            <ComboBoxItem Content="month"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
-            <ComboBoxItem Content="year"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+        <ComboBox x:Name="filterAcoordingToTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="526,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+            <ComboBoxItem Content="day"/>
+            <ComboBoxItem Content="week" />
+            <ComboBoxItem Content="month"/>
         </ComboBox>
 
-        <ComboBox x:Name="filter2" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="122,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
-            <ComboBoxItem Content="Product" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
-            <ComboBoxItem Content="Store" Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print"  />
-            <ComboBoxItem Content="Category"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
-            <ComboBoxItem Content="TotalCost"  Background="#FFCFD6E4"  FontStyle="Italic" FontFamily="Segoe Print" />
+        <ComboBox x:Name="filter2" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="668,22,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+            <ComboBoxItem Content="Product"/>
+            <ComboBoxItem Content="Store"/>
+            <ComboBoxItem Content="Category"/>
+            <ComboBoxItem Content="TotalCost"/>
         </ComboBox>
     </Grid>
 </UserControl>
