@@ -43,6 +43,39 @@ namespace PLWPF.ViewModel
         public void filterPie(String time, string filter)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
+            int counterRami = 1;
+            int counterOsher = 2;
+
+            foreach (var v in ShoppingCartModel.shoppingCarts)
+            {
+                if (v.Store.Name.Contains("Rami Levy"))
+                {
+                    counterRami += 1;
+                }
+                else if(v.Store.Name.Contains("Osher Ad"))
+                {
+                    counterOsher += 1;
+                }
+            }
+            values.Add(new ChartValues<double> { counterRami });
+            values.Add(new ChartValues<double> { counterOsher });
+
+            _pieCollection = new SeriesCollection
+            {
+                new PieSeries
+                {
+                    Title = "Rami Levy",
+                    Values = values[0],
+                    DataLabels = true,
+                },
+                new PieSeries
+                {
+                    Title = "Osher Ad",
+                    Values = values[1],
+                    DataLabels = true,
+                }
+            };
+            /*
             values.Add(new ChartValues<double> { 3 });
             values.Add(new ChartValues<double> { 6 });
             values.Add(new ChartValues<double> { 4 });
@@ -50,10 +83,19 @@ namespace PLWPF.ViewModel
             values.Add(new ChartValues<double> { 22 });
             values.Add(new ChartValues<double> { 13 });
             values.Add(new ChartValues<double> { 2 });
-            values.Add(new ChartValues<double> { 3 });
+            values.Add(new ChartValues<double> { 3 });*/
+            /*
+            foreach (var v in ShoppingCartModel.shoppingCarts)
+            {
+                foreach( var pt in v.ProductTransactions)
+                {
+                    pt.Product.Category.Name.Contains("")
+                }
 
+
+            }*/
             
-
+            /*
             _pieCollection = new SeriesCollection
             {
                 new PieSeries
@@ -105,7 +147,7 @@ namespace PLWPF.ViewModel
                     Values = values[7],
                     DataLabels = true,
                 }
-            };
+            };*/
 
             /*
             BE.CategoryGraph categoryGraph = new BE.CategoryGraph();

@@ -1,9 +1,7 @@
-﻿using System;
+﻿using PLWPF.ViewModel;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,28 +11,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BL;
-using BE;
-using PLWPF.Model;
-using PLWPF.ViewModel;
 
-namespace PLWPF
+namespace PLWPF.MyUserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PieChartStore.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PieChartStore : UserControl
     {
-        public MainWindow()
+        public String Id { get; set; }
+        public PieChartStore()
         {
             InitializeComponent();
-            Window hi = new hi();
-            //this.Hide();
-            hi.Show();
-            
+            GraphPieVM vm = new GraphPieVM(Id);
+            this.Pie.Series = vm.PieCollection;
         }
-
-
     }
 }
-
