@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PLWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,12 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class LineChartUserControl : UserControl
     {
+        public String Id { get; set; }
         public LineChartUserControl()
         {
             InitializeComponent();
+            GraphLineVM vm = new GraphLineVM(Id);
+            this.LineChart.Series = vm.LineCollection;
         }
     }
 }

@@ -46,7 +46,7 @@ namespace PLWPF.ViewModel
             int counterRami = 1;
             int counterOsher = 2;
 
-            foreach (var v in ShoppingCartModel.shoppingCarts)
+            foreach (var v in ShoppingCartModel.)
             {
                 if (v.Store.Name.Contains("Rami Levy"))
                 {
