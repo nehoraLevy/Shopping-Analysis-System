@@ -185,7 +185,7 @@ namespace BL
 
         public void AddShoppingCart(ShoppingCart s)
         {
-            if (_db.ShoppingCarts.Where(c => c.Id == s.Id) != null)
+            if (_db.ShoppingCarts.Where(c => c.Id == s.Id).Count() != 0)
                 throw (new ArgumentException("the ShoppingCart already exists."));
 
             if (s.Id == null) //|| s.Name == null

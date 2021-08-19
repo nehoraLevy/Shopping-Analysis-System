@@ -5,30 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLWPF.MyUserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="375">
-    <Grid HorizontalAlignment="Center" Width="375">
+             d:DesignHeight="450" Width="521">
+    <Grid HorizontalAlignment="Center" Width="521">
 
 
         <Image Margin="12,12,512,351" Name="imgPhoto"
         Stretch="Fill"  />
         <Button Height="24" HorizontalAlignment="Left"
-        Margin="57,0,0,23" Name="btnLoad" VerticalAlignment="Bottom"
-        Width="97" Click="btnLoad_Click">Load</Button>
+        Margin="25,0,0,23" Name="btnLoad" VerticalAlignment="Bottom"
+        Width="82" Click="btnLoad_Click">Load</Button>
         <Button Height="24" HorizontalAlignment="Left"
-        Margin="259,0,0,23" Name="btnAdd" VerticalAlignment="Bottom"
-        Width="97" Click="btnAdd_Click" >Add</Button>
-        <Image Margin="30,260,207,0" x:Name="imgPhoto_Copy"
-            Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="124" VerticalAlignment="Top" />
-        <Image Margin="62,36,60,177" x:Name="qrPhoto_Copy"
+        Margin="204,403,0,0" Name="btnAdd" VerticalAlignment="Top"
+        Width="56" Click="btnAdd_Click" >Add</Button>
+        <Image Margin="28,236,366,0" x:Name="imgPhoto_Copy"
+            Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="98" VerticalAlignment="Top" />
+        <Image Margin="62,36,195,208" x:Name="qrPhoto_Copy"
             Stretch="Fill" />
-        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="212,342,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="212,311,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="50,10,0,0" Text="load a QRcode to add to your shopping card" TextWrapping="Wrap" IsReadOnly = "True" BorderBrush="#00000000" VerticalAlignment="Top" Width="294" />
-        <local:IntegerUpDownUserControl x:Name="uc" HorizontalAlignment="Left" Margin="254,359,0,0" VerticalAlignment="Top"/>
 
 
 
 
-
+        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="54,369,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="17"/>
+        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="80,335,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="17"/>
+        <TextBox HorizontalAlignment="Left" Margin="14,10,0,0" Text="load a QRcode" TextWrapping="Wrap" IsReadOnly = "True" BorderBrush="#00000000" VerticalAlignment="Top" Width="93" Height="25" />
+        <local:IntegerUpDownUserControl x:Name="uc" HorizontalAlignment="Left" Margin="13,328,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="date" HorizontalAlignment="Left" Margin="200,334,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="store" HorizontalAlignment="Left" Margin="178,371,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="128,406,0,0" VerticalAlignment="Top" Height="22" Width="56" Click="Button_Click_1"/>
     </Grid>
 </UserControl>

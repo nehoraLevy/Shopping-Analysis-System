@@ -7,16 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Commands\**" />
     <Compile Remove="Converters\**" />
     <Compile Remove="View\**" />
-    <EmbeddedResource Remove="Commands\**" />
     <EmbeddedResource Remove="Converters\**" />
     <EmbeddedResource Remove="View\**" />
-    <None Remove="Commands\**" />
     <None Remove="Converters\**" />
     <None Remove="View\**" />
-    <Page Remove="Commands\**" />
     <Page Remove="Converters\**" />
     <Page Remove="View\**" />
   </ItemGroup>

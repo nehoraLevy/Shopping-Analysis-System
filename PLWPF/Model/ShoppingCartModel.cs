@@ -11,21 +11,16 @@ namespace PLWPF.Model
     {
         public IDataManagement _dataManagement;
 
-        public static List<ShoppingCart> shoppingCarts { get; private set; }
+       
 
         public ShoppingCartModel()  
         {
-            if (shoppingCarts == null)
-                shoppingCarts = new List<ShoppingCart>();
+
             _dataManagement = new BL.BLogic().DataManagement;
-            Filter();
+            
         }
 
-        public void Filter(DateTime? startDate = null, DateTime? endDate = null)
-        {
-            shoppingCarts.Clear();
-            _dataManagement.GetShoppingCarts(startDate, endDate).ToList().ForEach(t => shoppingCarts.Add(t));
-        }
+
 
         public void Add(ShoppingCart shoppingCart)
         {

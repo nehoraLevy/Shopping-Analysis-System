@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,11 +23,17 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class UploadQR : UserControl
     {
-        public static ShoppingCart sc;
+        public ShoppingCart sc;
         public Product product;
+        public ShoppingCardVM shoppingcVM;
+        public static int num=0;
+        public StoreVM stores;
         public UploadQR()
         {
             InitializeComponent();
+            stores = new StoreVM();
+            this.store.ItemsSource = stores.store.StoresList.Select(t => t.Name); ;
+            shoppingcVM = new ShoppingCardVM();
             sc = new ShoppingCart();
             sc.ProductTransactions = new List<ProductTransaction>();
             product = new Product();
@@ -49,10 +56,9 @@ namespace PLWPF.MyUserControls
                 product= products.Find(i => i.Name == DataManagement.qrDecode(path));
                 if (product != null)
                 {
-
-
-                    this.qrPhoto_Copy.Source = new BitmapImage(new Uri(path));
                     this.imgPhoto_Copy.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
+                    this.qrPhoto_Copy.Source = new BitmapImage(new Uri(path));
+                    this.imgPhoto.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
                     this.ProductName.Text = product.Name;
                     this.ProductPrice.Text = "Unit price: "+product.Price.ToString() + "$";
                 }
@@ -69,9 +75,19 @@ namespace PLWPF.MyUserControls
             pt.Product = product;
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;
-
+            sc.ProductTransactions.Add(pt);
+            sc.Id = ++num;
         }
 
-        
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            float price = 0;
+            foreach (var i in sc.ProductTransactions)
+                price += i.Amount * i.UnitPrice;
+            sc.TotalPrice = price;
+            shoppingcVM.sc.Add(sc);
+        }
     }
 }
