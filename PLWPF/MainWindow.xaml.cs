@@ -25,58 +25,28 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ShoppingCart sc;//check if he need to be static
-        public CategoryVM vm;
-        public StoreVM svm = new StoreVM();
+        StoreVM storevm;
+
         public MainWindow()
         {
             InitializeComponent();
-            Window test = new test();
-            test.Show();
-            sc = new ShoppingCart();
-            vm = new CategoryVM();
-            svm = new StoreVM();
-
-        List<Category> tabItems = new List<Category>();
-            tabItems.AddRange(vm.cm.CategoriesList);
-            TabControl1.ItemsSource = tabItems;
-            this.stores.ItemsSource = svm.stores.Select(v => v.Name);
-
-
-            //CategoryVM vm = new CategoryVM();
-            //MyUserControls.Item ucItem; 
-            //this.itemsControl.ItemsSource = vm.CategoriesList[1].Products;
-            /*
-            StackPanel sp = new StackPanel();
-            for (int i = 0; i < vm.cm.CategoriesList[0].Products.Count; i++)
-            {
-                MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
-                item.Name = "item" + i;
-                sp.Children.Add(item);
-            }*/
-
-
-
+            storevm = new StoreVM();
+            MyUserControls.TabControlOfShop tc = new MyUserControls.TabControlOfShop();
+            this.store.ItemsSource = storevm.store.StoresList.Select(t => t.Name);
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click_QR(object sender, RoutedEventArgs e)
         {
-            sc.Store = new Store() { Name = this.stores.SelectedItem.ToString() };
+            ShoppingCardVM scVM = new ShoppingCardVM();
+            scVM.shoppingCart.Store = storevm.store.StoresList.Where(t=>t.Name==(String)this.store.SelectedItem).FirstOrDefault();
+            scVM.shoppingCart.BuyDate = (DateTime)this.date.SelectedDate;
         }
 
-
-        private void calendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Button_Click_SC(object sender, RoutedEventArgs e)
         {
-
-            sc.BuyDate = (DateTime)this.date.SelectedDate;
-        }
-
-        private void TabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string name=this.TabControl1.SelectedItem.ToString();
-            //MyUserControls.CategoriesItems ci = new MyUserControls.CategoriesItems(name);
-            //to show the products of tha selected category
- 
+            ShoppingCardVM scVM = new ShoppingCardVM();
+            scVM.shoppingCart.Store = storevm.store.StoresList.Where(t => t.Name == (String)this.store.SelectedItem).FirstOrDefault();
+            scVM.shoppingCart.BuyDate = (DateTime)this.date.SelectedDate;
         }
     }
 }

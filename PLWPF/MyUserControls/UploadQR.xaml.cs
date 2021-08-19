@@ -22,14 +22,22 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class UploadQR : UserControl
     {
+        public static ShoppingCart sc;
+        public Product product;
         public UploadQR()
         {
             InitializeComponent();
+            sc = new ShoppingCart();
+            sc.ProductTransactions = new List<ProductTransaction>();
+            product = new Product();
+            uc.Visibility = (Visibility)1;
+
         }
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             ProductVM pvm = new ProductVM();
             List<Product> products = pvm.model.ProductsList;
+            uc.Visibility = (Visibility)0;
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a QR code that describe your desire product to add to you shopping card";
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
@@ -38,12 +46,16 @@ namespace PLWPF.MyUserControls
             if (op.ShowDialog() == true)
             {
                 string path = op.FileName;
-                Product product= products.Find(i => i.Name == DataManagement.qrDecode(path));
+                product= products.Find(i => i.Name == DataManagement.qrDecode(path));
+                if (product != null)
+                {
 
-                this.qrPhoto_Copy.Source = new BitmapImage(new Uri(path));
-                this.imgPhoto_Copy.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
-                this.ProductName.Text = product.Name;
-                this.ProductPrice.Text = product.Price.ToString()+"$";
+
+                    this.qrPhoto_Copy.Source = new BitmapImage(new Uri(path));
+                    this.imgPhoto_Copy.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
+                    this.ProductName.Text = product.Name;
+                    this.ProductPrice.Text = "Unit price: "+product.Price.ToString() + "$";
+                }
                 
             }
 
@@ -51,7 +63,12 @@ namespace PLWPF.MyUserControls
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //להוסיף פריט לעגלה 
+            ProductTransaction pt = new ProductTransaction();
+            int amount = this.uc.amount;
+            pt.Amount = amount;
+            pt.Product = product;
+            sc.ProductTransactions.Add(pt);
+            pt.shoppingCart = sc;
 
         }
 

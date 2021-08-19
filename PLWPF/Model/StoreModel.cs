@@ -17,7 +17,7 @@ namespace PLWPF.Model
         public StoresModel()
         {
             _dataManagement = new BL.BLogic().DataManagement;
-            StoresList = new List<Store>();
+            StoresList = new List<Store>(_dataManagement.GetStores());
             Filter();
         }
 
