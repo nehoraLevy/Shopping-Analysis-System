@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="hi" Height="450" Width="800">
     <Grid>
-        <MyUserControls:PdfRecommendedListUC/>
+        <MyUserControls:TabControlOfShop/>
 
     </Grid>
 </Window>
