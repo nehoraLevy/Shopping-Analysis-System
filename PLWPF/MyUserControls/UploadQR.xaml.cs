@@ -92,7 +92,7 @@ namespace PLWPF.MyUserControls
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            float price = 0;
+            double price = 0;
             foreach (var i in sc.ProductTransactions)
                 price += i.Amount * i.UnitPrice;
             sc.TotalPrice = price;

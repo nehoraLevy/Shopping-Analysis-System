@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,9 @@ namespace DAL.EntityFramework
 {
     class CreateDB: DbContext, IDb
     {
-        public CreateDB() : base()
+        public CreateDB() : base("CreateDB")
         {
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CreateDB>());
         }
         IDbCollection<QRcode_data> IDb.QRDatas => new DbSetCollection<QRcode_data>(QRDatas);
 
@@ -63,12 +65,13 @@ namespace DAL.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>()
                 .HasIndex(p => p.Id)
                 .IsUnique();
 
-            
 
             modelBuilder.Entity<Store>()
                 .HasIndex(p => p.Name)
