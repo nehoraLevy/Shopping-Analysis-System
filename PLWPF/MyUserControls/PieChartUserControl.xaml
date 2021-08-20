@@ -18,17 +18,17 @@
         <lvc:PieChart Name="Pie" LegendLocation="Right"  Hoverable="False" DataTooltip="{x:Null}">
         </lvc:PieChart>
 
-        <ComboBox x:Name="filterTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="252,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+        <ComboBox x:Name="filterTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="252,23,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="day"/>
             <ComboBoxItem Content="week" />
             <ComboBoxItem Content="month"/>
         </ComboBox>
 
-        <ComboBox x:Name="filterProduct" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="406,22,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+        <ComboBox x:Name="filterProduct" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Store" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="406,22,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Filter, Mode=TwoWay}">
             <ComboBoxItem Content="Store"/>
             <ComboBoxItem Content="Category"/>
             <ComboBoxItem Content="TotalCost"/>
         </ComboBox>
-        <Button Content="Apply" HorizontalAlignment="Left" Margin="526,79,0,0" VerticalAlignment="Top" Height="26" Width="66" Click="Button_Click"/>
+        <Button Content="Apply" HorizontalAlignment="Left" Margin="526,79,0,0" VerticalAlignment="Top" Height="26" Width="66" Click="Button_Click_Apply"/>
     </Grid>
 </UserControl>

@@ -31,12 +31,8 @@ namespace PLWPF.MyUserControls
         {
             InitializeComponent();
             vm = new GraphPieVM(Id);
+            this.DataContext = vm;
             this.Pie.Series = vm.PieCollection;
-
-            //Pie.Series 
-
-
-
         }
         public void initProperty(String id)
         {
@@ -44,19 +40,17 @@ namespace PLWPF.MyUserControls
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Apply(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem cbi = (ComboBoxItem)filterProduct.SelectedItem;
-            string sortedBy = cbi.Content.ToString();
-            cbi = (ComboBoxItem)filterTime.SelectedItem;
-            string dateBy = cbi.Content.ToString();
+            //ComboBoxItem cbi = (ComboBoxItem)filterProduct.SelectedItem;
+            string sortedBy = filterProduct.SelectedItem.ToString();
+            //cbi = (ComboBoxItem)filterTime.SelectedItem;
+            string dateBy = filterTime.SelectedItem.ToString();
             if (sortedBy == "Store")
                 vm.filterPiebyStores(dateBy);
             if (sortedBy == "Category")
                 vm.filterPiebyCategories(dateBy);
             this.Pie.Series = vm.PieCollection;
-
-
         }
     }
 }

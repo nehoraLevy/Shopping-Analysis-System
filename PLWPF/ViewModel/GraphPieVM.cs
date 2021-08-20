@@ -28,24 +28,35 @@ namespace PLWPF.ViewModel
         {
             graphsModel = new GraphsModel();
             Id = id;
-
         }
 
-        private String filterStore;
-        public String FilterStore
+        private String filter;
+        public String Filter
         {
-            get { return filterStore; }
+            get { return filter; }
             set
             {
-                filterStore = value;
-                filterPiebyStores(FilterStore); //to change 
+                filter = value;
+                filterPie(Filter);
             }
         }
+
+        private void filterPie(string filter)
+        {
+            string[] _filter = filter.Split(' ');
+            String filter1 = _filter[1];
+            if (filter1 == "Category")
+            {
+                filterPiebyCategories("day");
+            }
+            filterPiebyStores("day");
+        }
+
         public void filterPiebyStores(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterRami = 0;
-            int counterOsher = 0;
+            int counterRami = 1;
+            int counterOsher = 2;
             DateTime start= DateTime.Now;
             DateTime end= DateTime.Now;
             if(time=="day")
@@ -63,6 +74,7 @@ namespace PLWPF.ViewModel
                 start = DateTime.Now.AddMonths(-1);
                 end = DateTime.Now;
             }
+            /*
             scm = new ShoppingCartModel();
             foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
@@ -70,11 +82,11 @@ namespace PLWPF.ViewModel
                 {
                     counterRami += 1;
                 }
-                else if (v.Store.Name.Contains("Osher Ad") && v.BuyDate >= start && v.BuyDate <= end)
+                else if (v.Store.Name.Contains("Osher Ad")&& v.BuyDate >= start && v.BuyDate <= end)
                 {
                     counterOsher += 1;
                 }
-            }
+            }*/
             values.Add(new ChartValues<double> { counterRami });
             values.Add(new ChartValues<double> { counterOsher });
 
@@ -93,17 +105,7 @@ namespace PLWPF.ViewModel
                     DataLabels = true,
                 }
             };
-            values.Add(new ChartValues<double> { 3 });
-            values.Add(new ChartValues<double> { 6 });
-            values.Add(new ChartValues<double> { 4 });
-            values.Add(new ChartValues<double> { 9 });
-            values.Add(new ChartValues<double> { 22 });
-            values.Add(new ChartValues<double> { 13 });
-            values.Add(new ChartValues<double> { 2 });
-            values.Add(new ChartValues<double> { 3 });
         }
-
-
 
 
 
@@ -195,7 +197,7 @@ namespace PLWPF.ViewModel
                 values.Add(new ChartValues<double> { counterDrinks });
                 values.Add(new ChartValues<double> { counterToiletery });
 
-                _pieCollection = new SeriesCollection
+            _pieCollection = new SeriesCollection
             {
                 new PieSeries
                 {
@@ -246,7 +248,7 @@ namespace PLWPF.ViewModel
                     DataLabels = true,
                 }
             };
-
+                /*
                 BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
                 categoryGraph.Id = 7;
                 categoryGraph.Categories = categoryVM.cm.CategoriesList;
@@ -258,7 +260,7 @@ namespace PLWPF.ViewModel
                 categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
                 categoryGraph.GraphType = BE.GraphType.Pie;
                 categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);
-
+                */
                 //graphsModel.AddGraph(categoryGraph);
 
 
