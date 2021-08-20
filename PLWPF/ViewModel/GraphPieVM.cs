@@ -248,8 +248,8 @@ namespace PLWPF.ViewModel
                     DataLabels = true,
                 }
             };
-                /*
-                BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
+
+                /*BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
                 categoryGraph.Id = 7;
                 categoryGraph.Categories = categoryVM.cm.CategoriesList;
                 categoryGraph.Description = "stam";
