@@ -22,13 +22,15 @@ namespace PLWPF.MyUserControls
     /// 
     //LabelPoint="{Binding PointLabel}"
     //DataClick="Chart_OnDataClick"
+   
     public partial class PieChartUserControl : UserControl
     {
+        GraphPieVM vm;
         public String Id { get; set; }
         public PieChartUserControl()
         {
             InitializeComponent();
-            GraphPieVM vm = new GraphPieVM(Id);
+            vm = new GraphPieVM(Id);
             this.Pie.Series = vm.PieCollection;
 
             //Pie.Series 
@@ -39,6 +41,21 @@ namespace PLWPF.MyUserControls
         public void initProperty(String id)
         {
             Id = id;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem cbi = (ComboBoxItem)filterProduct.SelectedItem;
+            string sortedBy = cbi.Content.ToString();
+            cbi = (ComboBoxItem)filterTime.SelectedItem;
+            string dateBy = cbi.Content.ToString();
+            if (sortedBy == "Store")
+                vm.filterPiebyStores(dateBy);
+            if (sortedBy == "Category")
+                vm.filterPiebyCategories(dateBy);
+            this.Pie.Series = vm.PieCollection;
+
 
         }
     }

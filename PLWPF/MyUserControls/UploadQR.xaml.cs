@@ -74,7 +74,9 @@ namespace PLWPF.MyUserControls
             ProductTransaction pt = new ProductTransaction();
             int amount = this.uc.amount;
             pt.Amount = amount;
+            
             pt.Product = product;
+            sc.BuyDate = this.date.SelectedDate.Value;
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;
             sc.ProductTransactions.Add(pt);
