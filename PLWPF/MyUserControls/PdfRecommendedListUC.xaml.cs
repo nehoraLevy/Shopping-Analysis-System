@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PLWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,18 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class PdfRecommendedListUC : UserControl
     {
+        PdfRecommendedVM vm;
         public PdfRecommendedListUC()
         {
             InitializeComponent();
+            vm= new PdfRecommendedVM(); 
         }
+
+        private void CreatePdf2Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.associationModel.CreateShopingListRecommendation("pdf");
+
+        }
+
     }
 }

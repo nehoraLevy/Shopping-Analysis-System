@@ -18,10 +18,12 @@ using Syncfusion.Pdf.Graphics;
 //using Syncfusion.Pdf.Tables;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Tables;
+using System.Runtime.Serialization;
 
 namespace BL.associationRules
 {
-    internal class AssociationProductAnalysis: IAssociationProductAnalysis
+    [Serializable()]
+    internal class AssociationProductAnalysis: IAssociationProductAnalysis,  ISerializable
     {
 
         private IDb _db;
@@ -171,6 +173,11 @@ namespace BL.associationRules
                 dataset.Add(transactionBarCodes);
             }
             return dataset.ToArray();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

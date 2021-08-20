@@ -8,8 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <Button Grid.Column="0" x:Name="CreatePdfButton" Content="Recommend Stores (PDF)" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="241" Command="{Binding CreatePDFStores}"  />
-        <Button Grid.Column="1" x:Name="CreatePdf2Button" Content="Recommend Days (PDF)" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="224" Command="{Binding CreatePDFDays}"  />
+        <Button x:Name="CreatePdf2Button" Content="Recommend Days (PDF)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="224" Click="CreatePdf2Button_Click" />
 
     </Grid>
 </UserControl>
