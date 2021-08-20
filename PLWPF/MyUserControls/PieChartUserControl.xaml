@@ -18,16 +18,16 @@
         <lvc:PieChart Name="Pie" LegendLocation="Right"  Hoverable="False" DataTooltip="{x:Null}">
         </lvc:PieChart>
 
-        <ComboBox x:Name="filterAcoordingToTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="526,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+        <ComboBox x:Name="filterAcoordingToTime" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="day" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="252,23,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
             <ComboBoxItem Content="day"/>
             <ComboBoxItem Content="week" />
             <ComboBoxItem Content="month"/>
         </ComboBox>
 
-        <ComboBox x:Name="filter2" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="668,22,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
-            <ComboBoxItem Content="Product"/>
-            <ComboBoxItem Content="Store"/>
-            <ComboBoxItem Content="Category"/>
+        <ComboBox x:Name="filter2" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Product" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="406,22,0,0" VerticalAlignment="Top" Width="120"  SelectedItem="{Binding Filter, Mode=TwoWay}" >
+            <ComboBoxItem Content="Product" />
+            <ComboBoxItem Content="Store" IsSelected="{Binding FilterStore}"/>
+            <ComboBoxItem Content="Category"  IsSelected="{Binding Filter}"/>
             <ComboBoxItem Content="TotalCost"/>
         </ComboBox>
     </Grid>

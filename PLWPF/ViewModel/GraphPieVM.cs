@@ -19,7 +19,6 @@ namespace PLWPF.ViewModel
         public String Id { get; set; }
         //collection of the data in the pie
         private SeriesCollection _pieCollection;
-        public ShoppingCartModel scm;
         public SeriesCollection PieCollection
         {
             get { return _pieCollection; }
@@ -40,7 +39,18 @@ namespace PLWPF.ViewModel
             set
             {
                 filter = value;
-                filterPiebyStores(Filter, "Store"); //to change 
+                filterPiebyCategories(Filter, "Category"); 
+            }
+        }
+
+        private String filterStore;
+        public String FilterStore
+        {
+            get { return filterStore; }
+            set
+            {
+                filterStore = value;
+                filterPiebyStores(FilterStore, "Store"); //to change 
             }
         }
         public void filterPiebyStores(String time, string filter)

@@ -10,7 +10,6 @@
     <Grid>
         <MyUserControls:UploadQR></MyUserControls:UploadQR>
 
-        <MyUserControls:PieChartStore/>
-
+       
     </Grid>
 </Window>
