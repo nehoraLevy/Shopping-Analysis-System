@@ -74,7 +74,6 @@ namespace PLWPF.MyUserControls
             ProductTransaction pt = new ProductTransaction();
             int amount = this.uc.amount;
             pt.Amount = amount;
-            
             pt.Product = product;
             sc.BuyDate = this.date.SelectedDate.Value;
             sc.ProductTransactions.Add(pt);
@@ -87,7 +86,7 @@ namespace PLWPF.MyUserControls
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            float price = 0;
+            double price = 0;
             foreach (var i in sc.ProductTransactions)
                 price += i.Amount * i.UnitPrice;
             sc.TotalPrice = price;
