@@ -26,7 +26,7 @@ namespace PLWPF.MyUserControls
         public ShoppingCart sc;
         public Product product;
         public ShoppingCardVM shoppingcVM;
-        public static int num=0;
+        
         public StoreVM stores;
         public UploadQR()
         {
@@ -74,13 +74,18 @@ namespace PLWPF.MyUserControls
             ProductTransaction pt = new ProductTransaction();
             int amount = this.uc.amount;
             pt.Amount = amount;
-            
             pt.Product = product;
             sc.BuyDate = this.date.SelectedDate.Value;
+            string s=store.SelectedItem.ToString();
+            string[] _time = s.Split(' ');
+            String sortedBy = _time[1];
+
+            sc.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;
             sc.ProductTransactions.Add(pt);
-            sc.Id = ++num;
+            sc.Id = shoppingcVM.sc.num;
+            MessageBox.Show("the products add to the shopping cart succefully");
         }
 
 
@@ -92,6 +97,7 @@ namespace PLWPF.MyUserControls
                 price += i.Amount * i.UnitPrice;
             sc.TotalPrice = price;
             shoppingcVM.sc.Add(sc);
+            MessageBox.Show("the shopping cart added succefully");
         }
     }
 }

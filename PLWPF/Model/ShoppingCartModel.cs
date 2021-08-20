@@ -10,13 +10,15 @@ namespace PLWPF.Model
     public class ShoppingCartModel
     {
         public IDataManagement _dataManagement;
-
+        
+        public int num;
        
 
         public ShoppingCartModel()  
         {
+            num =BE.Num.num++;
 
-            _dataManagement = new BL.BLogic().DataManagement;
+        _dataManagement = new BL.BLogic().DataManagement;
             
         }
 

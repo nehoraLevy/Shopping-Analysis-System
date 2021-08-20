@@ -44,8 +44,8 @@ namespace PLWPF.ViewModel
         public void filterPiebyStores(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterRami = 0;
-            int counterOsher = 0;
+            int counterRami = 1;
+            int counterOsher = 2;
             DateTime start= DateTime.Now;
             DateTime end= DateTime.Now;
             if(time=="day")
@@ -247,7 +247,7 @@ namespace PLWPF.ViewModel
                 }
             };
 
-                BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
+                /*BE.CategoryGraph categoryGraph = new BE.CategoryGraph();
                 categoryGraph.Id = 7;
                 categoryGraph.Categories = categoryVM.cm.CategoriesList;
                 categoryGraph.Description = "stam";
@@ -257,7 +257,15 @@ namespace PLWPF.ViewModel
                 categoryGraph.PastTimeAmount = 7;
                 categoryGraph.AmountOrCost = BE.AmountOrCost.Amount; //to change
                 categoryGraph.GraphType = BE.GraphType.Pie;
-                categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);
+                categoryGraph.TimeType = BE.TimeType.Day;//to chane to )Enum.Parse(typeof(string), time);*/
+                values.Add(new ChartValues<double> { 3 });
+                values.Add(new ChartValues<double> { 6 });
+                values.Add(new ChartValues<double> { 4 });
+                values.Add(new ChartValues<double> { 9 });
+                values.Add(new ChartValues<double> { 22 });
+                values.Add(new ChartValues<double> { 13 });
+                values.Add(new ChartValues<double> { 2 });
+                values.Add(new ChartValues<double> { 3 });
 
                 //graphsModel.AddGraph(categoryGraph);
 
