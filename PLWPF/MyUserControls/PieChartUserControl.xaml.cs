@@ -42,13 +42,13 @@ namespace PLWPF.MyUserControls
 
         private void Button_Click_Apply(object sender, RoutedEventArgs e)
         {
-            //ComboBoxItem cbi = (ComboBoxItem)filterProduct.SelectedItem;
+            string[] _filter = filterProduct.SelectedItem.ToString().Split(' ');
+            String filter1 = _filter[1];
             string sortedBy = filterProduct.SelectedItem.ToString();
-            //cbi = (ComboBoxItem)filterTime.SelectedItem;
             string dateBy = filterTime.SelectedItem.ToString();
-            if (sortedBy == "Store")
+            if (filter1 == "Store")
                 vm.filterPiebyStores(dateBy);
-            if (sortedBy == "Category")
+            if (filter1 == "Category")
                 vm.filterPiebyCategories(dateBy);
             this.Pie.Series = vm.PieCollection;
         }

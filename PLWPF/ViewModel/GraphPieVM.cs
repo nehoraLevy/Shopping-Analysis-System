@@ -29,7 +29,7 @@ namespace PLWPF.ViewModel
             graphsModel = new GraphsModel();
             Id = id;
         }
-
+        /*
         private String filter;
         public String Filter
         {
@@ -50,13 +50,13 @@ namespace PLWPF.ViewModel
                 filterPiebyCategories("day");
             }
             filterPiebyStores("day");
-        }
+        }*/
 
         public void filterPiebyStores(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterRami = 1;
-            int counterOsher = 2;
+            int counterRami = 0;
+            int counterOsher = 0;
             DateTime start= DateTime.Now;
             DateTime end= DateTime.Now;
             if(time=="day")
@@ -74,11 +74,11 @@ namespace PLWPF.ViewModel
                 start = DateTime.Now.AddMonths(-1);
                 end = DateTime.Now;
             }
-            /*
+            
             scm = new ShoppingCartModel();
             foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
-                if (v.Store.Name.Contains("Rami Levy") && v.BuyDate>= start&&v.BuyDate<=end)
+                if (v.Store.Name.Contains("Rami Levy")&& v.BuyDate>= start&&v.BuyDate<=end)
                 {
                     counterRami += 1;
                 }
@@ -86,7 +86,7 @@ namespace PLWPF.ViewModel
                 {
                     counterOsher += 1;
                 }
-            }*/
+            }
             values.Add(new ChartValues<double> { counterRami });
             values.Add(new ChartValues<double> { counterOsher });
 
@@ -112,14 +112,14 @@ namespace PLWPF.ViewModel
         public void filterPiebyCategories(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterMilk = 1;
-            int counterFruit = 2;
-            int counterFish = 3;
-            int counterCanned = 4;
-            int counterCooking = 5;
-            int countersweets = 6;
-            int counterDrinks = 7;
-            int counterToiletery = 8;
+            int counterMilk = 0;
+            int counterFruit = 0;
+            int counterFish = 0;
+            int counterCanned = 0;
+            int counterCooking = 0;
+            int countersweets = 0;
+            int counterDrinks = 0;
+            int counterToiletery = 0;
             scm = new ShoppingCartModel();
             DateTime start = DateTime.Now;
             DateTime end = DateTime.Now;

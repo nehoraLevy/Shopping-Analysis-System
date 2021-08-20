@@ -24,7 +24,7 @@
             <ComboBoxItem Content="month"/>
         </ComboBox>
 
-        <ComboBox x:Name="filterProduct" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Store" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="406,22,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Filter, Mode=TwoWay}">
+        <ComboBox x:Name="filterProduct" Foreground="#0B0B61" IsEditable="True" IsReadOnly="True" Text="Store" FontFamily="Segoe Print" HorizontalAlignment="Left" Margin="406,22,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Store"/>
             <ComboBoxItem Content="Category"/>
             <ComboBoxItem Content="TotalCost"/>

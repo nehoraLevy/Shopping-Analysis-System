@@ -75,12 +75,14 @@ namespace PLWPF.MyUserControls
             int amount = this.uc.amount;
             pt.Amount = amount;
             pt.Product = product;
+            pt.Store = new Store();
             sc.BuyDate = this.date.SelectedDate.Value;
             string s=store.SelectedItem.ToString();
             string[] _time = s.Split(' ');
             String sortedBy = _time[1];
-
+            sc.Store = new Store();
             sc.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
+            pt.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;
             sc.ProductTransactions.Add(pt);
