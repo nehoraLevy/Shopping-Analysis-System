@@ -28,7 +28,7 @@ namespace PLWPF
 
         public MainWindow()
         {
-
+            InitializeComponent();
         }
 
     }

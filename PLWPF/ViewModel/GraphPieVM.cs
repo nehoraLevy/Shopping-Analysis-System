@@ -29,18 +29,6 @@ namespace PLWPF.ViewModel
             graphsModel = new GraphsModel();
             Id = id;
 
-            filterPiebyStores("day", "Category"); //to the change "category"
-        }
-
-        private String filter;
-        public String Filter
-        {
-            get { return filter; }
-            set
-            {
-                filter = value;
-                filterPiebyCategories(Filter, "Category"); 
-            }
         }
 
         private String filterStore;
@@ -50,29 +38,39 @@ namespace PLWPF.ViewModel
             set
             {
                 filterStore = value;
-                filterPiebyStores(FilterStore, "Store"); //to change 
+                filterPiebyStores(FilterStore); //to change 
             }
         }
-        public void filterPiebyStores(String time, string filter)
+        public void filterPiebyStores(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
             int counterRami = 0;
             int counterOsher = 0;
-            DateTime start;
-            DateTime end;
+            DateTime start= DateTime.Now;
+            DateTime end= DateTime.Now;
             if(time=="day")
             {
-
+                start = DateTime.Now.AddDays(-1);
+                end = DateTime.Now;
             }
-            else if (time=="")
+            else if (time == "week")
+            {
+                start = DateTime.Now.AddDays(-7);
+                end = DateTime.Now;
+            }
+            else if (time== "month")
+            {
+                start = DateTime.Now.AddMonths(-1);
+                end = DateTime.Now;
+            }
             scm = new ShoppingCartModel();
             foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
-                if (v.Store.Name.Contains("Rami Levy") && v.BuyDate)
+                if (v.Store.Name.Contains("Rami Levy") && v.BuyDate>= start&&v.BuyDate<=end)
                 {
                     counterRami += 1;
                 }
-                else if (v.Store.Name.Contains("Osher Ad"))
+                else if (v.Store.Name.Contains("Osher Ad") && v.BuyDate >= start && v.BuyDate <= end)
                 {
                     counterOsher += 1;
                 }
@@ -109,50 +107,67 @@ namespace PLWPF.ViewModel
 
 
 
-        public void filterPiebyCategories(String time, string filter)
+        public void filterPiebyCategories(String time)
         {
             List<ChartValues<double>> values = new List<ChartValues<double>>();
-            int counterMilk = 0;
-            int counterFruit = 0;
-            int counterFish = 0;
-            int counterCanned = 0;
-            int counterCooking = 0;
-            int countersweets = 0;
-            int counterDrinks = 0;
-            int counterToiletery = 0;
+            int counterMilk = 1;
+            int counterFruit = 2;
+            int counterFish = 3;
+            int counterCanned = 4;
+            int counterCooking = 5;
+            int countersweets = 6;
+            int counterDrinks = 7;
+            int counterToiletery = 8;
             scm = new ShoppingCartModel();
+            DateTime start = DateTime.Now;
+            DateTime end = DateTime.Now;
+            if (time == "day")
+            {
+                start = DateTime.Now.AddDays(-1);
+                end = DateTime.Now;
+            }
+            else if (time == "week")
+            {
+                start = DateTime.Now.AddDays(-7);
+                end = DateTime.Now;
+            }
+            else if (time == "month")
+            {
+                start = DateTime.Now.AddMonths(-1);
+                end = DateTime.Now;
+            }
             foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
                 foreach (var p in v.ProductTransactions)
                 {
                     foreach (var t in scm._dataManagement.GetCategories())
                     {
-                        if (t.Name == "milk Products")
+                        if (t.Name == "milk Products" && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterMilk += 1;
                         }
-                        else if (t.Name == "Fruits and Vegetable")
+                        else if (t.Name == "Fruits and Vegetable" && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterFruit += 1;
                         }
-                        else if (t.Name == "Fish and Meat")
+                        else if (t.Name == "Fish and Meat" && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterFish += 1;
                         }
-                        else if (t.Name == "Canned food")
+                        else if (t.Name == "Canned food" && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterCanned += 1;
                         }
-                        else if (t.Name == "Cooking and Baking")
+                        else if (t.Name == "Cooking and Baking" && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterCooking += 1;
                         }
-                        else if (t.Name == "Legumes and sweets ")
+                        else if (t.Name == "Legumes and sweets " && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 countersweets += 1;
@@ -162,7 +177,7 @@ namespace PLWPF.ViewModel
                             if (t.Products.Contains(p.Product))
                                 counterDrinks += 1;
                         }
-                        else if (t.Name == "Home maintenance and Toiletries ")
+                        else if (t.Name == "Home maintenance and Toiletries " && v.BuyDate >= start && v.BuyDate <= end)
                         {
                             if (t.Products.Contains(p.Product))
                                 counterToiletery += 1;
