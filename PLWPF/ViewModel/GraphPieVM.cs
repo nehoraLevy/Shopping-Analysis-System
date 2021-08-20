@@ -46,10 +46,17 @@ namespace PLWPF.ViewModel
             List<ChartValues<double>> values = new List<ChartValues<double>>();
             int counterRami = 0;
             int counterOsher = 0;
+            DateTime start;
+            DateTime end;
+            if(time=="day")
+            {
+
+            }
+            else if (time=="")
             scm = new ShoppingCartModel();
             foreach (var v in scm._dataManagement.GetShoppingCarts())
             {
-                if (v.Store.Name.Contains("Rami Levy"))
+                if (v.Store.Name.Contains("Rami Levy") && v.BuyDate)
                 {
                     counterRami += 1;
                 }
