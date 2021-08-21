@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DAL_test
 {
-    class Program
+    class ProgramBatya
     {
         static void Main(string[] args)
         {
