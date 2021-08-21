@@ -29,8 +29,6 @@ namespace PLWPF
         public MainWindow()
         {
             InitializeComponent();
-            Window hi = new hi();
-            hi.Show();
         }
 
     }

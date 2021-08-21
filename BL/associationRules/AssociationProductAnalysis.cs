@@ -37,7 +37,7 @@ namespace BL.associationRules
         {
             IEnumerable<IEnumerable<Product>> products = GetNewRecommendedProductList();
             PdfDocument pdf = new PdfDocument();
-            pdf.Info.Title = "My First PDF";
+            pdf.Info.Title = "Recommended Shopping List";
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
@@ -49,7 +49,10 @@ namespace BL.associationRules
             string strToPDF="";
 
             if (products == null || products.Count() == 0)
-                table.Rows.Add(new string[] { "There is still no shoping list", "" });
+            {
+                table.Rows.Add(new string[] { "There is still no shopping list", "" });
+                strToPDF += "There is still no shopping list";
+            }
             else
                 foreach (var productGroup in products)
                 {
@@ -61,7 +64,7 @@ namespace BL.associationRules
                 }
 
             graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
-            string pdfFilename = "firstpage.pdf";
+            string pdfFilename = "ShoppingList.pdf";
             pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
 
             //pdf.Save()
