@@ -195,10 +195,9 @@ namespace DAL_test
 
            if (db.Stores.Count() == 0)
            {
-               var stores = new[] { "Rami Levy", "Osher Ad" };
-               foreach (var s in stores)
-                   db.Stores.Add(new BE.Store { Name = s });
-               db.SaveChanges();
+                db.Stores.Add(new BE.Store { Name = "Rami Levy", Id = 1 });
+                db.Stores.Add(new BE.Store { Name = "Osher Ad", Id = 2 });
+                db.SaveChanges();
 
            }
 

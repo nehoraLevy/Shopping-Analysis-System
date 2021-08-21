@@ -35,12 +35,32 @@ namespace BL.associationRules
 
         public void CreateShopingListRecommendation(string path)
         {
+            IEnumerable<IEnumerable<Product>> products = GetNewRecommendedProductList();
             PdfDocument pdf = new PdfDocument();
             pdf.Info.Title = "My First PDF";
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-            graph.DrawString("This is my first PDF document", font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Product Name");
+            table.Columns.Add("Bar Code");
+
+            string strToPDF="";
+
+            if (products == null || products.Count() == 0)
+                table.Rows.Add(new string[] { "There is still no shoping list", "" });
+            else
+                foreach (var productGroup in products)
+                {
+                    foreach (var product in productGroup)
+                    {
+                        strToPDF+= "Product Name:"+ product.Name.ToString()+"Product BarCode:"+ product.BarCode.ToString();
+                        table.Rows.Add(new string[] { product.Name.ToString(), product.BarCode.ToString() });
+                    }
+                }
+
+            graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
             string pdfFilename = "firstpage.pdf";
             pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
 
