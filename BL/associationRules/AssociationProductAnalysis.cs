@@ -43,6 +43,7 @@ namespace BL.associationRules
             graph.DrawString("This is my first PDF document", font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
             string pdfFilename = "firstpage.pdf";
             pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
+
             //pdf.Save()
             //Process.Start(pdfFilename);
 
