@@ -38,14 +38,15 @@ namespace PLWPF.MyUserControls
             sc.ProductTransactions = new List<ProductTransaction>();
             product = new Product();
             MyUserControls.IntegerUpDownUserControl uc = new IntegerUpDownUserControl();
-
             uc.Visibility = (Visibility)1;
+
 
         }
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             ProductVM pvm = new ProductVM();
             List<Product> products = pvm.model.ProductsList;
+
             uc.Visibility = (Visibility)0;
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a QR code that describe your desire product to add to you shopping card";
@@ -60,7 +61,6 @@ namespace PLWPF.MyUserControls
                 {
                     this.imgPhoto_Copy.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
                     this.qrPhoto_Copy.Source = new BitmapImage(new Uri(path));
-                    this.imgPhoto.Source = new BitmapImage(new Uri(products.Find(i => i.Name == product.Name).ImageFileName));
                     this.ProductName.Text = product.Name;
                     this.ProductPrice.Text = "Unit price: "+product.Price.ToString() + "$";
                 }
