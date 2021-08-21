@@ -1,6 +1,7 @@
 ﻿using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +30,10 @@ namespace PLWPF.MyUserControls
         private void CreatePdf2Button_Click(object sender, RoutedEventArgs e)
         {
             vm.associationModel.CreateShopingListRecommendation("pdf");
+            //var file = File.Load(Path.GetFullPath(@"C:\Users\levy\Desktop\ShoppingList.pdf"));
+            FileStream stream = new FileStream(@"HTTP C:\Users\levy\Desktop\ShoppingList.pdf", FileMode.Open);
+            //Load PDF file using stream.
+            this.pdfViewer.Load(stream);
 
         }
 

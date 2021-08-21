@@ -4,11 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLWPF.MyUserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Windows.PdfViewer; assembly=Syncfusion.PdfViewer.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <Button x:Name="CreatePdf2Button" Content="Recommend Days (PDF)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="224" Click="CreatePdf2Button_Click" />
+        <Button x:Name="CreatePdf2Button" Content="Recommend Days (PDF)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="224" Click="CreatePdf2Button_Click" Margin="81,50,0,0" />
+        <Grid Margin="64,115,469,36">
+            <syncfusion:PdfViewerControl x:Name="pdfViewer"></syncfusion:PdfViewerControl>
+            
+        </Grid>
+        <DataGrid Margin="358,93,36,15">
+            
+        </DataGrid>
+
 
     </Grid>
 </UserControl>
