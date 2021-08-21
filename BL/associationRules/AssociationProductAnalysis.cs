@@ -3,8 +3,7 @@ using Accord.MachineLearning.Rules;
 using BE;
 using BE;
 using DAL;
-using Syncfusion;
-
+//using Syncfusion;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,14 +13,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Syncfusion.Pdf.Graphics;
+//using Syncfusion.Pdf.Graphics;
+//using Syncfusion.Pdf;
 //using Syncfusion.Pdf.Tables;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Tables;
+using System.Runtime.Serialization;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace BL.associationRules
 {
-    internal class AssociationProductAnalysis: IAssociationProductAnalysis
+    [Serializable()]
+    internal class AssociationProductAnalysis: IAssociationProductAnalysis,  ISerializable
     {
 
         private IDb _db;
@@ -33,6 +35,18 @@ namespace BL.associationRules
 
         public void CreateShopingListRecommendation(string path)
         {
+            PdfDocument pdf = new PdfDocument();
+            pdf.Info.Title = "My First PDF";
+            PdfPage pdfPage = pdf.AddPage();
+            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            graph.DrawString("This is my first PDF document", font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
+            string pdfFilename = "firstpage.pdf";
+            pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
+            //pdf.Save()
+            //Process.Start(pdfFilename);
+
+            /*
             IEnumerable<IEnumerable<Product>> products = GetNewRecommendedProductList();
 
 
@@ -65,14 +79,14 @@ namespace BL.associationRules
 
             pdfLightTable.Style.ShowHeader = true;
 
-            pdfLightTable.Draw(page, 0, 0);
+            pdfLightTable.Draw(page,new Syncfusion.Drawing.PointF( 0, 0));
             //Save the document
             //doc.Save("ShopingList" + DateTime.Now.ToString() + ".pdf");
             doc.Save("PdfTable.pdf");
 
             doc.Close(true);
 
-            Process.Start("PdfTable.pdf");
+            Process.Start("PdfTable.pdf");*/
 
         }
 
@@ -171,6 +185,11 @@ namespace BL.associationRules
                 dataset.Add(transactionBarCodes);
             }
             return dataset.ToArray();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }
