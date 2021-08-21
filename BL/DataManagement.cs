@@ -193,7 +193,17 @@ namespace BL
             _db.ShoppingCarts.Add(s);
             _db.SaveChanges();
         }
+        public void DeleteStores(Store s)
+        {
+            if (_db.Stores.Where(c => c.Id == s.Id) == null)
+                throw (new ArgumentException("the ShoppingCart not exists."));
 
+            if (s.Id == null)
+                throw (new ArgumentException("ShoppingCart must have: Id."));
+
+            _db.Stores.Remove(s);
+            _db.SaveChanges();
+        }
         public void DeleteShoppingCart(ShoppingCart s)
         {
             if (_db.ShoppingCarts.Where(c => c.Id == s.Id) == null)

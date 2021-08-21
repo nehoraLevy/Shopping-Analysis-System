@@ -77,16 +77,18 @@ namespace PLWPF.MyUserControls
             pt.Product = product;
             pt.Store = new Store();
             sc.BuyDate = this.date.SelectedDate.Value;
+            pt.UnitPrice = (float)(product.Price * amount);
+            
             string s=store.SelectedItem.ToString();
-            string[] _time = s.Split(' ');
-            String sortedBy = _time[1];
+            
+            String sortedBy = store.SelectedItem.ToString();
             sc.Store = new Store();
             sc.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
             pt.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;
-            sc.ProductTransactions.Add(pt);
-            sc.Id = shoppingcVM.sc.num;
+            //sc.ProductTransactions.Add(pt);
+            sc.Id = ++shoppingcVM.sc.num;
             MessageBox.Show("the products add to the shopping cart succefully");
         }
 
@@ -96,7 +98,7 @@ namespace PLWPF.MyUserControls
         {
             double price = 0;
             foreach (var i in sc.ProductTransactions)
-                price += i.Amount * i.UnitPrice;
+                price += i.UnitPrice;
             sc.TotalPrice = price;
             shoppingcVM.sc.Add(sc);
             MessageBox.Show("the shopping cart added succefully");
