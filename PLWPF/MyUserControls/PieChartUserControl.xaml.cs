@@ -45,11 +45,12 @@ namespace PLWPF.MyUserControls
             string[] _filter = filterProduct.SelectedItem.ToString().Split(' ');
             String filter1 = _filter[1];
             string sortedBy = filterProduct.SelectedItem.ToString();
-            string dateBy = filterTime.SelectedItem.ToString();
+            _filter = filterTime.SelectedItem.ToString().Split(' ');
+            string filter2 = _filter[1];
             if (filter1 == "Store")
-                vm.filterPiebyStores(dateBy);
+                vm.filterPiebyStores(filter2);
             if (filter1 == "Category")
-                vm.filterPiebyCategories(dateBy);
+                vm.filterPiebyCategories(filter2);
             this.Pie.Series = vm.PieCollection;
         }
     }
