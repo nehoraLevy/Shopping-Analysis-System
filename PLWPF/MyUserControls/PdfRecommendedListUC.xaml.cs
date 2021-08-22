@@ -41,10 +41,6 @@ namespace PLWPF.MyUserControls
 
             MessageBox.Show("The Document is on Your Desktop");
 
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Pdf Doc";
-            op.Filter = "Pdf Files|*.pdf";
-            op.ShowDialog();
             /*
             //Load PDF file using stream.
             this.pdfViewer.Load(stream);*/
