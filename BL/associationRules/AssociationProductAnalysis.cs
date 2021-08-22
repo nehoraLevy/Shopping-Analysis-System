@@ -53,17 +53,20 @@ namespace BL.associationRules
                 strToPDF += "There is still no shopping list, Add Shopping Carts";
             }
             else
+            {
+                int i = 0;
                 foreach (var productGroup in products)
                 {
                     foreach (var product in productGroup)
                     {
-                        strToPDF+= "Product Name: "+ product.Name.ToString()+" Product BarCode: "+ product.BarCode.ToString() +" ";
+                        strToPDF = " Product Name: "+ product.Name.ToString() + " BarCode: " + product.BarCode.ToString();
+                        graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0,i, 0, i), XStringFormats.TopLeft);
+                        i += 20;
                         table.Rows.Add(new string[] { product.Name.ToString(), product.BarCode.ToString() });
                         
                     }
                 }
-
-            graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            }
             string pdfFilename = "ShoppingList.pdf";
             pdf.Save(@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\" + pdfFilename);
 
