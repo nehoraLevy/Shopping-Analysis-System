@@ -39,7 +39,7 @@ namespace BL.associationRules
             pdf.Info.Title = "Recommended Shopping List";
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            XFont font = new XFont("Verdana", 10, XFontStyle.Italic);
             DataTable table = new DataTable();
 
             table.Columns.Add("Product Name");
@@ -57,12 +57,12 @@ namespace BL.associationRules
                 {
                     foreach (var product in productGroup)
                     {
-                        strToPDF+= "Product Name:"+ product.Name.ToString()+"Product BarCode:"+ product.BarCode.ToString();
+                        strToPDF+= "Product Name: "+ product.Name.ToString()+" Product BarCode: "+ product.BarCode.ToString() +" ";
                         table.Rows.Add(new string[] { product.Name.ToString(), product.BarCode.ToString() });
                     }
                 }
 
-            graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
+            graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             string pdfFilename = "ShoppingList.pdf";
             pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
 
