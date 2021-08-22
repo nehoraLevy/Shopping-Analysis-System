@@ -2,8 +2,10 @@
 using BL;
 using Microsoft.Win32;
 using PLWPF.ViewModel;
+using Syncfusion.Drawing;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -27,11 +29,13 @@ namespace PLWPF.MyUserControls
         public Product product;
         public ShoppingCardVM shoppingcVM;
         
+
         public StoreVM stores;
 
         public UploadQR()
         {
-            InitializeComponent();
+            
+            InitializeComponent();            
             stores = new StoreVM();
             this.store.ItemsSource = stores.store.StoresList.Select(t => t.Name); 
             shoppingcVM = new ShoppingCardVM();
@@ -99,6 +103,11 @@ namespace PLWPF.MyUserControls
             sc.TotalPrice = price;
             shoppingcVM.sc.Add(sc);
             MessageBox.Show("the shopping cart added succefully total cost: "+sc.TotalPrice);
+        }
+
+        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }
