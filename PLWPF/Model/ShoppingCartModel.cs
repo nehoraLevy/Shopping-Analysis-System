@@ -16,7 +16,7 @@ namespace PLWPF.Model
 
         public ShoppingCartModel()  
         {
-            num =BE.Num.num++;
+            num =BE.StaticMember.num++;
 
         _dataManagement = new BL.BLogic().DataManagement;
             

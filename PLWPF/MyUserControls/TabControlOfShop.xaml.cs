@@ -2,6 +2,7 @@
 using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,17 +21,32 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class TabControlOfShop : UserControl
     {
+
+        //public Product product;
+        public ShoppingCardVM shoppingcVM;
+
+        public StoreVM stores;
+        MyUserControls.Item item;
+        public ShoppingCart sc;
         public TabControlOfShop()
         {
             InitializeComponent();
+            BE.StaticMember.totalCost = 0;
+            BE.StaticMember.sc = new ShoppingCart();
+            BE.StaticMember.sc.ProductTransactions = new List<ProductTransaction>();
             CategoryVM vm = new CategoryVM();
+            sc = BE.StaticMember.sc;
+            stores = new StoreVM();
+            this.store.ItemsSource = stores.store.StoresList.Select(t => t.Name);
+            shoppingcVM = new ShoppingCardVM(); 
 
             for (int i = 0; i < vm.cm.CategoriesList[0].Products.Count; i++)
             {
-                MyUserControls.Item item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
+                item = new MyUserControls.Item(vm.cm.CategoriesList[0].Products[i]);
                 item.Name = "item" + i;
                 sp_1.Children.Add(item);
             }
+            
             
             for (int i = 0; i < vm.cm.CategoriesList[1].Products.Count; i++)
             {
@@ -81,6 +97,29 @@ namespace PLWPF.MyUserControls
                 sp_8.Children.Add(item1);
             }
 
+
+        }
+
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ShoppingCart c = new ShoppingCart();
+            c.BuyDate= this.date.SelectedDate.Value;
+            string s = store.SelectedItem.ToString();
+            String sortedBy = store.SelectedItem.ToString();
+            c.Store = new Store();
+            c.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
+            c.Id = ++shoppingcVM.sc.num;
+            c.ProductTransactions = new List<ProductTransaction>();
+            foreach (var v in sc.ProductTransactions)
+                c.ProductTransactions.Add(v);
+            c.TotalPrice = BE.StaticMember.totalCost;
+            shoppingcVM.sc.Add(c);
+            MessageBox.Show("the shopping cart added succefully total cost: " + c.TotalPrice);
+
+            //איתחלתי אותו לnull מאחר והגדרתי אותו לנל כדי שהבנים יוכלו לגשת אליו ולהוסיף לעגלה את המוצר שנבחר
+            //לולטה על כל הפרודקטים בכל הקטגוריות ולהכניס לעגלה ואת העגלה להכניס לעגלה של ה VIEW MODEL.
 
         }
     }

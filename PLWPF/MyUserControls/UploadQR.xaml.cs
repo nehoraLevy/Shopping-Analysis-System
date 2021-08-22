@@ -32,7 +32,7 @@ namespace PLWPF.MyUserControls
         {
             InitializeComponent();
             stores = new StoreVM();
-            this.store.ItemsSource = stores.store.StoresList.Select(t => t.Name); ;
+            this.store.ItemsSource = stores.store.StoresList.Select(t => t.Name); 
             shoppingcVM = new ShoppingCardVM();
             sc = new ShoppingCart();
             sc.ProductTransactions = new List<ProductTransaction>();
@@ -78,17 +78,9 @@ namespace PLWPF.MyUserControls
             pt.Store = new Store();
             sc.BuyDate = this.date.SelectedDate.Value;
             pt.UnitPrice = (float)(product.Price * amount);
-            
             string s=store.SelectedItem.ToString();
-            
-            String sortedBy = store.SelectedItem.ToString();
-            sc.Store = new Store();
-            sc.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
-            pt.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
             sc.ProductTransactions.Add(pt);
-            pt.shoppingCart = sc;
-            //sc.ProductTransactions.Add(pt);
-            sc.Id = ++shoppingcVM.sc.num;
+            pt.shoppingCart = sc;            
             MessageBox.Show("the products add to the shopping cart succefully");
         }
 
@@ -97,11 +89,15 @@ namespace PLWPF.MyUserControls
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             double price = 0;
+            sc.Store = new Store();
+            String sortedBy = store.SelectedItem.ToString();
+            sc.Store = stores.stores.Where(s => s.Name == sortedBy).FirstOrDefault();
+            sc.Id = ++shoppingcVM.sc.num;
             foreach (var i in sc.ProductTransactions)
                 price += i.UnitPrice;
             sc.TotalPrice = price;
             shoppingcVM.sc.Add(sc);
-            MessageBox.Show("the shopping cart added succefully");
+            MessageBox.Show("the shopping cart added succefully total cost: "+sc.TotalPrice);
         }
     }
 }

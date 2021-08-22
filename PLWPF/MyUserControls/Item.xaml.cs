@@ -21,6 +21,8 @@ namespace PLWPF.MyUserControls
     public partial class Item : UserControl
     {
         public Product p;
+        public ProductTransaction pt;
+        //public sh
         public Item(Product product)
         {
             InitializeComponent();
@@ -47,9 +49,15 @@ namespace PLWPF.MyUserControls
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            ProductTransaction pt = new ProductTransaction();
+            pt = new ProductTransaction();
             pt.Product = p;
             pt.Amount = this.IntegerUpDown.amount;
+            pt.UnitPrice = (float)(pt.Amount * p.Price);
+            pt.Amount = this.IntegerUpDown.amount;
+            BE.StaticMember.sc.ProductTransactions.Add(pt);
+            BE.StaticMember.totalCost += pt.UnitPrice;
+            MessageBox.Show("the products add to the shopping cart succefully");
+
         }
     }
 }
