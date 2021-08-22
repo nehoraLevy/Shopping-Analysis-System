@@ -86,7 +86,7 @@ namespace PLWPF.MyUserControls
             string s=store.SelectedItem.ToString();
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;            
-            MessageBox.Show("the products add to the shopping cart succefully");
+            MessageBox.Show("The Product added to the Shopping Cart Succefully", "Add");
         }
 
 
@@ -102,7 +102,8 @@ namespace PLWPF.MyUserControls
                 price += i.UnitPrice;
             sc.TotalPrice = price;
             shoppingcVM.sc.Add(sc);
-            MessageBox.Show("the shopping cart added succefully total cost: "+sc.TotalPrice);
+            MessageBox.Show("The Shopping Cart added Succefully, Total Cost: "+sc.TotalPrice, "Finish" );
+            
         }
 
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)

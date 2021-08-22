@@ -7,7 +7,7 @@ namespace BL.associationRules
     public interface IAssociationProductAnalysis
     {
 
-            void CreateShopingListRecommendation(string path);
+            string[] CreateShopingListRecommendation(string path);
 
             IEnumerable<IMyAssociationRule> GetAssosiatonRules();
 

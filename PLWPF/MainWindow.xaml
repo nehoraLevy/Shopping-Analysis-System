@@ -7,9 +7,9 @@
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         d:DataContext="{d:DesignInstance Type={x:Type be:Category}}"
         mc:Ignorable="d"
-        Icon="C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\PLWPF\images\logo.jpg"
+        Icon="C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\logo.jpg"
            
-        Title="Shopping Analysis" Height="563" Width="624"
+        Title="Shopping Analysis" Height="570" Width="690"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"

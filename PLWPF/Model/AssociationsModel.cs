@@ -19,9 +19,9 @@ namespace PLWPF.Model
             _assosiationAnalysis = _bl.AssosiationProductsAnalysis;
         }
 
-        public void CreateShopingListRecommendation(string path)
+        public string[] CreateShopingListRecommendation(string path)
         {
-            _assosiationAnalysis.CreateShopingListRecommendation(path);
+            return _assosiationAnalysis.CreateShopingListRecommendation(path);
         }
     }
 }

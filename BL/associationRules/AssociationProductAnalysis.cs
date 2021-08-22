@@ -32,7 +32,7 @@ namespace BL.associationRules
             _db = new DalFactory().GetDb();
         }
 
-        public void CreateShopingListRecommendation(string path)
+        public string[] CreateShopingListRecommendation(string path)
         {
             IEnumerable<IEnumerable<Product>> products = GetNewRecommendedProductList();
             PdfDocument pdf = new PdfDocument();
@@ -46,6 +46,7 @@ namespace BL.associationRules
             table.Columns.Add("Bar Code");
 
             string strToPDF="";
+            string[] result = new string[] {"hi," };
 
             if (products == null || products.Count() == 0)
             {
@@ -55,10 +56,13 @@ namespace BL.associationRules
             else
             {
                 int i = 0;
+                int j = 0;
                 foreach (var productGroup in products)
                 {
                     foreach (var product in productGroup)
                     {
+                        result[j] = product.Name.ToString() + "," + product.BarCode.ToString();
+                        j++;
                         strToPDF = " Product Name: "+ product.Name.ToString() + " BarCode: " + product.BarCode.ToString();
                         graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0,i, 0, i), XStringFormats.TopLeft);
                         i += 20;
@@ -68,7 +72,9 @@ namespace BL.associationRules
                 }
             }
             string pdfFilename = "ShoppingList.pdf";
-            pdf.Save(@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\" + pdfFilename);
+            pdf.Save(@"C:\Users\levy\Desktop\Shopping_project_final\" + pdfFilename);
+
+            return result;
 
             //pdf.Save()
             //Process.Start(pdfFilename);
