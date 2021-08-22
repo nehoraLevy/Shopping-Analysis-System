@@ -16,7 +16,7 @@
     </UserControl.Resources>
     <Grid x:Name="main" Margin="0,-6,0,6"  >
         <TextBlock x:Name="productName" HorizontalAlignment="Left" Margin="10,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="140" Text="{Binding Product.Name}"/>
-        <Image x:Name="image" Source="{Binding }" HorizontalAlignment="Left" Height="189" Margin="10,10,0,0" VerticalAlignment="Top" Width="311"/>
+        <Image x:Name="image"  Source="{Binding }"   HorizontalAlignment="Left" Height="189" Margin="10,10,0,0" VerticalAlignment="Top" Width="311"/>
         <TextBlock x:Name="price" HorizontalAlignment="Left" Margin="155,227,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="69"/>
         <local:IntegerUpDownUserControl x:Name="IntegerUpDown" HorizontalAlignment="Left" Margin="36,270,0,0" VerticalAlignment="Top" Height="45" Width="90" RenderTransformOrigin="0.445,0.434"/>
         <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="173,280,0,0" VerticalAlignment="Top" Height="34" Width="104" Click="addButton_Click"/>

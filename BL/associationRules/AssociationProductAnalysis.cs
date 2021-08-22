@@ -63,11 +63,12 @@ namespace BL.associationRules
                         graph.DrawString(strToPDF, font, XBrushes.Black, new XRect(0,i, 0, i), XStringFormats.TopLeft);
                         i += 20;
                         table.Rows.Add(new string[] { product.Name.ToString(), product.BarCode.ToString() });
+                        
                     }
                 }
             }
             string pdfFilename = "ShoppingList.pdf";
-            pdf.Save(@"C:\Users\levy\Desktop\"+pdfFilename);
+            pdf.Save(@"C:\Users\batya\OneDrive\שולחן העבודה\Project\Shopping_project_final\" + pdfFilename);
 
             //pdf.Save()
             //Process.Start(pdfFilename);

@@ -15,18 +15,18 @@
     </UserControl.Resources>
 
     <Grid HorizontalAlignment="Center" Width="624">
-        
+
         <Button Height="24" HorizontalAlignment="Left"
-        Margin="45,447,0,0" Name="btnLoad"   Visibility="Visible"
+        Margin="82,440,0,0" Name="btnLoad"   Visibility="Visible"
         Width="82" Click="btnLoad_Click"  VerticalAlignment="Top">Load</Button>
         <Button Height="24" HorizontalAlignment="Left"  Visibility="Visible"
-        Margin="249,447,0,0" Name="btnAdd" VerticalAlignment="Top"
+        Margin="263,440,0,0" Name="btnAdd" VerticalAlignment="Top"
         Width="82" Click="btnAdd_Click" >Add</Button>
         <Image Margin="340,115,54,0" x:Name="imgPhoto_Copy"
             Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="168" VerticalAlignment="Top" />
         <Image Margin="22,38,307,207" x:Name="qrPhoto_Copy" Stretch="Fill" />
-        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="438,348,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"/>
-        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="438,382,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="17"/>
+        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="438,338,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="24"/>
+        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="438,370,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="30"/>
         <TextBox HorizontalAlignment="Left" Margin="14,10,0,0" Text="load a QRcode" TextWrapping="Wrap" IsReadOnly = "True" BorderBrush="#00000000" VerticalAlignment="Top" Width="93" Height="25" />
         <local:IntegerUpDownUserControl x:Name="uc" HorizontalAlignment="Left" Margin="545,344,0,0" VerticalAlignment="Top" />
         <DatePicker Name="date" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top"/>
