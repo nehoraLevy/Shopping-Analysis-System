@@ -8,12 +8,17 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=be:Product}" x:Class="PLWPF.MyUserControls.Item" 
              mc:Ignorable="d" 
              d:DesignHeight="450" Width="374">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="main" Margin="0,-6,0,6"  >
         <TextBlock x:Name="productName" HorizontalAlignment="Left" Margin="10,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="140" Text="{Binding Product.Name}"/>
         <Image x:Name="image" Source="{Binding }" HorizontalAlignment="Left" Height="189" Margin="10,10,0,0" VerticalAlignment="Top" Width="311"/>
         <TextBlock x:Name="price" HorizontalAlignment="Left" Margin="155,227,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="69"/>
-        <TextBlock Name="pricedollar" HorizontalAlignment="Left" Margin="211,228,0,0" Text="$" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="34"/>
-        <local:IntegerUpDownUserControl x:Name="IntegerUpDown" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Height="49" Width="112" RenderTransformOrigin="0.445,0.434"/>
-        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="166,266,0,0" VerticalAlignment="Top" Height="43" Width="124" Click="addButton_Click"/>
+        <local:IntegerUpDownUserControl x:Name="IntegerUpDown" HorizontalAlignment="Left" Margin="36,270,0,0" VerticalAlignment="Top" Height="45" Width="90" RenderTransformOrigin="0.445,0.434"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="173,280,0,0" VerticalAlignment="Top" Height="34" Width="104" Click="addButton_Click"/>
     </Grid>
 </UserControl>

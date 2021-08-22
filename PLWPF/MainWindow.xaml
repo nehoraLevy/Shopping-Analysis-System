@@ -8,7 +8,7 @@
         d:DataContext="{d:DesignInstance Type={x:Type be:Category}}"
         mc:Ignorable="d"
            
-        Title="" Height="533" Width="624"
+        Title="" Height="563" Width="624"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
