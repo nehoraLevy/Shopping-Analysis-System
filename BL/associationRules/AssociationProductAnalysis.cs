@@ -1,7 +1,6 @@
 ﻿using Accord.IO;
 using Accord.MachineLearning.Rules;
 using BE;
-using BE;
 using DAL;
 //using Syncfusion;
 using System;
@@ -50,8 +49,8 @@ namespace BL.associationRules
 
             if (products == null || products.Count() == 0)
             {
-                table.Rows.Add(new string[] { "There is still no shopping list", "" });
-                strToPDF += "There is still no shopping list";
+                table.Rows.Add(new string[] { "There is still no shopping list, Add Shopping Carts", "" });
+                strToPDF += "There is still no shopping list, Add Shopping Carts";
             }
             else
                 foreach (var productGroup in products)

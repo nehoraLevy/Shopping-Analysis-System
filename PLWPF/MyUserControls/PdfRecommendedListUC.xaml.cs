@@ -31,11 +31,17 @@ namespace PLWPF.MyUserControls
         {
             vm.associationModel.CreateShopingListRecommendation("pdf");
             //var file = File.Load(Path.GetFullPath(@"C:\Users\levy\Desktop\ShoppingList.pdf"));
-            FileStream stream = new FileStream(@"HTTP C:\Users\levy\Desktop\ShoppingList.pdf", FileMode.Open);
+            FileStream stream = new FileStream(@"C:\Users\levy\Desktop\ShoppingList.pdf", FileMode.Open);
+            /*
             //Load PDF file using stream.
-            this.pdfViewer.Load(stream);
+            this.pdfViewer.Load(stream);*/
 
         }
 
     }
 }
+
+/*
+ * xmlns:syncfusion="clr-namespace:Syncfusion.Windows.PdfViewer; assembly=Syncfusion.PdfViewer.WPF"
+ * <syncfusion:PdfViewerControl x:Name="pdfViewer"></syncfusion:PdfViewerControl>
+ */
