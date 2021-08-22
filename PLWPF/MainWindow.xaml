@@ -15,10 +15,11 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+        
 
     <Grid>
         <ScrollViewer>
-            <TabControl Height="533"  Width="600" >
+            <TabControl Height="533"  Width="600" BorderThickness="0"  >
                 <TabItem Header="Add Shopping Card by QR" FontSize="10">
                     <MyUserControls:UploadQR Margin="-2,0,-4,0" Height="531" />
                 </TabItem>

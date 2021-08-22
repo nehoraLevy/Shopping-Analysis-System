@@ -9,12 +9,12 @@ namespace PLWPF.ViewModel
     public class ShoppingCardVM
     {
         public ShoppingCartModel sc ;
-        public ShoppingCart shoppingCart;
+        //public ShoppingCart shoppingCart;
         public ShoppingCardVM()
         {
             sc = new ShoppingCartModel();
-            shoppingCart = new ShoppingCart();
-            shoppingCart.Id = ++BE.StaticMember.num;
+            //shoppingCart = new ShoppingCart();
+            //shoppingCart.Id = ++BE.StaticMember.num;
         }
 
     }
