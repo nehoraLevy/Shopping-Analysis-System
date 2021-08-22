@@ -22,10 +22,10 @@
                         -->
                     <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{StaticResource Primary100}"/>
                     <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{StaticResource Primary100Foreground}"/>
-                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary500}"/>
-                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500Foreground}"/>
-                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{StaticResource Primary700}"/>
-                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary700Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary100}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="Beige"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary100Foreground}"/>
                 </ResourceDictionary>
 
                 <!-- secondary colour -->
@@ -50,19 +50,11 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Button Content="Finish" HorizontalAlignment="Left" Margin="500,363,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <ComboBox Name="store" HorizontalAlignment="Left" Margin="496,169,0,0" Width="78" Height="42" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
-            <ComboBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.795"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ComboBox.RenderTransform>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="516,363,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <ComboBox Name="store" Text="Select Store" HorizontalAlignment="Left" Margin="508,169,0,0" Width="78" Height="42" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
         </ComboBox>
-        <DatePicker Name="date" HorizontalAlignment="Left" Margin="496,261,0,0" VerticalAlignment="Top" Height="66" Width="84"/>
-        <dragablz:TabablzControl x:Name="tab">
+        <DatePicker Name="date" Text="Select Date" HorizontalAlignment="Left" Margin="508,261,0,0" VerticalAlignment="Top" Height="66" Width="84"/>
+        <dragablz:TabablzControl x:Name="tab" Margin="0,0,125,0">
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
