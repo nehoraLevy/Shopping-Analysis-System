@@ -18,7 +18,9 @@ namespace PLWPF.MyUserControls
     /// </summary>
     public partial class IntegerUpDownUserControl : UserControl
     {
+
         public int amount;
+        public Visibility VisibilyButtonAdd = Visibility.Visible;
         public IntegerUpDownUserControl()
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace PLWPF.MyUserControls
             this.UpDown.Maximum = 10;
 
             amount = 0;
-            
         }
 
 
@@ -35,6 +36,18 @@ namespace PLWPF.MyUserControls
         {
             amount = (int)e.NewValue;
             this.UpDown.Value = (int?)e.NewValue;
+            if (amount > 0)
+            {
+                VisibilyButtonAdd = Visibility.Hidden;
+            }
+
+
+ 
+
+
+
+
+
         }
     }
 }
