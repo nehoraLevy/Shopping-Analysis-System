@@ -9,15 +9,6 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <Button x:Name="CreatePdf2Button" Content="Recommend Days (PDF)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="224" Click="CreatePdf2Button_Click" Margin="81,50,0,0" />
-        <Grid Margin="64,115,469,36">
-            
-            
-        </Grid>
-        <DataGrid Margin="358,93,36,15">
-            
-        </DataGrid>
-
-
+        <Button x:Name="CreatePdf2Button" Content="Create Pdf Shopping List" HorizontalAlignment="Left" VerticalAlignment="Top" Width="224" Click="CreatePdf2Button_Click" Margin="81,50,0,0" />
     </Grid>
 </UserControl>

@@ -32,6 +32,8 @@ namespace PLWPF.MyUserControls
             vm.associationModel.CreateShopingListRecommendation("pdf");
             //var file = File.Load(Path.GetFullPath(@"C:\Users\levy\Desktop\ShoppingList.pdf"));
             FileStream stream = new FileStream(@"C:\Users\levy\Desktop\ShoppingList.pdf", FileMode.Open);
+
+            MessageBox.Show("The Document is on Your Desktop");
             /*
             //Load PDF file using stream.
             this.pdfViewer.Load(stream);*/
