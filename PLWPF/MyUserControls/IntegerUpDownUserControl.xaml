@@ -8,9 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-
-
-        <xctk:IntegerUpDown x:Name="UpDown" Margin="5,6,0,0"  AllowTextInput="True" ValueChanged="IntegerUpDown_ValueChanged" Grid.ColumnSpan="2"/>
+        <xctk:IntegerUpDown x:Name="UpDown" Margin="5,6,0,0" FontFamily="Segoe Print" FontStyle="Italic" AllowTextInput="True" ValueChanged="IntegerUpDown_ValueChanged" Grid.ColumnSpan="2"/>
     </Grid>
 </UserControl>
     

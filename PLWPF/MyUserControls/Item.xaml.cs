@@ -43,7 +43,7 @@ namespace PLWPF.MyUserControls
             if (p!=null)
             {
                 this.productName.Text = p.Name;
-                this.price.Text = p.Price.ToString();
+                this.price.Text = p.Price.ToString()+" $";
                 this.image.DataContext = p.ImageFileName;
             }
         }

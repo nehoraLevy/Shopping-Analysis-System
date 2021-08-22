@@ -61,14 +61,14 @@
 
 
     <Grid>
-        <dragablz:TabablzControl>
+        <dragablz:TabablzControl Margin="0,-3,0,0" >
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
-            <TabItem Header="Add Shopping Card by QR" FontSize="10">
+            <TabItem Header="Add Shopping Cart by QR" FontSize="10">
                 <MyUserControls:UploadQR Margin="-2,0,-4,0" Height="531" />
             </TabItem>
-            <TabItem Header="Add Shopping Card by Product" FontSize="10">
+            <TabItem Header="Add Shopping Cart by Product" FontSize="10">
                 <MyUserControls:TabControlOfShop Margin="-5,0,-21,0" Height="489" />
             </TabItem>
             <TabItem Header="See Your Recommended List" FontSize="10">
