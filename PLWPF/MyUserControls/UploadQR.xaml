@@ -31,7 +31,7 @@
         Margin="263,440,0,0" Name="btnAdd" VerticalAlignment="Top"
         Width="82" Click="btnAdd_Click" >Add</Button>
         <DatePicker Name="date" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top"/>
-        <Button Content="Finish" Visibility="Visible" HorizontalAlignment="Left" Margin="442,447,0,0" VerticalAlignment="Top" Height="24" Width="82" Click="Button_Click_1"/>
+        <Button Content="Finish" Visibility="Visible" HorizontalAlignment="Left" Margin="442,440,0,0" VerticalAlignment="Top" Height="24" Width="82" Click="Button_Click_1"/>
         <ComboBox Name="store" HorizontalAlignment="Left" Margin="29,388,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.526,0.592"/>
     </Grid>
 </UserControl>

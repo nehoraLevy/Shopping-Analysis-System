@@ -40,7 +40,7 @@ namespace PLWPF.MyUserControls
             product = new Product();
             MyUserControls.IntegerUpDownUserControl uc = new IntegerUpDownUserControl();
             uc.Visibility = (Visibility)1;
-            this.btnAdd.Visibility = uc.VisibilyButtonAdd;
+            this.btnAdd.DataContext = uc.VisibilyButtonAdd;
 
         }
         private void btnLoad_Click(object sender, RoutedEventArgs e)

@@ -20,7 +20,7 @@ namespace PLWPF.MyUserControls
     {
 
         public int amount;
-        public Visibility VisibilyButtonAdd = Visibility.Visible;
+        public Visibility VisibilyButtonAdd = Visibility.Hidden;
         public IntegerUpDownUserControl()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace PLWPF.MyUserControls
             this.UpDown.Value = (int?)e.NewValue;
             if (amount > 0)
             {
-                VisibilyButtonAdd = Visibility.Hidden;
+                VisibilyButtonAdd = Visibility.Visible;
             }
 
 
