@@ -8,22 +8,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="533" Width="624">
     <UserControl.Resources>
+    
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Segoe Print"/>
             <Setter Property="FontStyle" Value="Italic"/>
         </Style>
     </UserControl.Resources>
 
-    <Grid HorizontalAlignment="Center" Width="624">
+    <Grid HorizontalAlignment="Center" Width="624" SizeChanged="Grid_SizeChanged">
 
-        <Button Height="24" HorizontalAlignment="Left"
-        Margin="82,440,0,0" Name="btnLoad"   Visibility="Visible"
-        Width="82" Click="btnLoad_Click"  VerticalAlignment="Top">Load</Button>
-        <Button Height="24" HorizontalAlignment="Left"  Visibility="Visible"
-        Margin="263,440,0,0" Name="btnAdd" VerticalAlignment="Top"
-        Width="82" Click="btnAdd_Click" >Add</Button>
-        <Image Margin="340,115,54,0" x:Name="imgPhoto_Copy"
-            Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="168" VerticalAlignment="Top" />
+        <Button Height="24" HorizontalAlignment="Left" Margin="82,440,0,0" Name="btnLoad"   Visibility="Visible" Width="82" Click="btnLoad_Click"  VerticalAlignment="Top">Load</Button>
+        <Button Height="24" HorizontalAlignment="Left"  Visibility="Visible" Margin="263,440,0,0" Name="btnAdd" VerticalAlignment="Top" Width="82" Click="btnAdd_Click" >Add</Button>
+        <Image Margin="340,115,54,0" x:Name="imgPhoto_Copy" Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="168" VerticalAlignment="Top" />
         <Image Margin="22,38,307,207" x:Name="qrPhoto_Copy" Stretch="Fill" />
         <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="438,338,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="24"/>
         <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="438,370,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="30"/>
