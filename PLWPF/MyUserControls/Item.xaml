@@ -14,6 +14,6 @@
         <TextBlock x:Name="price" HorizontalAlignment="Left" Margin="155,227,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="69"/>
         <TextBlock Name="pricedollar" HorizontalAlignment="Left" Margin="211,228,0,0" Text="$" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="34"/>
         <local:IntegerUpDownUserControl x:Name="IntegerUpDown" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Height="49" Width="112" RenderTransformOrigin="0.445,0.434"/>
-        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="166,266,0,0" VerticalAlignment="Top" Height="43" Width="124" Click="addButton_Click"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="174,282,0,0" VerticalAlignment="Top" Height="30" Width="80" Click="addButton_Click"/>
     </Grid>
 </UserControl>

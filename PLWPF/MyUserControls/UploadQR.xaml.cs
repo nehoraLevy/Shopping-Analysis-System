@@ -46,7 +46,7 @@ namespace PLWPF.MyUserControls
         {
             ProductVM pvm = new ProductVM();
             List<Product> products = pvm.model.ProductsList;
-
+            this.uc.Visibility = 0;
             uc.Visibility = (Visibility)0;
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a QR code that describe your desire product to add to you shopping card";

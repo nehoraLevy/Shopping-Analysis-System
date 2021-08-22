@@ -6,26 +6,26 @@
 
              xmlns:local="clr-namespace:PLWPF.MyUserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="533" Width="624">
-           
+             d:DesignHeight="533" Width="632">
+
     <Grid HorizontalAlignment="Center" Width="624">
-        
+
         <Button Height="24" HorizontalAlignment="Left"
-        Margin="45,447,0,0" Name="btnLoad"   Visibility="Visible"
+        Margin="82,440,0,0" Name="btnLoad"   Visibility="Visible"
         Width="82" Click="btnLoad_Click"  VerticalAlignment="Top">Load</Button>
         <Button Height="24" HorizontalAlignment="Left"  Visibility="Visible"
-        Margin="249,447,0,0" Name="btnAdd" VerticalAlignment="Top"
+        Margin="263,440,0,0" Name="btnAdd" VerticalAlignment="Top"
         Width="82" Click="btnAdd_Click" >Add</Button>
         <Image Margin="340,115,54,0" x:Name="imgPhoto_Copy"
             Stretch="Fill" RenderTransformOrigin="0.543,0.523" Height="168" VerticalAlignment="Top" />
         <Image Margin="22,38,307,207" x:Name="qrPhoto_Copy" Stretch="Fill" />
-        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="438,348,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"/>
-        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="438,382,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="17"/>
+        <TextBox Name="ProductPrice" HorizontalAlignment="Left" Margin="438,338,0,0" IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"/>
+        <TextBox Name="ProductName" HorizontalAlignment="Left" Margin="438,370,0,0"  IsReadOnly = "True" BorderBrush="#00000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="17"/>
         <TextBox HorizontalAlignment="Left" Margin="14,10,0,0" Text="load a QRcode" TextWrapping="Wrap" IsReadOnly = "True" BorderBrush="#00000000" VerticalAlignment="Top" Width="93" Height="25" />
-        <local:IntegerUpDownUserControl x:Name="uc" HorizontalAlignment="Left" Margin="545,344,0,0" VerticalAlignment="Top" />
-        <DatePicker Name="date" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top"/>
-        <Button Content="Finish" Visibility="Visible" HorizontalAlignment="Left" Margin="442,447,0,0" VerticalAlignment="Top" Height="24" Width="82" Click="Button_Click_1"/>
+        <local:IntegerUpDownUserControl Visibility="Hidden" x:Name="uc" HorizontalAlignment="Left" Margin="545,344,0,0" VerticalAlignment="Top" />
+        <DatePicker Name="date" HorizontalAlignment="Left" Margin="27,350,0,0" VerticalAlignment="Top"/>
+        <Button Content="Finish" Visibility="Visible" HorizontalAlignment="Left" Margin="436,438,0,0" VerticalAlignment="Top" Height="24" Width="82" Click="Button_Click_1"/>
 
-        <ComboBox Name="store" HorizontalAlignment="Left" Margin="29,388,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.526,0.592"/>
+        <ComboBox Name="store"  HorizontalAlignment="Left" Margin="29,388,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.526,0.592"/>
     </Grid>
 </UserControl>
