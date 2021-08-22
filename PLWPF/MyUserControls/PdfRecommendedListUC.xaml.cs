@@ -1,6 +1,9 @@
-﻿using PLWPF.ViewModel;
+﻿using GemBox.Document;
+using Microsoft.Win32;
+using PLWPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -12,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Xps.Packaging;
+using SaveOptions = GemBox.Document.SaveOptions;
 
 namespace PLWPF.MyUserControls
 {
@@ -21,6 +26,7 @@ namespace PLWPF.MyUserControls
     public partial class PdfRecommendedListUC : UserControl
     {
         PdfRecommendedVM vm;
+        XpsDocument xpsDocument;
         public PdfRecommendedListUC()
         {
             InitializeComponent();
@@ -34,6 +40,11 @@ namespace PLWPF.MyUserControls
             FileStream stream = new FileStream(@"C:\Users\levy\Desktop\ShoppingList.pdf", FileMode.Open);
 
             MessageBox.Show("The Document is on Your Desktop");
+
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Pdf Doc";
+            op.Filter = "Pdf Files|*.pdf";
+            op.ShowDialog();
             /*
             //Load PDF file using stream.
             this.pdfViewer.Load(stream);*/
