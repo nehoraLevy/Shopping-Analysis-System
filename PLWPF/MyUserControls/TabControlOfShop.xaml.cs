@@ -116,7 +116,7 @@ namespace PLWPF.MyUserControls
                 c.ProductTransactions.Add(v);
             c.TotalPrice = BE.StaticMember.totalCost;
             shoppingcVM.sc.Add(c);
-            MessageBox.Show("the shopping cart added succefully total cost: " + c.TotalPrice);
+            MessageBox.Show("The Shopping Cart added Succefully, Total Cost: " + c.TotalPrice, "Finish");
 
             //איתחלתי אותו לnull מאחר והגדרתי אותו לנל כדי שהבנים יוכלו לגשת אליו ולהוסיף לעגלה את המוצר שנבחר
             //לולטה על כל הפרודקטים בכל הקטגוריות ולהכניס לעגלה ואת העגלה להכניס לעגלה של ה VIEW MODEL.

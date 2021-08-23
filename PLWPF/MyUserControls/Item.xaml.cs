@@ -57,7 +57,7 @@ namespace PLWPF.MyUserControls
             pt.Amount = this.IntegerUpDown.amount;
             BE.StaticMember.sc.ProductTransactions.Add(pt);
             BE.StaticMember.totalCost += pt.UnitPrice;
-            MessageBox.Show("the products add to the shopping cart succefully");
+            MessageBox.Show("The Products add to the Shopping Cart Succefully", "Add");
 
         }
     }

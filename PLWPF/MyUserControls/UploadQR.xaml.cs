@@ -80,10 +80,8 @@ namespace PLWPF.MyUserControls
             int amount = this.uc.amount;
             pt.Amount = amount;
             pt.Product = product;
-            pt.Store = new Store();
             sc.BuyDate = this.date.SelectedDate.Value;
             pt.UnitPrice = (float)(product.Price * amount);
-            string s=store.SelectedItem.ToString();
             sc.ProductTransactions.Add(pt);
             pt.shoppingCart = sc;            
             MessageBox.Show("The Product added to the Shopping Cart Succefully", "Add");

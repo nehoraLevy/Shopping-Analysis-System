@@ -43,7 +43,7 @@ namespace PLWPF.MyUserControls
             foreach (var i in str)
             {
                 string[] s = i.Split(",");
-                this.dataGrid.CanUserAddRows["col_1"] = s[0];
+                //this.dataGrid.CanUserAddRows["col_1"] = s[0];
             }
         }
 
