@@ -8,9 +8,9 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid >
+    <Grid>
         <Image Source="C:\Users\levy\Desktop\Shopping_project_final\PLWPF\images\PDFImage.jpg" Margin="-229,3,-187,-93" Opacity="0.5"/>
-        <Button x:Name="CreatePdf2Button" Content="Create Pdf Shopping List" HorizontalAlignment="Left" VerticalAlignment="Top" Width="224" Click="CreatePdf2Button_Click" Margin="81,50,0,0" />
-        
+        <Button x:Name="CreatePdf2Button" Content="Create Pdf Shopping List" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CreatePdf2Button_Click" Margin="81,50,0,0" >
+        </Button>
     </Grid>
 </UserControl>

@@ -67,10 +67,14 @@
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
             <TabItem Header="Add Shopping Cart by QR" FontSize="10">
-                <MyUserControls:UploadQR Margin="-2,0,-4,0" Height="531" />
+                <Grid>
+                    <MyUserControls:UploadQR Margin="-2,0,-4,0" />
+                </Grid>
             </TabItem>
             <TabItem Header="Add Shopping Cart by Product" FontSize="10">
-                <MyUserControls:TabControlOfShop Margin="-5,0,-21,0" Height="489" />
+                <Grid>
+                    <MyUserControls:TabControlOfShop Margin="-5,0,-21,0"  />
+                </Grid>
             </TabItem>
             <TabItem Header="See Your Recommended List" FontSize="10">
                 <Grid Background="#FFE5E5E5">
