@@ -1,4 +1,4 @@
-# Shopping_project_final
+# Shopping Analysis System
 
 #A System to analyze shoppings data.
 #Adding Shop by QR image and by selection products 
